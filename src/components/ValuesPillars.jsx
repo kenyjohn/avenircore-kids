@@ -1,78 +1,51 @@
-import React from 'react';
+const pillars = [
+  {
+    color: 'emerald',
+    icon: '📚',
+    title: 'AI Literacy for Kids',
+    desc: 'Bite-sized lessons, stories, and challenges that teach what AI is, how it works, and how to use it with good judgment. So kids grow curious and confident — not dependent.',
+    link: 'Explore lessons'
+  },
+  {
+    color: 'amber',
+    icon: '🤝',
+    title: 'Safe Study Companion',
+    desc: 'A homework helper that explains step-by-step and encourages reflection. Intentionally designed not to just give answers — because real learning builds understanding, not shortcuts.',
+    link: 'See how it helps'
+  },
+  {
+    color: 'sky',
+    icon: '👨‍👩‍👧',
+    title: 'Guides for Parents & Teachers',
+    desc: 'Dashboards, printable resources, and conversation starters that make it easy to set healthy AI habits at home and school. Stay informed and empowered — not left behind.',
+    link: 'Get the guides'
+  }
+];
 
-const Pillars = () => {
-    const pillars = [
-        {
-            title: "AI Literacy & Values for Kids",
-            desc: "Bite-sized lessons, stories, and challenges that teach what AI is, how it works, safety, ethics, and critical thinking. So kids grow curious and confident, not dependent.",
-            icon: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-            )
-        },
-        {
-            title: "Safe AI Study Companion",
-            desc: "A homework/study helper that explains step-by-step, encourages reflection, and is intentionally designed not to be just an answer-giver. So homework becomes understanding, not shortcuts.",
-            icon: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                    <line x1="9" y1="9" x2="9.01" y2="9" />
-                    <line x1="15" y1="9" x2="15.01" y2="9" />
-                </svg>
-            )
-        },
-        {
-            title: "Guides for Parents & Teachers",
-            desc: "Dashboards, guides, printable resources, and conversation prompts that make it easy to set healthy AI rules. So adults feel informed and empowered, not left behind.",
-            icon: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-            )
-        }
-    ];
-
-    return (
-        <section id="offerings" className="section-padding" style={{ backgroundColor: 'var(--color-bg-light)' }}>
-            <div className="container">
-                <div className="text-center" style={{ marginBottom: '4rem' }}>
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Three Core Pillars</h2>
-                    <p style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)' }}>Building a balanced foundation for the future.</p>
-                </div>
-
-                <div className="grid gap-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-                    {pillars.map((pillar, index) => (
-                        <div key={index} style={{
-                            backgroundColor: 'white',
-                            padding: '2rem',
-                            borderRadius: 'var(--radius-lg)',
-                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            textAlign: 'center'
-                        }}>
-                            <div style={{
-                                color: 'var(--color-green)',
-                                marginBottom: '1.5rem',
-                                padding: '1rem',
-                                backgroundColor: 'var(--color-green-soft)',
-                                borderRadius: '50%'
-                            }}>
-                                {pillar.icon}
-                            </div>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{pillar.title}</h3>
-                            <p style={{ color: 'var(--color-text-muted)' }}>{pillar.desc}</p>
-                        </div>
-                    ))}
-                </div>
+const ValuesPillars = () => (
+  <section id="offerings" className="section" style={{ background: 'var(--color-bg)' }}>
+    <div className="container">
+      <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+        <span className="section-label">What We Build</span>
+        <h2 className="section-title">Three Core Pillars</h2>
+        <p className="section-sub">A complete foundation for kids, families, and educators navigating an AI-powered world.</p>
+      </div>
+      <div className="pillars-grid">
+        {pillars.map((p, i) => (
+          <div key={i} className={`pillar-card ${p.color} animate-fade-up delay-${i + 1}`}>
+            <div className={`pillar-icon ${p.color}`}>{p.icon}</div>
+            <div>
+              <h3 className="pillar-title">{p.title}</h3>
+              <p className="pillar-desc">{p.desc}</p>
             </div>
-        </section>
-    );
-};
-export default Pillars;
+            <a href="#waitlist" className="pillar-link">
+              {p.link} <span>→</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default ValuesPillars;
