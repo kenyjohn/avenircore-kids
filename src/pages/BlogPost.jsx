@@ -90,7 +90,7 @@ const BlogPost = () => {
             <div style={{ marginTop: '3rem', padding: '2.5rem', background: 'var(--color-emerald-bg)', borderRadius: 'var(--radius-xl)', textAlign: 'center' }}>
               <h3 style={{ fontWeight: 800, marginBottom: '0.75rem' }}>Want more guides like this?</h3>
               <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>Join 500+ parents on our free weekly newsletter.</p>
-              <button className="btn btn-primary" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}>
+              <button className="btn btn-primary" onClick={() => window.location.href = '/#waitlist'}>
                 Join the Waitlist →
               </button>
             </div>
