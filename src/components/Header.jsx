@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 
 const Header = () => (
@@ -12,7 +13,12 @@ const Header = () => (
         <a href="/#how-it-works" className="nav-link">How It Works</a>
         <a href="/#vision" className="nav-link">Vision</a>
         <a href="/#workbook" className="nav-link">Free Workbook</a>
-        <a href="/blog" className="nav-link">Blog</a>
+        <NavLink
+            to="/blog"
+            className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}
+        >
+            Blog
+        </NavLink>
       </nav>
       <button className="btn btn-primary" onClick={() => {
         const el = document.getElementById('waitlist');
