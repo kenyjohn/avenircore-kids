@@ -14,32 +14,20 @@ const EmailCapture = () => {
     setError('');
 
     try {
-      // Replace YOUR_BEEHIIV_PUB_ID with your actual Beehiiv publication ID
-      // Sign up free at beehiiv.com → Settings → API
-      const BEEHIIV_PUB_ID = import.meta.env.VITE_BEEHIIV_PUB_ID || 'YOUR_PUB_ID';
-      const BEEHIIV_API_KEY = import.meta.env.VITE_BEEHIIV_API_KEY || '';
+      // Securely proxy the request through our own Node server 
+      // preventing the API keys from leaking to the browser and bypassing CORS
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, role, name })
+      });
 
-      if (BEEHIIV_API_KEY && BEEHIIV_PUB_ID !== 'YOUR_PUB_ID') {
-        await fetch(`https://api.beehiiv.com/v2/publications/${BEEHIIV_PUB_ID}/subscriptions`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${BEEHIIV_API_KEY}`,
-          },
-          body: JSON.stringify({
-            email,
-            custom_fields: [
-              { name: 'role', value: role },
-              { name: 'first_name', value: name },
-            ],
-            reactivate_existing: true,
-            send_welcome_email: true,
-            utm_source: 'avenircore-website',
-            utm_medium: 'waitlist',
-          }),
-        });
+      if (!res.ok) {
+        throw new Error('Newsletter API backend failed');
       }
-      // Always show success even in demo mode
+
       setSubmitted(true);
     } catch {
       setError('Something went wrong. Please try again.');
