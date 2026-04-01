@@ -11,6 +11,7 @@ export default defineConfig({
       hostname: 'https://avenircore.com',
       dynamicRoutes: [
         '/blog',
+        '/blog/ai-for-kids-guide',
         '/blog/is-ai-safe-for-kids',
         '/blog/how-to-talk-to-kids-about-ai',
         '/blog/free-ai-tools-for-kids-2026',
