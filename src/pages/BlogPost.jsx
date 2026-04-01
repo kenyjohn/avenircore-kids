@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPostBySlug, getRelatedPosts, getAdjacentPosts } from '../utils/posts'
+import { safeJsonLd } from '../utils/security'
 
 // ── Share buttons ──────────────────────────────────────────────
 const ShareButtons = ({ title, slug }) => {
@@ -208,9 +209,9 @@ const BlogPost = () => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
+        <script type="application/ld+json">{safeJsonLd(articleSchema)}</script>
+        <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
+        {faqSchema && <script type="application/ld+json">{safeJsonLd(faqSchema)}</script>}
       </Helmet>
 
       <article>

@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { getAllPosts } from '../utils/posts'
+import { safeJsonLd } from '../utils/security'
 
 const PILLAR_ARTICLES = [
   {
@@ -74,8 +75,8 @@ const PillarPage = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://avenircore.com/blog/ai-for-kids-guide" />
         <meta property="og:image" content="https://avenircore.com/og-image.png" />
-        <script type="application/ld+json">{JSON.stringify(pillarSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJsonLd(pillarSchema)}</script>
+        <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}
