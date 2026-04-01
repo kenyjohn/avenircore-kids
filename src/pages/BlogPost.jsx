@@ -8,7 +8,7 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const { Content, title, description, date, category, keywords, faqs, author = 'AvenirCore Team' } = post
+  const { Content, title, description, date, category, keywords, faqs, author = 'AvenirCore Team', readingTime } = post
 
   // JSON-LD FAQ Schema
   const faqSchema = faqs ? {
@@ -62,6 +62,7 @@ const BlogPost = () => {
             <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', flexWrap: 'wrap' }}>
               <span>By {author}</span>
               <span>{date}</span>
+              {readingTime && <span>· {readingTime}</span>}
             </div>
           </div>
         </div>

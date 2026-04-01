@@ -17,6 +17,7 @@ export function getAllPosts() {
         keywords: mod.keywords,
         faqs: mod.faqs || null,
         featured: mod.featured || false,
+        readingTime: mod.readingTime || '4 min read',
       }
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -36,5 +37,6 @@ export function getPostBySlug(slug) {
     keywords: mod.keywords,
     faqs: mod.faqs || null,
     featured: mod.featured || false,
+    readingTime: mod.readingTime || '4 min read',
   }
 }

@@ -60,7 +60,10 @@ const BlogIndex = () => {
                     {post.excerpt}
                   </p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-                    <span>{post.date}</span>
+                    <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                      <span>{post.date}</span>
+                      {post.readingTime && <span style={{ opacity: 0.6 }}>· {post.readingTime}</span>}
+                    </div>
                     <span style={{ color: 'var(--color-emerald)', fontWeight: 700 }}>Read →</span>
                   </div>
                 </article>

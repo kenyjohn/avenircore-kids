@@ -16,6 +16,7 @@ export default defineConfig({
         '/blog/free-ai-tools-for-kids-2026',
         '/blog/what-age-can-kids-use-ai',
         '/blog/ai-for-kids-uk',
+        '/blog/will-ai-make-kids-lazy',
       ],
     }),
   ],
