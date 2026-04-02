@@ -14,11 +14,12 @@ const Footer = () => (
 
       <div className="footer-links">
         {[
-          { label: 'Offerings', href: '#offerings' },
-          { label: 'How It Works', href: '#how-it-works' },
-          { label: 'Vision', href: '#vision' },
-          { label: 'Free Workbook', href: '#workbook' },
-          { label: 'Join Waitlist', href: '#waitlist' },
+          { label: 'Offerings', href: '/#offerings' },
+          { label: 'How It Works', href: '/#how-it-works' },
+          { label: 'Vision', href: '/#vision' },
+          { label: 'Free Workbook', href: '/#workbook' },
+          { label: 'Teachers Hub', href: '/blog/teachers-ai-guide' },
+          { label: 'Join Waitlist', href: '/#waitlist' },
         ].map(l => (
           <a key={l.label} href={l.href} className="footer-link">{l.label}</a>
         ))}
@@ -35,9 +36,11 @@ const Footer = () => (
       <div className="footer-bottom">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <span>© {new Date().getFullYear()} AvenirCore. All rights reserved.</span>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <a href="/about" className="footer-link">About Us</a>
             <a href="/privacy" className="footer-link">Privacy Policy</a>
             <a href="/terms" className="footer-link">Terms of Service</a>
+            <a href="/sitemap.xml" className="footer-link">Sitemap</a>
             <a href="mailto:hello@avenircore.com" className="footer-link">Contact</a>
           </div>
         </div>

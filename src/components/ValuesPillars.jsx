@@ -38,7 +38,7 @@ const ValuesPillars = () => (
               <h3 className="pillar-title">{p.title}</h3>
               <p className="pillar-desc">{p.desc}</p>
             </div>
-            <a href="#waitlist" className="pillar-link">
+            <a href="/#waitlist" className="pillar-link">
               {p.link} <span>→</span>
             </a>
           </div>

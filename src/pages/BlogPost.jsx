@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPostBySlug, getRelatedPosts, getAdjacentPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
+import AuthorBox from '../components/AuthorBox'
 
 // ── Share buttons ──────────────────────────────────────────────
 const ShareButtons = ({ title, slug }) => {
@@ -179,7 +180,12 @@ const BlogPost = () => {
     '@type': 'Article',
     headline: title,
     description,
-    author: { '@type': 'Organization', name: 'AvenirCore', url: 'https://avenircore.com' },
+    author: {
+      '@type': 'Person',
+      name: author,
+      url: 'https://avenircore.com/about',
+      sameAs: 'https://www.linkedin.com/in/johnkennedythangarajan',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'AvenirCore',
@@ -236,7 +242,7 @@ const BlogPost = () => {
               {title}
             </h1>
             <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', flexWrap: 'wrap', alignItems: 'center' }}>
-              <span>By {author}</span>
+              <Link to="/about" style={{ color: 'white', textDecoration: 'none', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.3)' }}>By {author}</Link>
               <span>{date}</span>
               {readingTime && <span>· {readingTime}</span>}
             </div>
@@ -279,6 +285,9 @@ const BlogPost = () => {
                 Join the Waitlist →
               </button>
             </div>
+
+            {/* Author box */}
+            <AuthorBox />
 
             {/* Related posts */}
             <RelatedPosts posts={relatedPosts} />

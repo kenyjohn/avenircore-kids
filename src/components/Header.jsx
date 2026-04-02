@@ -19,6 +19,12 @@ const Header = () => (
         >
             Blog
         </NavLink>
+        <NavLink
+            to="/about"
+            className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}
+        >
+            About
+        </NavLink>
       </nav>
       <button className="btn btn-primary" onClick={() => {
         const el = document.getElementById('waitlist');

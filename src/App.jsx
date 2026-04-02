@@ -16,6 +16,8 @@ const BlogPost  = lazy(() => import('./pages/BlogPost'))
 const Privacy   = lazy(() => import('./pages/Privacy'))
 const Terms     = lazy(() => import('./pages/Terms'))
 const PillarPage = lazy(() => import('./pages/PillarPage'))
+const TeacherHub = lazy(() => import('./pages/TeacherHub'))
+const About      = lazy(() => import('./pages/About'))
 const NotFound  = lazy(() => import('./pages/NotFound'))
 
 function HomePage() {
@@ -50,7 +52,9 @@ function App() {
             <Route path="/"           element={<HomePage />} />
             <Route path="/blog"       element={<BlogIndex />} />
             <Route path="/blog/ai-for-kids-guide" element={<PillarPage />} />
+            <Route path="/blog/teachers-ai-guide" element={<TeacherHub />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/about"      element={<About />} />
             <Route path="/privacy"    element={<Privacy />} />
             <Route path="/terms"      element={<Terms />} />
             <Route path="*"           element={<NotFound />} />

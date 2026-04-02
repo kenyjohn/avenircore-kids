@@ -1,14 +1,25 @@
 const Logo = ({ className = "" }) => (
-    <svg className={className} width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Core Hexagon */}
-        <path d="M20 5L33 12.5V27.5L20 35L7 27.5V12.5L20 5Z" stroke="var(--color-navy-dark)" strokeWidth="2.5" fill="none" />
-
-        {/* Inner Core */}
-        <circle cx="20" cy="20" r="6" fill="var(--color-navy-dark)" />
-
-        {/* Future Arrow / Orbit */}
-        <path d="M10 32C10 32 12 36 20 36C28 36 34 29 34 20C34 14 30 10 30 10" stroke="var(--color-green)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="4 4" />
-        <path d="M34 10L30 6M34 10L38 6" stroke="var(--color-green)" strokeWidth="2.5" strokeLinecap="round" />
+    <svg className={className} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Main Shield Shape */}
+        <path 
+            d="M22 4C22 4 34 7 34 16.5C34 26 22 36 22 36C22 36 10 26 10 16.5C10 7 22 4 22 4Z" 
+            stroke="var(--color-navy)" 
+            strokeWidth="3" 
+            fill="rgba(52, 211, 153, 0.05)" 
+        />
+        
+        {/* Protective Core */}
+        <circle cx="22" cy="18" r="7" fill="var(--color-navy)" />
+        <circle cx="22" cy="18" r="3.5" fill="var(--color-emerald)" />
+        
+        {/* Connection/Orbit Lines */}
+        <path 
+            d="M14 28C14 28 17 31 22 31C27 31 30 28 30 28" 
+            stroke="var(--color-emerald)" 
+            strokeWidth="2.5" 
+            strokeLinecap="round" 
+            opacity="0.6"
+        />
     </svg>
 );
 

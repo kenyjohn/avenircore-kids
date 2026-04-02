@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HeroIllustration = () => (
-    <svg width="100%" height="auto" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100%" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Background Orbits */}
         <circle cx="250" cy="200" r="150" stroke="var(--color-green-soft)" strokeWidth="2" strokeDasharray="8 8" opacity="0.5" />
         <circle cx="250" cy="200" r="100" stroke="var(--color-green-soft)" strokeWidth="2" opacity="0.8" />

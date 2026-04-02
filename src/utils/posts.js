@@ -10,7 +10,7 @@ export function getAllPosts() {
       return {
         slug,
         title: mod.title,
-        description: mod.description,
+        description: mod.description || mod.excerpt,
         excerpt: mod.excerpt,
         date: mod.date,
         category: mod.category,
@@ -31,7 +31,7 @@ export function getPostBySlug(slug) {
     slug,
     Content: mod.default,
     title: mod.title,
-    description: mod.description,
+    description: mod.description || mod.excerpt,
     date: mod.date,
     category: mod.category,
     keywords: mod.keywords,
