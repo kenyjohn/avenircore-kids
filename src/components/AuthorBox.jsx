@@ -1,4 +1,4 @@
-const AuthorBox = ({ author = 'John & Abigail Kennedy', role = 'Founders, AvenirCore' }) => (
+const AuthorBox = ({ author = 'John Kennedy', role = 'Founder, AvenirCore' }) => (
   <div style={{
     display: 'flex',
     gap: '1.25rem',
@@ -13,14 +13,20 @@ const AuthorBox = ({ author = 'John & Abigail Kennedy', role = 'Founders, Avenir
       width: '56px',
       height: '56px',
       borderRadius: '50%',
-      background: 'linear-gradient(135deg, var(--color-emerald) 0%, var(--color-navy) 100%)',
+      background: 'var(--color-navy)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: '1.4rem',
       flexShrink: 0,
+      border: '2px solid var(--color-emerald-soft)',
     }}>
-      👨‍💻
+      <span style={{
+        fontFamily: 'var(--font-heading)',
+        fontWeight: 900,
+        fontSize: '1.1rem',
+        color: 'var(--color-emerald-light)',
+        letterSpacing: '-0.02em',
+      }}>JK</span>
     </div>
     <div style={{ flex: 1, minWidth: 0 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.3rem' }}>
@@ -30,7 +36,7 @@ const AuthorBox = ({ author = 'John & Abigail Kennedy', role = 'Founders, Avenir
         <span style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{role}</span>
       </div>
       <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.65, margin: '0 0 0.75rem' }}>
-        John & Abigail are the founders of AvenirCore and parents who believe children deserve AI tools built around values, not engagement metrics. They write about child safety, AI literacy, and helping families navigate technology with confidence.
+        John Kennedy is the founder of AvenirCore and a parent who believes children deserve AI tools built around values, not engagement metrics. He writes about child safety, AI literacy, and helping families navigate technology with confidence.
       </p>
       <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
         <a

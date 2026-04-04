@@ -1,39 +1,120 @@
-export const title = "AI in the Classroom: The Teacher’s Guide to Safety and Privacy"
+export const title = "AI in the Classroom: The Teacher's Complete Guide to Safety and Privacy"
+export const description = "A practical guide for teachers on using AI tools safely in 2026 — covering student data protection, FERPA compliance, anonymous prompting, and how to talk to parents about AI."
+export const excerpt = "AI is the most powerful assistant a teacher has ever had — but it comes with real responsibilities around student data. Here's how to use it safely."
 export const date = "2026-04-02"
-export const excerpt = "How to use AI tools in your classroom without compromising student data or school compliance. A practical guide for the 2026 educator."
-export const author = "AvenirCore Education Team"
 export const category = "Teachers"
+export const keywords = "AI classroom safety, AI student data privacy, FERPA AI tools, COPPA classroom AI, safe AI for teachers 2026"
 export const readingTime = "8 min read"
-export const tags = ["Safety", "Classroom", "Privacy", "FERPA"]
+export const featured = false
+export const faqs = [
+  {
+    q: "Is ChatGPT FERPA compliant?",
+    a: "ChatGPT in its standard consumer form is not FERPA compliant. OpenAI does offer a paid API with data processing agreements, but schools must have a signed Student Data Privacy Agreement (SDPA) in place. For most classroom use, purpose-built educational AI tools with explicit FERPA compliance are the safer choice."
+  },
+  {
+    q: "What student data should never go into an AI tool?",
+    a: "Never input student names, ID numbers, grades, assessment results, behavioural notes, learning needs, disability information, or any data that could identify an individual student. Use descriptions instead — 'a student reading at a Year 4 level' rather than 'Jamie Thompson in 6B'."
+  },
+  {
+    q: "How do I know if an AI tool is safe to use with students?",
+    a: "Look for: a signed Data Privacy Agreement (DPA) or Student Data Privacy Agreement (SDPA) with your school or district, explicit FERPA and/or COPPA compliance statements, no advertising or data sale to third parties, clear data retention limits, and parental consent mechanisms for under-13s."
+  },
+  {
+    q: "Do I need to tell parents I'm using AI in my classroom?",
+    a: "Best practice is yes — include a brief note in your course outline or syllabus explaining which AI tools you use, what they are used for, and what data protections are in place. Many districts are now requiring this. Transparency builds trust and reduces parental concern."
+  },
+  {
+    q: "What AI tools are designed specifically for classroom use?",
+    a: "Purpose-built K-12 AI tools include MagicSchool.ai, Diffit, Canva for Education, and Khan Academy's AI tutor. These have FERPA compliance, no advertising, and were designed around classroom workflows. They are significantly safer than adapting general-purpose tools like ChatGPT for student use."
+  }
+]
 
-AI is the most powerful assistant a teacher has ever had, but it comes with a new responsibility: **data stewardship.** As AI becomes a standard classroom tool in 2026, teachers must navigate the fine line between innovation and student privacy.
+# AI in the Classroom: The Teacher's Complete Guide to Safety and Privacy
 
-## The "Big Three" of AI Privacy
-Before introducing any AI tool to your students, evaluate it against these three pillars:
+AI is the most powerful teaching assistant educators have ever had. It can differentiate a reading passage in seconds, generate a rubric in minutes, and provide individualised feedback at a scale no human teacher could sustain alone. But this power comes with a new professional responsibility: data stewardship.
 
-1.  **Data Persistence**: Does the AI "remember" what you tell it? If so, never input student names, grades, or sensitive behavioral notes.
-2.  **Training Opt-Out**: High-quality educational AI tools (like MagicSchool or Canva for Education) allow you to opt-out of your data being used to train the model. Generic bots often don't.
-3.  **COPPA/FERPA Compliance**: Ensure the tool has a signed Data Privacy Agreement (DPA) with your district.
+As AI becomes a standard classroom tool in 2026, teachers who understand how to use it safely will be the ones their schools, parents, and students can trust. This guide gives you the practical framework to do exactly that.
 
-## Practical Steps for a Safe Classroom
+## Why student data safety matters more than ever
 
-### 1. Use "Anonymized" Prompts
-When using AI to differentiate a lesson for a specific student, use descriptions instead of names.
-*   **Bad**: "Write a reading passage for John Smith who is at a 2nd-grade level."
-*   **Good**: "Write a reading passage for a student who is currently at a 2nd-grade level and interested in space."
+When you use an AI tool, you are not just using software. You are potentially sharing information with a third-party system that stores, processes, and in some cases trains on what you input. For teachers, this creates a real legal and ethical obligation — particularly in the United States under FERPA, and globally under GDPR and similar legislation.
 
-### 2. The "Human-in-the-Loop" Rule
-AI should never be the final decision-maker for student assessments or disciplinary actions. Always review and verify AI-generated rubrics, feedback, or lesson plans before they touch a student's desk.
+The core principle is simple: treat every AI prompt as if it could be read by a parent, a school board member, or a data protection officer. Because in some systems, it eventually can be.
 
-### 3. Transparent Communication
-Keep parents informed. Use a simple permission slip or a section in your syllabus that outlines which AI tools you use and why.
+## The three pillars of safe AI use in the classroom
 
-> "Safety in the AI classroom isn't about avoidance; it's about informed and intentional engagement."
+Before adopting any AI tool in your teaching practice, evaluate it against these three pillars.
 
-## Common Teacher FAQs
+### 1. Data persistence and training
 
-**Q: Can I use ChatGPT with my students?**
-A: Most generic AI models have age limits (often 13+ or 18+). For younger students, only use tools specifically designed for K-12 education that have built-in safety guardrails.
+Does the AI remember what you tell it between sessions? Does it use your inputs to train future versions of the model? Consumer versions of ChatGPT and similar tools may use conversation data for model improvement unless you opt out. Many schools have not configured this opt-out.
 
-**Q: What if a student uses AI inappropriately?**
-A: Treat it as a "teachable moment" rather than just a disciplinary issue. Use our [AI Literacy Guide](#) to teach them the "Why" behind ethical use.
+The practical rule: assume your prompts are stored unless you have written confirmation otherwise. Never input student-identifiable information into a system where you are not certain of its data retention policy.
+
+### 2. Compliance documentation
+
+Before using any AI tool with or for students, your school should have a signed Data Privacy Agreement (DPA) or Student Data Privacy Agreement (SDPA) from the tool's provider. This is a legally binding document in which the vendor commits to FERPA compliance, data protection standards, and no commercial use of student data.
+
+Tools like MagicSchool.ai and Canva for Education maintain publicly available SDPA frameworks. Generic tools like ChatGPT require direct negotiation at the district level.
+
+### 3. Age-appropriate use
+
+COPPA requires parental consent for data collection from children under 13. This means any AI tool used directly by primary school students must be designed for children, not adapted from adult products. Tools that do not explicitly address COPPA compliance should not be used directly by under-13s.
+
+## Practical techniques for safe classroom AI use
+
+### Anonymised prompting
+
+The most common mistake teachers make is inputting identifiable student information to get personalised content. This is unnecessary — you can get equally useful output without it.
+
+**Instead of:** "Write a reading passage for John, who is in Year 3 and struggles with phonics."
+
+**Use:** "Write a reading passage at a Year 2 reading level about ocean animals, suitable for a student who finds phonics challenging."
+
+You get the same result. No student data is shared.
+
+### The human-in-the-loop rule
+
+AI should never be the final decision-maker for anything that affects a student's educational experience. AI-generated rubrics, feedback, lesson plans, and assessments should always be reviewed and edited by a teacher before they reach a student.
+
+### The transparent classroom
+
+Include a short section in your course outline at the start of the year: *"I use AI tools in my lesson preparation to create differentiated materials, rubrics, and formative assessments. Student data is never input into AI systems. I use only [list tools] which have signed data privacy agreements with our district."*
+
+## FERPA in plain language for teachers
+
+FERPA (the Family Educational Rights and Privacy Act) gives parents rights over their children's educational records and restricts how schools share that information. The key implications for classroom AI use:
+
+- Educational records cannot be shared with third-party vendors without a legitimate educational purpose and appropriate agreements
+- AI tools that process student data must have a FERPA exception — typically requiring a signed agreement
+- Data breaches involving student information require notification under FERPA
+
+## Building a culture of professional judgement
+
+Safety is not only about compliance checklists. Your colleagues will look to early adopters for norms: how openly you discuss limitations of a model, how you model checking an AI-generated fact before sharing it with students, and how you respond when a student asks whether their essay was "good enough" if ChatGPT said so. When professional judgement is visible, students internalise that AI is a tool under human authority — not an oracle.
+
+District leaders are still catching up with policy. You may be ahead of written guidance. In that gap, document your own practices: keep a simple log of which tools you use, for what instructional purpose, and what you never put into prompts. If questions arise, you will be glad to have a paper trail that shows care rather than casual experimentation.
+
+## Recommended tools with verified compliance
+
+**MagicSchool.ai** — over 60 teacher productivity tools. Maintains public FERPA/COPPA compliance documentation and signed SDPA templates.
+
+**Diffit** — AI text levelling and comprehension tool. Explicitly designed for K-12. Generates differentiated reading passages without requiring student data input.
+
+**Canva for Education** — free for verified teachers and schools. COPPA and FERPA compliant.
+
+**Khan Academy AI tutor** — the most pedagogically sound AI tutoring system available. Asks guiding questions rather than giving answers.
+
+## The bigger picture
+
+Safety in the AI classroom is not about avoidance. Teachers who refuse to engage with AI tools are not protecting their students — they are leaving them without a guide in a landscape they will navigate regardless.
+
+The goal is informed, intentional engagement. A teacher who understands the risks, uses compliant tools, anonymises prompts, and communicates openly with parents is not just safe — they are a model for the kind of thoughtful AI use we want to cultivate in our students.
+
+## Talking to instructional coaches and IT leads
+
+When you request a new tool, come prepared with the vendor's privacy page, a sample prompt you plan to use (redacted), and a one-paragraph instructional rationale. IT teams are not trying to block innovation — they are trying to avoid signing agreements that expose the district. Framing your request as "here is how we already protect student data, and here is what this tool adds" accelerates approval.
+
+If a tool is rejected, ask what gap killed the decision: jurisdiction, data residency, lack of SDPA, or age band? Often a substitute with similar pedagogy exists once you know the constraint.
+
+← [Back to the Teacher's AI Guide](/blog/teachers-ai-guide)

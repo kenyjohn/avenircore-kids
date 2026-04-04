@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPostBySlug, getRelatedPosts, getAdjacentPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
@@ -144,11 +144,19 @@ const PrevNextNav = ({ prev, next }) => {
 // ── Main BlogPost component ─────────────────────────────────────
 const BlogPost = () => {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const post = getPostBySlug(slug)
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const { Content, title, description, date, category, keywords, faqs, author = 'AvenirCore Team', readingTime } = post
+  const { Content, title, description, date, category, keywords, faqs, author = 'John Kennedy', readingTime } = post
+
+  const scrollWaitlist = () => {
+    navigate('/')
+    setTimeout(() => {
+      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
   const relatedPosts = getRelatedPosts(slug, category)
   const { prev, next } = getAdjacentPosts(slug)
 
@@ -280,8 +288,8 @@ const BlogPost = () => {
             <div style={{ marginTop: '2.5rem', padding: '2.5rem', background: 'var(--color-emerald-bg)', borderRadius: 'var(--radius-xl)', textAlign: 'center', border: '1.5px solid var(--color-emerald-soft)' }}>
               <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🌱</div>
               <h3 style={{ fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-navy)' }}>Want more guides like this?</h3>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>Join 500+ parents getting weekly, jargon-free AI guidance for their families.</p>
-              <button className="btn btn-primary" onClick={() => window.location.href = '/#waitlist'}>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>Join our free weekly newsletter for parents.</p>
+              <button type="button" className="btn btn-primary" onClick={scrollWaitlist}>
                 Join the Waitlist →
               </button>
             </div>

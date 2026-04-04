@@ -1,43 +1,24 @@
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getAllPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
 
 const PILLAR_ARTICLES = [
-  {
-    slug: 'is-ai-safe-for-kids',
-    icon: '🔒',
-    order: 1,
-  },
-  {
-    slug: 'what-age-can-kids-use-ai',
-    icon: '🎂',
-    order: 2,
-  },
-  {
-    slug: 'how-to-talk-to-kids-about-ai',
-    icon: '💬',
-    order: 3,
-  },
-  {
-    slug: 'free-ai-tools-for-kids-2026',
-    icon: '🛠️',
-    order: 4,
-  },
-  {
-    slug: 'will-ai-make-kids-lazy',
-    icon: '🧠',
-    order: 5,
-  },
+  { slug: 'is-ai-safe-for-kids', icon: '🔒', order: 1 },
+  { slug: 'what-age-can-kids-use-ai', icon: '🎂', order: 2 },
+  { slug: 'how-to-talk-to-kids-about-ai', icon: '💬', order: 3 },
+  { slug: 'free-ai-tools-for-kids-2026', icon: '🛠️', order: 4 },
+  { slug: 'will-ai-make-kids-lazy', icon: '🧠', order: 5 },
 ]
 
-// JSON-LD for the pillar page
 const pillarSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'The Complete Parent Guide to AI for Kids (2026)',
   description: 'Everything parents need to know about AI and children — safety, age guidance, tools, and how to have the conversation. Updated for 2026.',
   url: 'https://avenircore.com/blog/ai-for-kids-guide',
+  datePublished: '2026-04-02',
+  dateModified: '2026-04-02',
   publisher: { '@type': 'Organization', name: 'AvenirCore', url: 'https://avenircore.com' },
 }
 
@@ -51,10 +32,49 @@ const breadcrumbSchema = {
   ],
 }
 
+const pillarFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is AI for kids?',
+      acceptedAnswer: { '@type': 'Answer', text: 'AI for kids means age-appropriate tools and guidance that help children learn with artificial intelligence safely — with parental oversight, clear boundaries, and a focus on critical thinking rather than passive answers.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is AI safe for children?',
+      acceptedAnswer: { '@type': 'Answer', text: 'AI can be safe when families use child-focused platforms, keep accounts private, avoid sharing personal data, and stay involved in how tools are used. General-purpose chatbots are not designed for children and need extra caution.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What age can children start using AI?',
+      acceptedAnswer: { '@type': 'Answer', text: 'There is no single age — readiness depends on the child and the tool. Many families introduce supervised, educational AI around ages 8–10 with strong guardrails; younger children benefit more from parent-led exploration than independent accounts.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I talk to my child about AI?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Start with curiosity: ask what they have seen, explain that AI can be wrong, and set simple rules (no personal details, show me what you make). Short, honest conversations beat one big lecture.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will AI make my child lazy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Not if AI is used as a thinking partner. Lazy habits appear when AI replaces effort — for example, copying answers. When kids still draft, revise, and explain their work, AI supports learning instead of replacing it.' },
+    },
+  ],
+}
+
 const PillarPage = () => {
+  const navigate = useNavigate()
   const allPosts = getAllPosts()
 
-  // Match pillar slugs to their full post data
+  const scrollWaitlist = () => {
+    navigate('/')
+    setTimeout(() => {
+      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
+
   const pillarPosts = PILLAR_ARTICLES
     .map(item => {
       const post = allPosts.find(p => p.slug === item.slug)
@@ -77,9 +97,9 @@ const PillarPage = () => {
         <meta property="og:image" content="https://avenircore.com/og-image.png" />
         <script type="application/ld+json">{safeJsonLd(pillarSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJsonLd(pillarFaqSchema)}</script>
       </Helmet>
 
-      {/* Breadcrumb */}
       <div style={{ background: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)', padding: '0.75rem 0' }}>
         <div className="container" style={{ maxWidth: '860px' }}>
           <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
@@ -92,7 +112,6 @@ const PillarPage = () => {
         </div>
       </div>
 
-      {/* Hero */}
       <div style={{ background: 'var(--color-navy)', padding: '4rem 0 3rem' }}>
         <div className="container" style={{ maxWidth: '860px', textAlign: 'center' }}>
           <span className="section-label" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>
@@ -105,13 +124,13 @@ const PillarPage = () => {
             Everything you need to know about children and AI in one place — from safety and age guidance to the right tools and how to start the conversation.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
               <span>📖</span> {pillarPosts.length} in-depth articles
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
               <span>🎯</span> Written for parents, not tech experts
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
               <span>✓</span> COPPA & safety reviewed
             </div>
           </div>
@@ -121,14 +140,12 @@ const PillarPage = () => {
       <div style={{ padding: '4rem 0', background: 'var(--color-bg)' }}>
         <div className="container" style={{ maxWidth: '860px' }}>
 
-          {/* Intro */}
           <div className="blog-content" style={{ marginBottom: '3rem', maxWidth: '680px' }}>
-            <p>AI is already part of your child's life — whether through voice assistants, homework tools, or the algorithms behind their favourite apps. The question isn't whether to engage with it. It's how to do so thoughtfully.</p>
+            <p>AI is already part of your child&apos;s life — whether through voice assistants, homework tools, or the algorithms behind their favourite apps. The question isn&apos;t whether to engage with it. It&apos;s how to do so thoughtfully.</p>
             <p>This guide brings together everything we have written on children and AI in one place. Read it straight through for the full picture, or jump to the section most relevant to where you are right now.</p>
           </div>
 
-          {/* Article list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '4rem' }}>
+          <section aria-label="Parent guides" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '4rem' }}>
             {pillarPosts.map((post) => (
               <Link key={post.slug} to={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
                 <div className="pillar-article-card">
@@ -148,9 +165,8 @@ const PillarPage = () => {
                 </div>
               </Link>
             ))}
-          </div>
+          </section>
 
-          {/* Key takeaways */}
           <div style={{ background: 'white', borderRadius: 'var(--radius-xl)', border: '1.5px solid var(--color-border)', padding: '2.5rem', marginBottom: '3rem' }}>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '1.5rem' }}>
               The five things every parent should know
@@ -171,14 +187,13 @@ const PillarPage = () => {
             </div>
           </div>
 
-          {/* CTA */}
           <div style={{ background: 'var(--color-emerald-bg)', borderRadius: 'var(--radius-xl)', border: '1.5px solid var(--color-emerald-soft)', padding: '2.5rem', textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>📬</div>
             <h3 style={{ fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-navy)' }}>Get new guides in your inbox</h3>
             <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-              We publish new parent guides regularly. Join 500+ families getting weekly, jargon-free AI guidance.
+              Join families getting weekly, jargon-free AI guidance.
             </p>
-            <button className="btn btn-primary" onClick={() => window.location.href = '/#waitlist'}>
+            <button type="button" className="btn btn-primary" onClick={scrollWaitlist}>
               Join the Waitlist →
             </button>
           </div>

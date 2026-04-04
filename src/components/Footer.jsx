@@ -8,7 +8,7 @@ const Footer = () => (
         <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.2rem', color: 'white', filter: 'none' }}>AvenirCore</span>
       </div>
 
-      <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.45)', maxWidth: '360px', textAlign: 'center' }}>
+      <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', maxWidth: '360px', textAlign: 'center' }}>
         Future-ready kids, strong at the core. Safe AI education for ages 6–14.
       </p>
 
