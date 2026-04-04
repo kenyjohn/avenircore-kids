@@ -1,0 +1,13 @@
+---
+description: AvenirCore stack, validation, GitLab hygiene — always on
+alwaysApply: true
+---
+
+# AvenirCore core
+
+- **Stack**: React 19 + Vite 7 + MDX; vanilla CSS via `src/index.css` and CSS variables — **no Tailwind** (`flex`, `items-center`, etc.).
+- **Posts**: MDX in `src/posts/`; metadata via named exports; listing in `src/utils/posts.js`.
+- **Before finishing a change**: run `npm run lint` and `npm run build`.
+- **API**: `api/**/*.js` is Node (ESLint uses `globals.node`); do not merge browser-only ESLint config that breaks `process` in `api/`.
+- **GitLab**: Prefer linking the issue/MR URL in chat instead of pasting the full spec. Use `.gitlab/issue_templates/Default.md` for new issues. MR should reference closing the issue (`Closes #…`).
+- **Edits**: Smallest diff that satisfies the issue; no unrelated files or unsolicited markdown docs.
