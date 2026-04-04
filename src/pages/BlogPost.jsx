@@ -149,7 +149,7 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const { Content, title, description, date, category, keywords, faqs, author = 'John Kennedy', readingTime } = post
+  const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime } = post
 
   const scrollWaitlist = () => {
     navigate('/')

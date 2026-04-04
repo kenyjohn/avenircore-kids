@@ -5,9 +5,9 @@ import { safeJsonLd } from '../utils/security'
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'John Kennedy',
+  name: 'John & Abigail Kennedy',
   url: 'https://avenircore.com/about',
-  jobTitle: 'Founder, AvenirCore',
+  jobTitle: 'Founders, AvenirCore',
   worksFor: { '@type': 'Organization', name: 'AvenirCore', url: 'https://avenircore.com' },
   sameAs: [
     'https://www.linkedin.com/in/johnkennedythangarajan',
@@ -22,7 +22,10 @@ const orgSchema = {
   name: 'AvenirCore',
   url: 'https://avenircore.com',
   description: 'AI literacy education platform for children ages 6–14. Values-driven, COPPA compliant, built for families and schools.',
-  founder: { '@type': 'Person', name: 'John Kennedy' },
+  founder: [
+    { '@type': 'Person', name: 'John Kennedy', sameAs: 'https://www.linkedin.com/in/johnkennedythangarajan' },
+    { '@type': 'Person', name: 'Abigail Kennedy' },
+  ],
   foundingDate: '2026',
   knowsAbout: ['AI literacy for kids', 'Children digital safety', 'AI education', 'COPPA compliance'],
   contactPoint: { '@type': 'ContactPoint', email: 'hello@avenircore.com', contactType: 'general enquiry' },
@@ -65,8 +68,8 @@ const About = () => {
     <>
       <Helmet>
         <title>About AvenirCore | Our Story, Mission & Values</title>
-        <meta name="description" content="AvenirCore was built by parents and educators who believe children deserve better AI tools. Learn about our founder, mission, and values charter." />
-        <meta name="keywords" content="about AvenirCore, AI education founder, kids AI safety mission, COPPA children platform" />
+        <meta name="description" content="AvenirCore was built by parents and educators who believe children deserve better AI tools. Learn about our founders, mission, and values charter." />
+        <meta name="keywords" content="about AvenirCore, AI education founders, kids AI safety mission, COPPA children platform" />
         <link rel="canonical" href="https://avenircore.com/about" />
         <meta property="og:title" content="About AvenirCore | Our Story, Mission & Values" />
         <meta property="og:description" content="We built AvenirCore because children deserve AI tools built around their values, not just their attention." />
@@ -91,10 +94,10 @@ const About = () => {
         <div className="container" style={{ maxWidth: '860px' }}>
           <span className="section-label" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>Our story</span>
           <h1 style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', fontWeight: 900, color: 'white', margin: '1rem 0', lineHeight: 1.15 }}>
-            Built by a parent.<br />For every family navigating AI.
+            Built by parents.<br />For every family navigating AI.
           </h1>
           <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)', maxWidth: '620px', lineHeight: 1.75 }}>
-            AvenirCore started with a simple frustration: the AI tools my children encountered were built for adults, measured by engagement, and designed with no thought for character. We set out to do it differently.
+            AvenirCore started with a simple frustration: the AI tools our children encountered were built for adults, measured by engagement, and designed with no thought for character. We set out to do it differently.
           </p>
         </div>
       </div>
@@ -118,13 +121,16 @@ const About = () => {
                 <span style={{
                   fontFamily: 'var(--font-heading)',
                   fontWeight: 900,
-                  fontSize: '2rem',
+                  fontSize: '1.35rem',
                   color: 'var(--color-emerald-light)',
-                  letterSpacing: '-0.02em',
-                }}>JK</span>
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.1,
+                  textAlign: 'center',
+                  padding: '0 4px',
+                }}>J&amp;A</span>
               </div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-navy)', marginBottom: '0.25rem' }}>John Kennedy</div>
-              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.75rem' }}>Founder, AvenirCore</div>
+              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-navy)', marginBottom: '0.25rem' }}>John &amp; Abigail Kennedy</div>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.75rem' }}>Founders, AvenirCore</div>
               <a
                 href="https://www.linkedin.com/in/johnkennedythangarajan"
                 target="_blank"
@@ -136,9 +142,9 @@ const About = () => {
               </a>
             </div>
             <div className="blog-content">
-              <p>I built AvenirCore because I couldn&apos;t find what I was looking for as a parent. My children were already using AI tools — at school, at home, in ways I barely knew about. The tools they were using were powerful, engaging, and completely indifferent to their character development.</p>
-              <p>I have a background in software and technology, and I work with families and communities who care deeply about values-centred upbringing. That combination made the gap impossible to ignore.</p>
-              <p>AvenirCore is what I wanted to exist: an honest, practical resource that helps families engage with AI thoughtfully — not with panic, and not by pretending it isn&apos;t happening.</p>
+              <p>We built AvenirCore because we couldn&apos;t find what we were looking for as parents. Our children were already using AI tools — at school, at home, in ways we barely knew about. The tools they were using were powerful, engaging, and completely indifferent to their character development.</p>
+              <p>We bring a background in software and technology, and we work with families and communities who care deeply about values-centred upbringing. That combination made the gap impossible to ignore.</p>
+              <p>AvenirCore is what we wanted to exist: an honest, practical resource that helps families engage with AI thoughtfully — not with panic, and not by pretending it isn&apos;t happening.</p>
               <p>Every article, workbook, and tool we build starts with one question: does this help children grow into thoughtful, capable people who use technology wisely? If the answer is yes, we build it. If not, we don&apos;t.</p>
             </div>
           </div>

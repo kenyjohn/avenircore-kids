@@ -1,4 +1,4 @@
-const AuthorBox = ({ author = 'John Kennedy', role = 'Founder, AvenirCore' }) => (
+const AuthorBox = ({ author = 'John & Abigail Kennedy', role = 'Founders, AvenirCore' }) => (
   <div style={{
     display: 'flex',
     gap: '1.25rem',
@@ -23,10 +23,13 @@ const AuthorBox = ({ author = 'John Kennedy', role = 'Founder, AvenirCore' }) =>
       <span style={{
         fontFamily: 'var(--font-heading)',
         fontWeight: 900,
-        fontSize: '1.1rem',
+        fontSize: '0.72rem',
         color: 'var(--color-emerald-light)',
-        letterSpacing: '-0.02em',
-      }}>JK</span>
+        letterSpacing: '-0.03em',
+        lineHeight: 1.1,
+        textAlign: 'center',
+        padding: '0 2px',
+      }}>J&amp;A</span>
     </div>
     <div style={{ flex: 1, minWidth: 0 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.3rem' }}>
@@ -36,7 +39,7 @@ const AuthorBox = ({ author = 'John Kennedy', role = 'Founder, AvenirCore' }) =>
         <span style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{role}</span>
       </div>
       <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.65, margin: '0 0 0.75rem' }}>
-        John Kennedy is the founder of AvenirCore and a parent who believes children deserve AI tools built around values, not engagement metrics. He writes about child safety, AI literacy, and helping families navigate technology with confidence.
+        John and Abigail Kennedy are the founders of AvenirCore and parents who believe children deserve AI tools built around values, not engagement metrics. They write about child safety, AI literacy, and helping families navigate technology with confidence.
       </p>
       <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
         <a
