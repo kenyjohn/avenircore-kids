@@ -3,9 +3,11 @@ import Logo from './Logo';
 const Footer = () => (
   <footer className="footer">
     <div className="container footer-inner">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', filter: 'brightness(0) invert(1)' }}>
-        <Logo />
-        <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.2rem', color: 'white', filter: 'none' }}>AvenirCore</span>
+      <div className="footer-brand">
+        <div className="footer-brand-logo" aria-hidden>
+          <Logo />
+        </div>
+        <span className="footer-brand-text">AvenirCore</span>
       </div>
 
       <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', maxWidth: '360px', textAlign: 'center' }}>

@@ -18,7 +18,7 @@ const Header = () => {
       <div className="container header-inner">
         <Link to="/" className="brand" onClick={close}>
           <Logo />
-          AvenirCore
+          <span className="brand-text">AvenirCore</span>
         </Link>
 
         <nav className="nav" aria-label="Main navigation">
