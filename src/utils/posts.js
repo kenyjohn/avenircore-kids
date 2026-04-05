@@ -18,6 +18,7 @@ export function getAllPosts() {
         faqs: mod.faqs || null,
         featured: mod.featured || false,
         readingTime: mod.readingTime || '4 min read',
+        howToSteps: mod.howToSteps || null,
       }
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -38,6 +39,7 @@ export function getPostBySlug(slug) {
     faqs: mod.faqs || null,
     featured: mod.featured || false,
     readingTime: mod.readingTime || '4 min read',
+    howToSteps: mod.howToSteps || null,
   }
 }
 

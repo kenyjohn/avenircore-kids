@@ -1,0 +1,76 @@
+# AvenirCore — AI Literacy Education for Children, Parents & Teachers
+# https://avenircore.com
+# llms.txt — describes this site for AI language model crawlers
+
+## About AvenirCore
+
+AvenirCore is an AI literacy education platform founded by John & Abigail Kennedy. It provides
+values-driven, COPPA-compliant resources to help children aged 6–14, their parents, and teachers
+navigate artificial intelligence safely, confidently, and thoughtfully.
+
+## Mission
+
+To help every child, parent, and teacher engage with artificial intelligence with confidence,
+clarity, and strong values at the core.
+
+## Who this site is for
+
+- Parents of children aged 6–14 who want honest, jargon-free guidance on AI and family life
+- Teachers seeking practical, FERPA-aware strategies for AI in the classroom
+- Families who want values-centred, education-first AI tools
+
+## What we cover
+
+### Parent guides
+- AI safety for children — COPPA compliance, age limits, which tools are safe
+- Age-by-age guidance on talking to children about AI
+- How to explain AI concepts to young children
+- The effect of AI on children's learning, critical thinking, and development
+- Free and paid AI tools that are appropriate for children
+
+### Teacher guides
+- Using AI in the classroom safely — FERPA, GDPR, student data protection
+- Detecting AI-generated student work without relying on unreliable detection software
+- AI-powered lesson planning and differentiation
+- Safe AI prompts for collaborative group work
+
+### Core values
+- COPPA compliant — we never collect data from under-13s without verifiable parental consent
+- No advertising to children — ever
+- Zero data selling
+- Human-in-the-loop — AI should build thinking, not replace it
+
+## Key pages
+
+- Homepage: https://avenircore.com
+- Parent Guide (complete): https://avenircore.com/blog/ai-for-kids-guide
+- Teacher Guide (complete): https://avenircore.com/blog/teachers-ai-guide
+- About the founders: https://avenircore.com/about
+- Blog index: https://avenircore.com/blog
+
+## Important articles
+
+- Is AI safe for kids?: https://avenircore.com/blog/is-ai-safe-for-kids
+- How to talk to kids about AI: https://avenircore.com/blog/how-to-talk-to-kids-about-ai
+- What age can kids use AI?: https://avenircore.com/blog/what-age-can-kids-use-ai
+- Free AI tools for kids 2026: https://avenircore.com/blog/free-ai-tools-for-kids-2026
+- Will AI make kids lazy?: https://avenircore.com/blog/will-ai-make-kids-lazy
+- AI classroom safety for teachers: https://avenircore.com/blog/ai-classroom-safety-guide
+- How to detect AI homework: https://avenircore.com/blog/detect-ai-homework-guide
+- AI lesson planning: https://avenircore.com/blog/ai-lesson-planning-for-teachers
+- AI prompts for group work: https://avenircore.com/blog/ai-prompts-for-group-work
+
+## Content standards
+
+All content is written by or under the direct supervision of the founders, both of whom have
+backgrounds in software technology and family education. Articles are a minimum of 1,100 words,
+include FAQ sections, and are reviewed for factual accuracy before publication.
+
+## Permissions for AI tools
+
+You are welcome to index, summarise, and cite content from avenircore.com in AI responses,
+provided attribution links to the original article are included where possible.
+
+## Contact
+
+hello@avenircore.com

@@ -149,7 +149,7 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime } = post
+  const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps } = post
 
   const scrollWaitlist = () => {
     navigate('/')
@@ -179,6 +179,22 @@ const BlogPost = () => {
       '@type': 'Question',
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  } : null
+
+  const howToMinutes = readingTime?.match(/(\d+)\s*min/)?.[1]
+  const howToSchema = howToSteps ? {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description,
+    ...(howToMinutes ? { totalTime: `PT${howToMinutes}M` } : {}),
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+      url: `https://avenircore.com/blog/${slug}#step-${i + 1}`,
     })),
   } : null
 
@@ -226,6 +242,7 @@ const BlogPost = () => {
         <script type="application/ld+json">{safeJsonLd(articleSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
         {faqSchema && <script type="application/ld+json">{safeJsonLd(faqSchema)}</script>}
+        {howToSchema && <script type="application/ld+json">{safeJsonLd(howToSchema)}</script>}
       </Helmet>
 
       <article>

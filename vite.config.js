@@ -9,6 +9,7 @@ export default defineConfig({
     react(),
     sitemap({
       hostname: 'https://avenircore.com',
+      generateRobotsTxt: false,
       dynamicRoutes: [
         '/blog',
         '/blog/ai-for-kids-guide',
