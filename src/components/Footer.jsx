@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container footer-inner">
       <div className="footer-brand">
         <div className="footer-brand-logo" aria-hidden>
-          <Logo />
+          <Logo variant="onDark" />
         </div>
         <span className="footer-brand-text">AvenirCore</span>
       </div>
