@@ -1,0 +1,31 @@
+{
+  "id": "smart-assistant",
+  "title": "The Smart Assistant",
+  "description": "Learn how virtual assistants make decisions when you ask them questions.",
+  "steps": [
+    {
+      "type": "story",
+      "content": "Aria is a brand new virtual assistant. Her job is to help the family, but sometimes she gets confused by what they need."
+    },
+    {
+      "type": "question",
+      "question": "If you say 'Play some fun music', what does Aria need to do first?",
+      "options": ["Cook dinner", "Turn off the lights", "Figure out what music is 'fun' for you", "Go to sleep"],
+      "correct": 2
+    },
+    {
+      "type": "story",
+      "content": "Exactly! Aria uses clues from your past choices to figure out what you like. She finds the perfect happy song!"
+    },
+    {
+      "type": "activity",
+      "instruction": "Which voice command would be the easiest for Aria to understand perfectly?",
+      "options": ["'Do the thing!'", "'Play the Happy Birthday song by the Cool Band'", "'Find music'", "'Play a song from last year'"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Being specific helps AI understand you better. Aria plays the song and everyone dances!"
+    }
+  ]
+}

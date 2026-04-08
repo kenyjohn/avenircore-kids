@@ -1,0 +1,31 @@
+{
+  "id": "data-detective",
+  "title": "The Data Detective",
+  "description": "Learn the difference between good data and bad data when training an AI.",
+  "steps": [
+    {
+      "type": "story",
+      "content": "Detective Dan is training his new robot dog, Bytes, to find apples. He gives Bytes 5 pictures of apples, and 1 picture of a banana by mistake."
+    },
+    {
+      "type": "question",
+      "question": "What happens if Bytes learns from the banana picture?",
+      "options": ["Bytes will eat the banana", "Bytes might think bananas are apples", "Bytes will explode", "Bytes will get faster"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Right! If we give AI the wrong information (bad data), it makes mistakes. Keep the data clean!"
+    },
+    {
+      "type": "activity",
+      "instruction": "Which pile of pictures is the best 'Good Data' for teaching a robot what a cat looks like?",
+      "options": ["Pictures of dogs, cats, and birds all mixed", "Only clear pictures of cats", "Pictures of trees", "Blurry pictures of cats"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "You are a top Data Detective! Bytes only looks at clear cat pictures now."
+    }
+  ]
+}
