@@ -20,7 +20,7 @@
     {
       "type": "activity",
       "instruction": "Which voice command would be the easiest for Aria to understand perfectly?",
-      "options": ["'Do the thing!'", "'Play the Happy Birthday song by the Cool Band'", "'Find music'", "'Play a song from last year'"],
+      "options": ["'Do the thing!'", "'Play the upbeat pop song by the Cool Band'", "'Find music'", "'Play a song from last year'"],
       "correct": 1
     },
     {
