@@ -1,0 +1,31 @@
+{
+  "id": "curious-robot",
+  "title": "The Curious Robot",
+  "description": "Help Robi the Robot learn how to find patterns in the shapes around the house!",
+  "steps": [
+    {
+      "type": "story",
+      "content": "Robi is a young robot who sees the world clearly but doesn't quite understand patterns yet. One day, Robi is trying to sort the toys but mixed up all the triangles and squares."
+    },
+    {
+      "type": "question",
+      "question": "If Robi sees a pattern like: Square, Triangle, Square, Triangle... What comes next?",
+      "options": ["Circle", "Square", "Triangle", "Star"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Great job! A computer looks for repeating patterns exactly like you just did. It uses this to make good guesses."
+    },
+    {
+      "type": "activity",
+      "instruction": "Which of these is a machine finding a pattern?",
+      "options": ["Predicting the weather after seeing clouds", "Drawing a random picture", "Sleeping", "Eating ice cream"],
+      "correct": 0
+    },
+    {
+      "type": "story",
+      "content": "Robi sorted all the toys correctly by using patterns. Thanks for teaching Robi!"
+    }
+  ]
+}

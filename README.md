@@ -1,16 +1,31 @@
-# React + Vite
+# AvenirCore Kids
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the AvenirCore codebase! This repository contains the front-end application built with Vite, React, React Router, and MDX.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the application locally:
 
-## React Compiler
+```bash
+# Install dependencies
+npm ci
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Start the development server
+npm run dev
 
-## Expanding the ESLint configuration
+# Lint and build the application
+npm run lint && npm run build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Documentation
+
+Comprehensive documentation about the system should be maintained in the `/docs` folder of this repository. When you create new feature documentation, diagrams, or standard operating procedures, you can add them as Markdown (`.md`) files inside `/docs` and link them here so the team can easily find them.
+
+**Current Architectural Documentation:**
+* [**Architecture & Component Overview**](docs/architecture.md) - Includes structural diagrams (Mermaid), routing topology, and how the interactive story engine works. Can be pulled into Figma or Notion to share with stakeholders.
+
+## Agent Guidelines
+
+When working with Agentic AI to edit this repository:
+- All system instructions are listed in `AGENTS.md`.
+- Use the provided GitHub/GitLab issue templates in `.gitlab/issue_templates/Default.md` when setting up story branches.

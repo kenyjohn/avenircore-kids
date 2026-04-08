@@ -19,6 +19,8 @@ const PillarPage = lazy(() => import('./pages/PillarPage'))
 const TeacherHub = lazy(() => import('./pages/TeacherHub'))
 const About      = lazy(() => import('./pages/About'))
 const NotFound  = lazy(() => import('./pages/NotFound'))
+const StoriesIndex = lazy(() => import('./pages/StoriesIndex'))
+const StoryPlayer  = lazy(() => import('./components/story/StoryPlayer'))
 
 function HomePage() {
   return (
@@ -57,6 +59,8 @@ function App() {
             <Route path="/about"      element={<About />} />
             <Route path="/privacy"    element={<Privacy />} />
             <Route path="/terms"      element={<Terms />} />
+            <Route path="/stories"    element={<StoriesIndex />} />
+            <Route path="/stories/:id" element={<StoryPlayer />} />
             <Route path="*"           element={<NotFound />} />
           </Routes>
         </Suspense>
