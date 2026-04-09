@@ -28,6 +28,8 @@ const Header = () => {
           <NavLink to="/blog" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Blog</NavLink>
           <NavLink to="/blog/teachers-ai-guide" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Teacher Hub</NavLink>
           <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>About</NavLink>
+          <NavLink to="/stories" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Stories</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Contact</NavLink>
         </nav>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -69,6 +71,8 @@ const Header = () => {
             <NavLink to="/blog" className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`} onClick={close}>Blog</NavLink>
             <NavLink to="/blog/teachers-ai-guide" className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`} onClick={close}>Teacher Hub</NavLink>
             <NavLink to="/about" className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`} onClick={close}>About</NavLink>
+            <NavLink to="/stories" className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`} onClick={close}>Stories</NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`} onClick={close}>Contact</NavLink>
           </nav>
           <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid var(--color-border)' }}>
             <button

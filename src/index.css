@@ -486,3 +486,22 @@ ul { list-style: none; }
 .animate-bounce-short { animation: bounceShort 0.4s ease-in-out; }
 .animate-pulse-green { animation: pulseGreen 1s cubic-bezier(0.4, 0, 0.6, 1); }
 
+/* Contact Page */
+.contact-audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+@media (max-width: 480px) { .contact-audience-grid { grid-template-columns: 1fr; } }
+
+.contact-audience-btn { padding: 1rem 0.75rem; border: 2px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface, var(--color-white)); cursor: pointer; text-align: center; transition: border-color 0.15s, background 0.15s, transform 0.15s; }
+.contact-audience-btn:hover { transform: translateY(-2px); border-color: var(--color-indigo, #6366f1); }
+.contact-audience-btn.active { border-color: var(--color-indigo, #6366f1); background: rgba(99,102,241,0.08); }
+.contact-audience-label { font-weight: 700; font-size: 0.85rem; color: var(--color-text); }
+.contact-audience-btn.active .contact-audience-label { color: var(--color-indigo, #6366f1); }
+
+.contact-hint { font-size: 0.9rem; color: var(--color-text-muted); background: var(--color-surface, var(--color-white)); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.85rem 1rem; margin-bottom: 2rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-label { font-size: 0.875rem; font-weight: 700; color: var(--color-navy); }
+.form-input { padding: 0.75rem 1rem; border: 2px solid var(--color-border); border-radius: var(--radius-md); font-size: 1rem; font-family: inherit; color: var(--color-navy); background: var(--color-white); transition: border-color 0.15s, box-shadow 0.15s; width: 100%; box-sizing: border-box; }
+.form-input:focus { outline: none; border-color: var(--color-indigo, #6366f1); box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+.form-privacy { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.5rem; }

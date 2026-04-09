@@ -78,6 +78,7 @@ export default async function handler(req, res) {
           send_welcome_email: true,
           utm_source: 'avenircore-website',
           utm_medium: 'waitlist',
+          referring_site: 'https://avenircore.com',
         }),
       }
     )

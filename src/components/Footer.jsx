@@ -21,6 +21,7 @@ const Footer = () => (
           { label: 'Vision', href: '/#vision' },
           { label: 'Free Workbook', href: '/#workbook' },
           { label: 'Teachers Hub', href: '/blog/teachers-ai-guide' },
+          { label: 'Stories', href: '/stories' },
           { label: 'Join Waitlist', href: '/#waitlist' },
         ].map(l => (
           <a key={l.label} href={l.href} className="footer-link">{l.label}</a>
@@ -43,7 +44,7 @@ const Footer = () => (
             <a href="/privacy" className="footer-link">Privacy Policy</a>
             <a href="/terms" className="footer-link">Terms of Service</a>
             <a href="/sitemap.xml" className="footer-link">Sitemap</a>
-            <a href="mailto:hello@avenircore.com" className="footer-link">Contact</a>
+            <a href="/contact" className="footer-link">Contact</a>
           </div>
         </div>
       </div>
