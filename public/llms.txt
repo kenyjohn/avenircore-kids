@@ -60,6 +60,14 @@ clarity, and strong values at the core.
 - AI lesson planning: https://avenircore.com/blog/ai-lesson-planning-for-teachers
 - AI prompts for group work: https://avenircore.com/blog/ai-prompts-for-group-work
 
+## Stories
+
+- [The Curious Robot](/stories/curious-robot): Interactive story teaching pattern recognition for kids ages 6–8.
+- [The Data Detective](/stories/data-detective): Story about good vs bad training data for kids ages 6–8.
+- [The Smart Assistant](/stories/smart-assistant): Story about how AI makes decisions, ages 6–8.
+- [Being Kind to AI](/stories/kind-ai): Story about respectful and honest AI use, ages 6–8.
+- [When AI Gets It Wrong](/stories/ai-mistake): Story about AI limitations and critical thinking, ages 8–10.
+
 ## Content standards
 
 All content is written by or under the direct supervision of the founders, both of whom have

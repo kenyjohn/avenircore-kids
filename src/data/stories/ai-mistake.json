@@ -1,0 +1,39 @@
+{
+  "id": "ai-mistake",
+  "title": "When AI Gets It Wrong",
+  "description": "Even the smartest AIs make mistakes. Learn how to spot them — and why that makes you the important one!",
+  "ageRange": "8–10",
+  "difficulty": "Intermediate",
+  "aiConcept": "AI Limitations",
+  "character": {
+    "name": "Finn",
+    "emoji": "🔍",
+    "color": "#6366f1"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Finn asked an AI chatbot: 'Who won the school football final?' The AI replied confidently with a name — but it was completely wrong! The game happened last week."
+    },
+    {
+      "type": "question",
+      "question": "Why did the AI give a wrong answer?",
+      "options": ["It was trying to trick Finn", "It doesn't have feelings", "It only knows things up to a certain date", "It ran out of battery"],
+      "correct": 2
+    },
+    {
+      "type": "story",
+      "content": "The AI wasn't lying — it just didn't know about events after it was trained. This is called a knowledge cutoff. All AIs have one."
+    },
+    {
+      "type": "activity",
+      "instruction": "Which of these questions is BEST to ask an AI?",
+      "options": ["What happened in the news today?", "What is the capital of France?", "Did my team win last night?", "What is the latest phone model?"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Finn always double-checks important facts from AI now. That makes him a smart AI user — and that's a superpower! 🔍"
+    }
+  ]
+}

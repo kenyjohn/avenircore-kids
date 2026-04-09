@@ -1,0 +1,39 @@
+{
+  "id": "kind-ai",
+  "title": "Being Kind to AI... and to Yourself",
+  "description": "Discover why being polite with AI matters — and why AI should always be honest with you.",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "AI Ethics",
+  "character": {
+    "name": "Mira",
+    "emoji": "🌸",
+    "color": "#e879a0"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Mira asked her homework helper AI a question, but it gave a confusing answer. Mira's friend said: 'Just shout at it!' But Mira wasn't sure that was right."
+    },
+    {
+      "type": "question",
+      "question": "What should Mira do when the AI gives a confusing answer?",
+      "options": ["Shout at the screen", "Ask the question in a different way", "Give up completely", "Blame the AI"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Mira tried again with a clearer question. The AI understood her perfectly! Being clear is a kind of kindness — to yourself and to the tool."
+    },
+    {
+      "type": "activity",
+      "instruction": "Which of these is the RIGHT way to use an AI helper?",
+      "options": ["Use it to copy your homework and say it's yours", "Use it to understand a tricky idea and write it in your own words", "Let the AI answer all your tests for you", "Never use AI at all"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Mira finished her homework feeling proud. She used AI as a helper, not as a replacement. Great job, Mira! 🌸"
+    }
+  ]
+}

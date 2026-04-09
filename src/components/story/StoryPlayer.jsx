@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import StoryStep from './StoryStep';
 import QuestionStep from './QuestionStep';
 import ActivityStep from './ActivityStep';
@@ -51,7 +52,7 @@ export default function StoryPlayer() {
 
   const renderStep = () => {
     if (step.type === 'story') {
-      return <StoryStep step={step} onNext={handleNext} />;
+      return <StoryStep step={step} onNext={handleNext} character={story.character} />;
     } else if (step.type === 'question') {
       return <QuestionStep step={step} onCorrectAnswer={handleCorrectAction} />;
     } else if (step.type === 'activity') {
@@ -60,19 +61,46 @@ export default function StoryPlayer() {
     return null;
   };
 
+  const seoMetadata = (
+    <Helmet>
+      <title>{story.title} — AI Story for Kids | AvenirCore</title>
+      <meta name="description" content={`${story.description} A free interactive AI literacy story for children ages ${story.ageRange}.`} />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LearningResource",
+          "name": story.title,
+          "description": story.description,
+          "educationalLevel": "Primary",
+          "teaches": story.aiConcept,
+          "typicalAgeRange": story.ageRange,
+          "provider": {
+            "@type": "Organization",
+            "name": "AvenirCore",
+            "url": "https://avenircore.com"
+          }
+        })}
+      </script>
+    </Helmet>
+  );
+
   if (isCompleted) {
     return (
       <div className="story-player-container container section animate-fade-up">
+        {seoMetadata}
         <div className="story-completed-card">
           <div className="story-emoji-large">🎉</div>
           <h2 className="story-completed-title">You did it!</h2>
           <p className="story-completed-text">
             You finished <strong>{story.title}</strong>!
           </p>
-          <p className="story-completed-score">
+          <div className="story-concept-badge">
+            What you learned today: <strong>{story.aiConcept}</strong>
+          </div>
+          <p className="story-completed-score mt-2">
             You scored: {score} stars 🌟
           </p>
-          <div className="story-completed-actions">
+          <div className="story-completed-actions mt-2">
             <Link to="/stories" className="btn btn-primary btn-lg">Pick Another Story</Link>
           </div>
         </div>
@@ -82,9 +110,13 @@ export default function StoryPlayer() {
 
   return (
     <div className="story-player-container container section">
+      {seoMetadata}
       <div className="story-player-header">
         <Link to="/stories" className="story-back-link">&larr; Back to Stories</Link>
-        <h2 className="story-player-title">{story.title}</h2>
+        <h2 className="story-player-title">
+          {story.character?.emoji && <span style={{marginRight: '0.5rem'}}>{story.character.emoji}</span>}
+          {story.title}
+        </h2>
         <div className="story-progress-bar">
           <div className="story-progress-fill" style={{ width: `${progressPercent}%` }}></div>
         </div>

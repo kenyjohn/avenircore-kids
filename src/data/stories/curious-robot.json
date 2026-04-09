@@ -2,10 +2,18 @@
   "id": "curious-robot",
   "title": "The Curious Robot",
   "description": "Help Robi the Robot learn how to find patterns in the shapes around the house!",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "Pattern Recognition",
+  "character": {
+    "name": "Robi",
+    "emoji": "🤖",
+    "color": "#6366f1"
+  },
   "steps": [
     {
       "type": "story",
-      "content": "Robi is a young robot who sees the world clearly but doesn't quite understand patterns yet. One day, Robi is trying to sort the toys but mixed up all the triangles and squares."
+      "content": "Robi is a young robot who looks around the playroom but doesn't quite understand patterns yet. One day, Robi is trying to sort the toys but mixed up all the triangles and squares."
     },
     {
       "type": "question",
@@ -15,7 +23,7 @@
     },
     {
       "type": "story",
-      "content": "Great job! A computer looks for repeating patterns exactly like you just did. It uses this to make good guesses."
+      "content": "Robi beeped with joy! A computer looks for repeating patterns exactly like you just did. It uses this to make good guesses."
     },
     {
       "type": "activity",

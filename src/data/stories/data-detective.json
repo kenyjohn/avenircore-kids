@@ -2,6 +2,14 @@
   "id": "data-detective",
   "title": "The Data Detective",
   "description": "Learn the difference between good data and bad data when training an AI.",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "Data Quality",
+  "character": {
+    "name": "Dan",
+    "emoji": "🕵️",
+    "color": "#10b981"
+  },
   "steps": [
     {
       "type": "story",
@@ -15,7 +23,7 @@
     },
     {
       "type": "story",
-      "content": "Right! If we give AI the wrong information (bad data), it makes mistakes. Keep the data clean!"
+      "content": "Right! If we give AI the wrong information (bad data), it makes mistakes. That's why the photos we feed AI really matter. Keep the data clean!"
     },
     {
       "type": "activity",

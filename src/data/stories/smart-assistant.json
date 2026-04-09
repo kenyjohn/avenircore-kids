@@ -2,15 +2,23 @@
   "id": "smart-assistant",
   "title": "The Smart Assistant",
   "description": "Learn how virtual assistants make decisions when you ask them questions.",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "AI Decision Making",
+  "character": {
+    "name": "Aria",
+    "emoji": "🎙️",
+    "color": "#8b5cf6"
+  },
   "steps": [
     {
       "type": "story",
-      "content": "Aria is a brand new virtual assistant. Her job is to help the family, but sometimes she gets confused by what they need."
+      "content": "Aria is a brand new virtual assistant. Her job is to help the family find answers and play music."
     },
     {
       "type": "question",
-      "question": "If you say 'Play some fun music', what does Aria need to do first?",
-      "options": ["Cook dinner", "Turn off the lights", "Figure out what music is 'fun' for you", "Go to sleep"],
+      "question": "If you say 'Play some fun music', why might Aria need to ask you more questions first?",
+      "options": ["She is tired", "She wants to cook dinner", "To figure out what music is 'fun' for you", "She is broken"],
       "correct": 2
     },
     {

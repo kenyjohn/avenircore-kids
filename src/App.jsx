@@ -7,6 +7,7 @@ import ValuesPillars from './components/ValuesPillars'
 import HowItWorks from './components/HowItWorks'
 import ValuesCharter from './components/ValuesCharter'
 import FutureRoadmap from './components/FutureRoadmap'
+import StoriesTeaser from './components/StoriesTeaser'
 import WorkbookCTA from './components/WorkbookCTA'
 import EmailCapture from './components/EmailCapture'
 import Footer from './components/Footer'
@@ -30,6 +31,7 @@ function HomePage() {
       <ValuesPillars />
       <HowItWorks />
       <ValuesCharter />
+      <StoriesTeaser />
       <FutureRoadmap />
       <WorkbookCTA />
       <EmailCapture />
