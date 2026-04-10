@@ -135,6 +135,7 @@ export default function Contact() {
               </p>
 
               {/* Contact form */}
+              <div className="form-light">
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div className="form-row">
                   <div className="form-group">
@@ -193,6 +194,7 @@ export default function Contact() {
                   🔒 We'll only use your email to reply. No marketing without consent.
                 </p>
               </form>
+              </div>{/* /form-light */}
 
               {/* Direct email fallback */}
               <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--color-border)', textAlign: 'center' }}>
