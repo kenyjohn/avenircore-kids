@@ -635,203 +635,250 @@ ul { list-style: none; }
 
 .contact-hint { font-size: 0.9rem; color: var(--color-text-muted); background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.85rem 1rem; margin-bottom: 2rem; }
 
-/* ── Newsletter CTA (The "Best in Class" Overhaul) ── */
-.newsletter-cta {
-  --cta-bg: #4f46e5;
-  --cta-bg-dark: #1e1b4b;
-  position: relative;
-  background: var(--cta-bg-dark);
-  border-radius: 28px;
-  overflow: hidden;
-  margin: 4rem 0;
-  color: var(--color-white);
-  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
+/* ── Newsletter CTA (The Editorial Evolution) ── */
 
-.newsletter-cta-bg {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('/images/cta-bg.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.7;
-  mix-blend-mode: overlay;
-  z-index: 0;
-}
-
-.newsletter-cta-glass {
-  position: relative;
-  z-index: 1;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.4) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  height: 100%;
-}
-
-/* Mid Variant (Inline) */
-.newsletter-cta-mid .newsletter-cta-glass {
-  padding: 1.5rem 2rem;
+/* Shared Base Form Styles */
+.newsletter-cta-form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 @media (min-width: 900px) {
-  .newsletter-cta-mid .newsletter-cta-glass {
-    grid-template-columns: 1fr 400px;
-    gap: 4rem;
-  }
-}
-
-.newsletter-cta-content { 
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.newsletter-cta .newsletter-cta-title { 
-  font-size: 1.15rem; 
-  font-weight: 800; 
-  line-height: 1.3; 
-  letter-spacing: -0.01em; 
-  margin: 0;
-  color: #fff !important;
-}
-
-.newsletter-cta-sub { 
-  font-size: 0.95rem; 
-  color: rgba(255, 255, 255, 0.65); 
-  line-height: 1.6; 
-  margin: 0;
-}
-
-/* End Variant (Hero-style Card) */
-.newsletter-cta-end .newsletter-cta-glass {
-  padding: 3rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.newsletter-cta-end .newsletter-cta-title { 
-  font-size: 1.75rem; 
-  margin-bottom: 0.75rem;
-  max-width: 600px;
-}
-
-.newsletter-cta-end .newsletter-cta-sub { 
-  max-width: 520px;
-  margin-bottom: 2.5rem;
-  font-size: 1.1rem;
-}
-
-/* Elite Form Control */
-.newsletter-cta-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  align-items: center; /* Fix vertical stretching */
-}
-
-@media (min-width: 600px) {
   .newsletter-cta-form {
-    flex-direction: row;
-    align-items: stretch;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: flex-end;
+    gap: 1rem;
   }
+}
+
+.newsletter-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.newsletter-input-group label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  padding-left: 0.2rem;
 }
 
 .newsletter-input {
-  flex: 1;
   width: 100%;
-  height: 54px; /* Synchronized with button */
-  line-height: 54px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
-  padding: 0 1.25rem;
-  color: white;
-  font-size: 1rem;
-  box-sizing: border-box;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 48px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 1rem;
+  color: var(--color-navy);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
 .newsletter-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--color-emerald-light);
-  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15);
+  border-color: var(--color-teacher);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
-.newsletter-input::placeholder { color: rgba(255, 255, 255, 0.35); }
-
 .newsletter-cta .btn-primary {
-  height: 54px; /* Synchronized with input */
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2rem;
-  border-radius: 14px;
-  background: var(--color-emerald);
-  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.3);
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-sizing: border-box;
+  height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--color-teacher);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
 .newsletter-cta .btn-primary:hover {
-  background: #10b981;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(52, 211, 153, 0.4);
+  background: var(--color-teacher-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
 }
 
-/* States */
-.newsletter-success-elite {
-  padding: 1rem;
+/* 1. Editorial Strip (Mid Variant) */
+.newsletter-cta-mid {
+  margin: 3rem 0;
+  background: var(--color-teacher-bg-light);
+  border-left: 6px solid var(--color-teacher);
+  border-radius: 4px 16px 16px 4px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.cta-mid-anchor {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: var(--color-teacher);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+}
+
+.cta-mid-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.newsletter-cta-mid .newsletter-cta-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-cta-mid .newsletter-cta-sub {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 2. High-Impact Card (End Variant) */
+.newsletter-cta-end {
+  margin: 5rem 0 2rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+  position: relative;
+}
+
+.rainbow-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-teacher), var(--color-purple), var(--color-emerald));
+  width: 100%;
+}
+
+.newsletter-cta-end .newsletter-cta-glass {
+  padding: 3.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  text-align: center;
+}
+
+.cta-end-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--color-teacher);
+  background: var(--color-teacher-soft);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.newsletter-cta-end .newsletter-cta-title {
+  font-size: 1.75rem;
+  color: var(--color-navy);
+  margin-bottom: 0.75rem;
+  max-width: 600px;
+}
+
+.newsletter-cta-end .newsletter-cta-sub {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.cta-end-form-wrap {
+  width: 100%;
+  max-width: 800px;
+}
+
+.cta-trust-signals {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.cta-trust-signals span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Success State (Distinct Clean Green) */
+.newsletter-success-elite {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--color-emerald-bg);
+  border-radius: 12px;
+  width: 100%;
+  text-align: center;
   animation: eliteFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .success-icon-wrap {
-  width: 60px;
-  height: 60px;
-  background: var(--color-emerald-soft);
-  color: var(--color-emerald);
+  width: 64px;
+  height: 64px;
+  background: var(--color-emerald);
+  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 0 40px rgba(52, 211, 153, 0.2);
+  font-size: 1.75rem;
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.2);
 }
 
-@keyframes eliteFadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.success-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-emerald);
+  margin-bottom: 0.5rem;
 }
 
-/* Spinner Overlay for Elite Button */
-.btn-loading-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.success-sub {
+  font-size: 1rem;
+  color: var(--color-navy);
+  opacity: 0.8;
+  max-width: 400px;
 }
 
-.spinner-elite {
-  width: 18px;
-  height: 18px;
-  border: 2.5px solid rgba(255,255,255,0.2);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: eliteSpin 0.7s linear infinite;
+.cta-error-msg {
+  color: #e11d48;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  text-align: center;
 }
 
-@keyframes eliteSpin { to { transform: rotate(360deg); } }
+@media (max-width: 768px) {
+  .newsletter-cta-mid {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .cta-mid-anchor { display: none; }
+  .newsletter-cta-end .newsletter-cta-glass { padding: 2.5rem 1.5rem; }
+  .cta-trust-signals { flex-direction: column; gap: 0.5rem; align-items: center; }
+}
 

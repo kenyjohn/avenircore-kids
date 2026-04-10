@@ -13,7 +13,15 @@ function sanitise(str, maxLen = 100) {
 }
 
 // Allowed role values — allowlist prevents injection of arbitrary strings into Beehiiv
-const ALLOWED_ROLES = ['parent', 'teacher', 'student', 'educator', 'other']
+const ALLOWED_ROLES = ['parent', 'teacher', 'student', 'educator', 'general', 'other']
+
+// Allowed origins — only allow subscriptions from official domains + localhost
+const ALLOWED_ORIGINS = [
+  'https://avenircore.com',
+  'https://avenircore-kids.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:3000'
+]
 
 export default async function handler(req, res) {
   // 1. Only allow POST requests
@@ -21,13 +29,22 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' })
   }
 
-  // 2. Enforce a reasonable body size (prevent large payload attacks)
+  // 2. Validate Origin (Production Security)
+  const origin = req.headers.origin || req.headers.referer
+  const isAllowed = ALLOWED_ORIGINS.some(allowed => origin?.startsWith(allowed))
+  
+  if (!isAllowed && process.env.NODE_ENV === 'production') {
+    console.error(`Blocked unauthorized request from origin: ${origin}`)
+    return res.status(403).json({ message: 'Forbidden' })
+  }
+
+  // 3. Enforce a reasonable body size (prevent large payload attacks)
   const contentLength = parseInt(req.headers['content-length'] || '0', 10)
   if (contentLength > 2048) {
     return res.status(413).json({ message: 'Payload too large' })
   }
 
-  // 3. Parse body safely
+  // 4. Parse body safely
   let body
   try {
     body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
@@ -35,19 +52,31 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: 'Invalid JSON body' })
   }
 
-  const { email: rawEmail, role: rawRole, name: rawName } = body || {}
+  const { 
+    email: rawEmail, 
+    role: rawRole, 
+    name: rawName,
+    website: botField // Honeypot field
+  } = body || {}
 
-  // 4. Validate and sanitise email
+  // 5. Honeypot check: Bots usually fill every field.
+  // If 'website' has a value, we 'pretend' success but don't call Beehiiv.
+  if (botField) {
+    console.warn('Bot detected via honeypot field.')
+    return res.status(200).json({ success: true, note: 'Filtered' })
+  }
+
+  // 6. Validate and sanitise email
   const email = sanitise(rawEmail, 254) // RFC 5321 max email length
   if (!email || !EMAIL_REGEX.test(email)) {
     return res.status(400).json({ message: 'A valid email address is required.' })
   }
 
-  // 5. Sanitise name (optional field)
+  // 7. Sanitise name (optional field)
   const name = sanitise(rawName, 100)
 
-  // 6. Validate role against allowlist
-  const role = ALLOWED_ROLES.includes(rawRole) ? rawRole : 'parent'
+  // 8. Validate role against allowlist
+  const role = ALLOWED_ROLES.includes(rawRole) ? rawRole : 'general'
 
   // 7. Check environment variables
   const BEEHIIV_PUB_ID = process.env.VITE_BEEHIIV_PUB_ID
