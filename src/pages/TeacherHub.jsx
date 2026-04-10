@@ -63,6 +63,8 @@ const teacherFaqSchema = {
   ],
 }
 
+import NewsletterCTA from '../components/NewsletterCTA'
+
 const TeacherHub = () => {
   const navigate = useNavigate()
   const allPosts = getAllPosts()
@@ -142,6 +144,12 @@ const TeacherHub = () => {
           <div className="blog-content" style={{ marginBottom: '3.5rem', maxWidth: '720px' }}>
             <p style={{ fontSize: '1.2rem', color: 'var(--color-navy)', fontWeight: 500, lineHeight: 1.6 }}>By 2026, AI has become as standard in the classroom as the whiteboard. But the learning curve is still high—and the risks are real.</p>
             <p>This hub is your command center for the modern classroom. We have condensed 500+ hours of teacher feedback into these primary guides, designed to help you reclaim your time and lead your students into the future.</p>
+            
+            <NewsletterCTA 
+              variant="mid" 
+              heading="Reclaim your weekends"
+              subheading="Join teachers getting one practical AI classroom idea every week. Free."
+            />
           </div>
 
           <section aria-label="Educator guides" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '4rem' }}>
@@ -182,16 +190,11 @@ const TeacherHub = () => {
             </div>
           </div>
 
-          <div style={{ background: `linear-gradient(135deg, var(--color-teacher-soft) 0%, color-mix(in srgb, var(--color-teacher-light) 35%, white) 100%)`, borderRadius: 'var(--radius-xl)', padding: '3rem 2rem', textAlign: 'center', border: `1.5px solid var(--color-teacher-light)` }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📧</div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 900, marginBottom: '0.75rem', color: 'var(--color-teacher-bg-mid)' }}>The Weekly Teacher-AI Brief</h3>
-            <p style={{ color: 'var(--color-teacher-dark)', marginBottom: '2rem', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-              Join educators getting practical, jargon-free AI guidance every week.
-            </p>
-            <button type="button" className="btn" style={{ background: 'var(--color-teacher)', color: 'white', fontWeight: 800, padding: '0.85rem 2rem' }} onClick={scrollWaitlist}>
-              Join the Educator Waitlist →
-            </button>
-          </div>
+          <NewsletterCTA 
+            variant="end"
+            heading="Join the Educator Brief"
+            subheading="Practical, jargon-free AI guidance for teachers. Sent every Tuesday."
+          />
 
         </div>
       </div>

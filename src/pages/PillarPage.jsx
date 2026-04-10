@@ -64,6 +64,8 @@ const pillarFaqSchema = {
   ],
 }
 
+import NewsletterCTA from '../components/NewsletterCTA'
+
 const PillarPage = () => {
   const navigate = useNavigate()
   const allPosts = getAllPosts()
@@ -187,16 +189,11 @@ const PillarPage = () => {
             </div>
           </div>
 
-          <div style={{ background: 'var(--color-emerald-bg)', borderRadius: 'var(--radius-xl)', border: '1.5px solid var(--color-emerald-soft)', padding: '2.5rem', textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>📬</div>
-            <h3 style={{ fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-navy)' }}>Get new guides in your inbox</h3>
-            <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-              Join families getting weekly, jargon-free AI guidance.
-            </p>
-            <button type="button" className="btn btn-primary" onClick={scrollWaitlist}>
-              Join the Waitlist →
-            </button>
-          </div>
+          <NewsletterCTA 
+            variant="end"
+            heading="Get the Weekly Parent Brief"
+            subheading="Join families getting jargon-free, values-driven AI guidance every week."
+          />
 
         </div>
       </div>

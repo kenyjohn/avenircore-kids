@@ -141,6 +141,9 @@ const PrevNextNav = ({ prev, next }) => {
   )
 }
 
+import { MDXProvider } from '@mdx-js/react'
+import { components } from '../components/MDXComponents'
+
 // ── Main BlogPost component ─────────────────────────────────────
 const BlogPost = () => {
   const { slug } = useParams()
@@ -279,7 +282,9 @@ const BlogPost = () => {
           <div className="container" style={{ maxWidth: '760px' }}>
 
             <div className="blog-content">
-              <Content />
+              <MDXProvider components={components}>
+                <Content />
+              </MDXProvider>
             </div>
 
             {/* Share buttons */}

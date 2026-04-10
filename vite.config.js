@@ -51,7 +51,7 @@ function llmsTxtUtf8Plugin() {
 export default defineConfig({
   plugins: [
     llmsTxtUtf8Plugin(),
-    mdx(),
+    mdx({ providerImportSource: '@mdx-js/react' }),
     react(),
     sitemap({
       hostname: 'https://avenircore.com',
@@ -73,4 +73,13 @@ export default defineConfig({
       ],
     }),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
+      },
+    },
+  },
 })
