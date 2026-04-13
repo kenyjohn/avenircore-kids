@@ -1,7 +1,16 @@
+const escapeHTML = (str) =>
+  String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 export function generateWelcomeEmail(role, firstName) {
   const isTeacher = role === 'teacher' || role === 'educator';
   const isParent = role === 'parent';
-  const nameDisplay = firstName ? firstName : 'there';
+  // Strip XSS payloads from the user's name input BEFORE inserting into HTML
+  const nameDisplay = firstName ? escapeHTML(firstName) : 'there';
   const roleDisplay = isTeacher ? 'teachers' : isParent ? 'parents' : 'parents and teachers';
 
   const introText = isTeacher 
