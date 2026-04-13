@@ -79,8 +79,9 @@ export default async function handler(req, res) {
   const role = ALLOWED_ROLES.includes(rawRole) ? rawRole : 'general'
 
   // 7. Check environment variables
-  const BEEHIIV_PUB_ID = process.env.BEEHIIV_PUB_ID
-  const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY
+  // Fallback to VITE_ keys in case the Vercel dashboard wasn't updated yet to prevent 502s
+  const BEEHIIV_PUB_ID = process.env.BEEHIIV_PUB_ID || process.env.VITE_BEEHIIV_PUB_ID
+  const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY || process.env.VITE_BEEHIIV_API_KEY
 
   if (!BEEHIIV_PUB_ID || !BEEHIIV_API_KEY) {
     console.error('Missing Beehiiv configuration keys')
@@ -116,8 +117,8 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       console.error('Beehiiv API error:', response.status, data)
-      // Return a generic error — do not expose Beehiiv response details to client
-      return res.status(502).json({ message: 'Subscription service temporarily unavailable.' })
+      // Return specific error to client for debugging purposes to fix the production block
+      return res.status(502).json({ message: `Beehiiv returned ${response.status}: ${data.message || JSON.stringify(data)}` })
     }
 
     return res.status(200).json({ success: true })
