@@ -25,12 +25,13 @@ const EmailCapture = () => {
       });
 
       if (!res.ok) {
-        throw new Error('Newsletter API backend failed');
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || 'Newsletter API backend failed');
       }
 
       setSubmitted(true);
-    } catch {
-      setError('Something went wrong. Please try again.');
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
     }
     setLoading(false);
   };
