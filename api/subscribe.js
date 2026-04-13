@@ -1,5 +1,7 @@
 // api/subscribe.js — complete replacement
 
+import { Resend } from 'resend';
+import { generateWelcomeEmail } from './utils/welcomeEmailTemplate.js';
 // Simple but effective email regex — matches RFC 5321 common cases
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -119,6 +121,30 @@ export default async function handler(req, res) {
       console.error('Beehiiv API error:', response.status, data)
       // Return specific error to client for debugging purposes to fix the production block
       return res.status(502).json({ message: `Beehiiv returned ${response.status}: ${data.message || JSON.stringify(data)}` })
+    }
+
+    // --- NEW: Send Beautiful Welcome Email via Resend ---
+    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+    if (RESEND_API_KEY && email) {
+      const resend = new Resend(RESEND_API_KEY);
+      const subjectLine = role === 'parent' 
+        ? "Welcome to AvenirCore — you're doing the right thing"
+        : role === 'teacher' || role === 'educator'
+        ? "Welcome to AvenirCore — thank you for being here"
+        : "You're in 🌱 — here's your free AI workbook";
+        
+      try {
+        await resend.emails.send({
+          from: 'John at AvenirCore <hello@avenircore.com>',
+          to: email,
+          replyTo: 'hello@avenircore.com',
+          subject: subjectLine,
+          html: generateWelcomeEmail(role, name)
+        });
+      } catch (emailErr) {
+        console.error('Failed to send Resend welcome email:', emailErr);
+        // Do not block the primary subscription success return
+      }
     }
 
     return res.status(200).json({ success: true })
