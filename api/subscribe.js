@@ -102,7 +102,7 @@ export default async function handler(req, res) {
           email,
           custom_fields: [
             { name: 'role', value: role },
-            { name: 'first_name', value: name },
+            { name: 'First Name', value: name },
           ],
           reactivate_existing: true,
           send_welcome_email: false, // Must be false so custom Automations (e.g. 02-parent-welcome) trigger instead of generic email
