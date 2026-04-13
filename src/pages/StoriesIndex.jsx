@@ -10,26 +10,34 @@ export default function StoriesIndex() {
         <title>AI Story Library for Kids | AvenirCore</title>
         <meta name="description" content="Explore AvenirCore's library of 5 interactive AI literacy stories for children ages 6-10. Teach kids about pattern recognition, AI ethics, and data quality through play." />
       </Helmet>
-      <div className="stories-header">
+      <div className="stories-page-header">
+        <div className="stories-hero-badge">5 Stories</div>
         <h1 className="stories-title">AI Story Library</h1>
         <p className="stories-subtitle">Choose an interactive adventure to learn about AI!</p>
-        <div style={{marginTop: '1rem'}}><span className="story-count-badge">5 Stories</span></div>
       </div>
       
       <div className="stories-grid">
         {stories.map(story => (
-          <Link to={`/stories/${story.id}`} key={story.id} className="story-card text-decoration-none">
+          <Link to={`/stories/${story.id}`} key={story.id} className="story-card">
+            <div className="story-card-banner" style={{ backgroundColor: story.character?.color || 'var(--color-teacher-soft)' }}>
+              <span className="story-card-banner-emoji">{story.character?.emoji}</span>
+            </div>
             <div className="story-card-inner">
               <div className="story-card-meta">
-                {story.character && <span className="story-badge-character" style={{backgroundColor: story.character.color || 'var(--color-navy)'}}>{story.character.emoji}</span>}
                 {story.ageRange && <span className="story-badge-age">{story.ageRange}</span>}
                 {story.difficulty && <span className={`story-badge-diff ${story.difficulty.toLowerCase()}`}>{story.difficulty}</span>}
               </div>
               <h3 className="story-card-title">{story.title}</h3>
               <p className="story-card-desc">{story.description}</p>
-              <div className="story-card-action">
-                <span className="btn btn-outline">Read Story &rarr;</span>
+              <div>
+                <span className="story-concept-pill">{story.aiConcept}</span>
               </div>
+              <button 
+                className="story-card-cta" 
+                style={{ backgroundColor: story.character?.color || 'var(--color-teacher)' }}
+              >
+                Read Story
+              </button>
             </div>
           </Link>
         ))}

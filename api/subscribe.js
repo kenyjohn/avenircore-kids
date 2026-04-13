@@ -79,8 +79,8 @@ export default async function handler(req, res) {
   const role = ALLOWED_ROLES.includes(rawRole) ? rawRole : 'general'
 
   // 7. Check environment variables
-  const BEEHIIV_PUB_ID = process.env.VITE_BEEHIIV_PUB_ID
-  const BEEHIIV_API_KEY = process.env.VITE_BEEHIIV_API_KEY
+  const BEEHIIV_PUB_ID = process.env.BEEHIIV_PUB_ID
+  const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY
 
   if (!BEEHIIV_PUB_ID || !BEEHIIV_API_KEY) {
     console.error('Missing Beehiiv configuration keys')
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
             { name: 'first_name', value: name },
           ],
           reactivate_existing: true,
-          send_welcome_email: true,
+          send_welcome_email: false, // Must be false so custom Automations (e.g. 02-parent-welcome) trigger instead of generic email
           utm_source: 'avenircore-website',
           utm_medium: 'waitlist',
           referring_site: 'https://avenircore.com',

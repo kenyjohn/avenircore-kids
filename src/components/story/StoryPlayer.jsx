@@ -54,9 +54,9 @@ export default function StoryPlayer() {
     if (step.type === 'story') {
       return <StoryStep step={step} onNext={handleNext} character={story.character} />;
     } else if (step.type === 'question') {
-      return <QuestionStep step={step} onCorrectAnswer={handleCorrectAction} />;
+      return <QuestionStep step={step} onCorrectAnswer={handleCorrectAction} onNext={handleNext} />;
     } else if (step.type === 'activity') {
-      return <ActivityStep step={step} onComplete={handleCorrectAction} />;
+      return <ActivityStep step={step} onComplete={handleCorrectAction} onNext={handleNext} />;
     }
     return null;
   };
@@ -84,7 +84,15 @@ export default function StoryPlayer() {
     </Helmet>
   );
 
+  const handleReplay = () => {
+    setCurrentStepIdx(0);
+    setScore(0);
+    setIsCompleted(false);
+  };
+
   if (isCompleted) {
+    const stars = score >= 2 ? 3 : score === 1 ? 2 : 1;
+
     return (
       <div className="story-player-container container section animate-fade-up">
         {seoMetadata}
@@ -95,13 +103,16 @@ export default function StoryPlayer() {
             You finished <strong>{story.title}</strong>!
           </p>
           <div className="story-concept-badge">
-            What you learned today: <strong>{story.aiConcept}</strong>
+            <span className="story-card-banner-emoji">🧠</span> What you learned today: {story.aiConcept}
           </div>
-          <p className="story-completed-score mt-2">
-            You scored: {score} stars 🌟
-          </p>
+          <div className="story-stars">
+            {Array(stars).fill(0).map((_, i) => (
+              <span key={i} className="story-star">⭐</span>
+            ))}
+          </div>
           <div className="story-completed-actions mt-2">
-            <Link to="/stories" className="btn btn-primary btn-lg">Pick Another Story</Link>
+            <button className="btn-replay-story" onClick={handleReplay}>Play again</button>
+            <Link to="/stories" className="btn-next-story">Pick Another Story</Link>
           </div>
         </div>
       </div>
@@ -112,7 +123,10 @@ export default function StoryPlayer() {
     <div className="story-player-container container section">
       {seoMetadata}
       <div className="story-player-header">
-        <Link to="/stories" className="story-back-link">&larr; Back to Stories</Link>
+        <div className="story-player-nav">
+          <Link to="/stories" className="story-back-link">&larr; Back to Stories</Link>
+          <span className="story-step-counter">Step {currentStepIdx} of {story.steps.length}</span>
+        </div>
         <h2 className="story-player-title">
           {story.character?.emoji && <span style={{marginRight: '0.5rem'}}>{story.character.emoji}</span>}
           {story.title}

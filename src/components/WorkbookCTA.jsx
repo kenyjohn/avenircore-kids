@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const features = [
   '10 hands-on activities for ages 6–12',
   'Prompt writing, AI safety & careers',
@@ -24,9 +26,9 @@ const WorkbookCTA = () => (
           ))}
         </div>
         <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <a href="/avenircore-kids-ai-workbook.pdf" download className="btn btn-primary btn-lg">
-            Download Free PDF →
-          </a>
+          <Link to="/workbook" className="btn btn-primary btn-lg">
+            Get the Workbook →
+          </Link>
           <button className="btn btn-outline btn-lg" onClick={() => document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })}>
             Join Waitlist
           </button>

@@ -190,6 +190,20 @@ const TeacherHub = () => {
             </div>
           </div>
 
+          <div style={{ background: '#f5f3ff', borderRadius: 'var(--radius-xl)', border: '1.5px solid var(--color-teacher-soft)', padding: '2.5rem', marginBottom: '3.5rem', display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div style={{ flex: 1, minWidth: '280px' }}>
+              <span className="section-label" style={{ margin: 0, fontSize: '0.65rem', color: 'var(--color-teacher)', background: 'white', borderColor: 'var(--color-teacher-light)' }}>NEW RESOURCE</span>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--color-teacher-bg-mid)', marginTop: '0.75rem', marginBottom: '0.5rem' }}>
+                My AI Adventure Workbook
+              </h2>
+              <p style={{ fontSize: '1rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>A screen-free, printable 9-chapter curriculum teaching kids ages 6-12 what AI is, how it works, and why it matters.</p>
+              <Link to="/workbook" className="btn" style={{ background: 'var(--color-teacher)', color: 'white' }}>Get the Workbook for your Classroom →</Link>
+            </div>
+            <div style={{ width: '180px', flexShrink: 0, alignSelf: 'center', transform: 'rotate(2deg)', boxShadow: 'var(--shadow-lg)', borderRadius: '8px' }}>
+               <img src="/images/workbook-thumbnail.png" alt="Workbook Cover" style={{ borderRadius: '8px', border: '1px solid var(--color-border)' }} />
+            </div>
+          </div>
+
           <NewsletterCTA 
             variant="end"
             heading="Join the Educator Brief"

@@ -84,11 +84,6 @@ const NewsletterCTA = ({
       setStatus('success')
     } catch (err) {
       console.error('Newsletter submission error:', err)
-      if (import.meta.env.DEV) {
-        console.warn('API call failed in DEV. Simulating success for UI verification.')
-        setTimeout(() => setStatus('success'), 1000)
-        return
-      }
       setStatus('error')
       setErrorMsg(err.message || 'Something went wrong — please try again.')
     }

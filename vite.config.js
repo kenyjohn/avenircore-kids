@@ -70,6 +70,7 @@ export default defineConfig({
         '/blog/what-age-can-kids-use-ai',
         '/blog/will-ai-make-kids-lazy',
         '/about',
+        '/workbook',
       ],
     }),
   ],
