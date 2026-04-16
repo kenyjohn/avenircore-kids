@@ -291,7 +291,9 @@ ul { list-style: none; }
   border-color: rgba(255, 255, 255, 0.25);
 }
 .form-select option { background: var(--color-navy-mid); color: white; }
-.form-privacy { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 0.85rem; text-align: center; }
+.form-privacy { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.85rem; text-align: center; }
+/* Dark-background context (e.g. email capture section) — restore white tint */
+.email-form .form-privacy { color: rgba(255,255,255,0.45); }
 
 /* ── Form inputs on light background (Contact page context) ── */
 .form-light .form-input,
