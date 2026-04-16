@@ -1,0 +1,49 @@
+{
+  "id": "zara-builds-a-doctor",
+  "title": "Zara Builds a Doctor",
+  "description": "In rural Kenya, an AI diagnostic tool visits Zara's village. She loves it — and she already knows how to make it better.",
+  "ageRange": "10–14",
+  "difficulty": "Intermediate",
+  "aiConcept": "AI in Healthcare & Human Oversight",
+  "character": {
+    "name": "Zara",
+    "emoji": "🏥",
+    "color": "#059669"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Thirteen-year-old Zara lives in rural Kenya. The nearest doctor is four hours away. When a health worker visits with a tablet running an AI diagnostic tool, Zara watches in amazement. The app asks questions about symptoms, reads descriptions, and flags conditions to refer to a real doctor. Zara — who wants to be a doctor one day — starts paying close attention."
+    },
+    {
+      "type": "question",
+      "question": "What is the most accurate description of what an AI diagnostic tool does?",
+      "options": [
+        "It replaces doctors completely",
+        "It matches reported symptoms against patterns learned from thousands of real cases to suggest possible conditions",
+        "It takes X-rays",
+        "It prescribes medicine automatically"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "The AI flags a condition for Zara's grandmother. The health worker explains: 'This is a referral trigger, not a diagnosis. The AI narrows down possibilities; a doctor confirms.' Zara asks: 'What if it's wrong?' The health worker is honest: 'It sometimes is. That's exactly why human judgment stays in the loop — always.'"
+    },
+    {
+      "type": "activity",
+      "instruction": "Zara notices the app never asks about local plant-based remedies that interact with medication. What should she do?",
+      "options": [
+        "Assume the app knows everything and ignore the gap",
+        "Write a detailed 'feature request' for the organisation that built the tool",
+        "Stop using the app entirely",
+        "Change the app herself without telling anyone"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Zara wrote her feature request as a school project. Her teacher submitted it to the nonprofit. They responded — the gap she found was real and they added it to their next update. Zara learned that the best AI isn't built by the smartest engineers in the world alone. It's built with the people who use it."
+    }
+  ]
+}

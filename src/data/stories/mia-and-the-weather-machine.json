@@ -1,0 +1,49 @@
+{
+  "id": "mia-and-the-weather-machine",
+  "title": "Mia and the Weather Machine",
+  "description": "When AI predicts a flood three days before it hits, Mia and her uncle have to decide — do they trust the machine?",
+  "ageRange": "8–12",
+  "difficulty": "Beginner",
+  "aiConcept": "AI for Climate & Environment",
+  "character": {
+    "name": "Mia",
+    "emoji": "🌊",
+    "color": "#0891b2"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Mia is ten and lives in a village in the Philippines. Every monsoon season the floods come — it's something everyone just accepts. But this year, her uncle the fisherman gets access to a new AI weather prediction app built by a local nonprofit. It doesn't just say 'rain tomorrow.' It predicts storm surges three days ahead using satellite data and ocean temperatures."
+    },
+    {
+      "type": "question",
+      "question": "How can an AI predict a flood better than a local radio station?",
+      "options": [
+        "AI makes things up to sound smart",
+        "AI processes huge amounts of satellite, ocean, and weather data that humans can't read that fast",
+        "AI is always connected to the weather",
+        "AI guesses randomly"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "The app sends an unusual warning — worse than the radio forecast. Mia's uncle isn't sure who to trust. Mia investigates: the app looks at ocean temperature, wind patterns, and historical flood data from the last 50 years all at once. The radio station only checks local sensors."
+    },
+    {
+      "type": "activity",
+      "instruction": "The AI warning contradicts the radio. What should Mia's uncle do?",
+      "options": [
+        "Ignore the app — radio has always been reliable",
+        "Prepare early based on the AI warning and explain why to neighbours",
+        "Wait and see what happens",
+        "Turn off the app"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "They prepared early. The flood came — worse than the radio predicted, but their family was ready. Mia started teaching the app to the elderly women in her village who didn't have smartphones — she created a 'weather board' to relay the AI's predictions in plain language. AI is a tool. She decided what it was for."
+    }
+  ]
+}

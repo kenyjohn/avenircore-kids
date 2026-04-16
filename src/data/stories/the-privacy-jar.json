@@ -1,0 +1,49 @@
+{
+  "id": "the-privacy-jar",
+  "title": "The Privacy Jar",
+  "description": "Nico loves his favourite gaming app — until his sister asks one question he can't answer: what does it know about you?",
+  "ageRange": "8–13",
+  "difficulty": "Beginner",
+  "aiConcept": "Data Privacy & Digital Rights",
+  "character": {
+    "name": "Nico",
+    "emoji": "🔐",
+    "color": "#d97706"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Nine-year-old Nico loves his free gaming app. He plays every evening. One day, his older sister — studying computer science at university — asks him a question he can't answer: 'What does that app know about you?' Nico laughs it off. But she's serious. Together, they decide to find out."
+    },
+    {
+      "type": "question",
+      "question": "If an app is completely free to use, how does the company that made it make money?",
+      "options": [
+        "They make money from donations",
+        "They often make money by collecting your data and sharing it with advertisers",
+        "They don't make any money",
+        "Free apps are made by governments"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "They find the privacy policy — sixteen pages of legal language. Nico tries to read it and gives up in two minutes. His sister explains: 'That's not an accident. The harder it is to read, the less likely you are to opt out.' Using a privacy decoder tool, they discover the app shares data with 14 third-party advertisers and uses Nico's in-game choices to build a behavioural profile."
+    },
+    {
+      "type": "activity",
+      "instruction": "Nico is upset about what the app does with his data. What's the most empowered response?",
+      "options": [
+        "Do nothing — all apps are like this",
+        "Turn off location access, adjust privacy settings, and tell his friends what he found",
+        "Delete every app he owns",
+        "Ignore his sister — she's overreacting"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Nico didn't delete the app. He adjusted his settings, turned off location access, and started something new: a 'Privacy Jar' at school. Each week, one student drops in a card with one thing they learned about their digital footprint. The jar fills up fast. You have the right to know what AI learns about you. Now Nico knows how to use it."
+    }
+  ]
+}

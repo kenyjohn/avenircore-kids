@@ -1,0 +1,49 @@
+{
+  "id": "the-news-bot-that-lied",
+  "title": "The News Bot That Lied (Sort Of)",
+  "description": "Dev trusts an AI chatbot for his school project — and learns the hard way that confidence isn't the same as accuracy.",
+  "ageRange": "10–14",
+  "difficulty": "Intermediate",
+  "aiConcept": "AI Transparency & Hallucination",
+  "character": {
+    "name": "Dev",
+    "emoji": "🔎",
+    "color": "#dc2626"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Eleven-year-old Dev used an AI chatbot to research his school project on space exploration. The bot was fast, confident, and wrote in perfect sentences. Dev submitted the work feeling great. His teacher called him in the next day — two of the facts were completely wrong. Not a little wrong. Completely, verifiably wrong."
+    },
+    {
+      "type": "question",
+      "question": "Why can an AI chatbot sound confident but still be wrong?",
+      "options": [
+        "AI chatbots are designed to lie",
+        "AI generates text that sounds plausible based on patterns, not verified facts",
+        "AI always checks Wikipedia first",
+        "AI can't access the internet"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Dev traced back the error. The AI had mixed up two real space missions and produced a plausible-sounding blend of both. This is called a 'hallucination' — when an AI confidently generates something that isn't true. It happens because AI learns from patterns in text, not from understanding what is actually real."
+    },
+    {
+      "type": "activity",
+      "instruction": "Dev wants to use AI tools responsibly. Which checklist step is MOST important before including an AI answer in schoolwork?",
+      "options": [
+        "Check if the AI answer sounds confident",
+        "Verify the claim on two independent, trusted sources",
+        "Ask the AI the same question twice",
+        "Check the AI's spelling"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Dev built a four-step checklist: (1) Is this time-sensitive info? (2) Does the AI cite a source? (3) Can I find the same fact on two trusted sites? (4) Would a real expert agree? His whole class — and even his teacher — started using it. Knowing how to check AI isn't about distrusting technology. It's a superpower."
+    }
+  ]
+}

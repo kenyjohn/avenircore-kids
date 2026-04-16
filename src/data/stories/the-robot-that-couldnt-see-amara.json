@@ -1,0 +1,49 @@
+{
+  "id": "the-robot-that-couldnt-see-amara",
+  "title": "The Robot That Couldn't See Amara",
+  "description": "Amara discovers that the school's AI tutor keeps skipping her — and goes on a mission to find out why.",
+  "ageRange": "9–13",
+  "difficulty": "Intermediate",
+  "aiConcept": "AI Bias & Fairness",
+  "character": {
+    "name": "Amara",
+    "emoji": "🔍",
+    "color": "#7c3aed"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Amara is twelve and lives in Lagos. Her school just got a brand-new AI system that decides which students get extra tutoring. Every week, the system makes its list — but Amara and her friend Kwame are never on it, even though they're both struggling with fractions."
+    },
+    {
+      "type": "question",
+      "question": "Why might an AI system treat students from different places unfairly?",
+      "options": [
+        "The AI is being deliberately mean",
+        "The AI was trained mostly on data from schools in other countries",
+        "The AI prefers some languages",
+        "The AI is broken"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "A visiting student researcher named Dr. Yemi helps them understand. She uses an analogy: imagine a cookbook written only for people who like spicy food. It wouldn't help people who don't — not because they're wrong, but because the book was never written with them in mind. The AI had only learned from schools in Europe and North America."
+    },
+    {
+      "type": "activity",
+      "instruction": "Amara and Kwame want to prove the AI is unfair. What's the best way to gather evidence?",
+      "options": [
+        "Interview 20 students and map who the AI recommends vs. who actually needs help",
+        "Complain to the teacher without any evidence",
+        "Delete the AI system",
+        "Ignore the problem"
+      ],
+      "correct": 0
+    },
+    {
+      "type": "story",
+      "content": "They gathered the evidence, built a clear case, and presented it to the principal. The school paused the AI system pending an external review. Amara learned something important: questioning AI isn't anti-technology. It's good science. The best AI is built with everyone in mind."
+    }
+  ]
+}
