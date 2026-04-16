@@ -178,6 +178,22 @@ The `/contact` page renders a `ContactPage` JSON-LD schema block.
 
 ---
 
+## Roadmap Features
+
+### Search Architecture (Upcoming)
+The global search feature uses a client-side index for instant discovery.
+- **Indexing**: Scans `src/posts/` and `src/data/stories/`.
+- **Interface**: Modal-based overlay triggered by `Cmd+K` or Header icon.
+- **Library**: Utilizes custom filtering logic with `useMemo` for performance.
+
+### Dashboard Hierarchy (Upcoming)
+The Teacher and Parent dashboards provide centralized progress management.
+- **Structure**: Sidebar navigation with dynamic view rendering.
+- **Data**: Fetches student progress from local session storage and serverless hooks.
+- **Views**: Student Rosters, Progress Charts, and Settings.
+
+---
+
 ## Editing Screens using Figma
 
 While these graphs represent application logic, if you need to visualize and edit the actual frontend UI screens matching production:

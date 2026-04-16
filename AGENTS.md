@@ -15,8 +15,13 @@ The entirety of AI direction exists efficiently centralized under the `.agents/`
 
 ### Triggered Skills (`.agents/skills/`)
 *Load these instruction modules only when context explicitly requires them.*
-- **`.agents/skills/seo-excellence.md`** - Instructions for defining metadata boundaries, Helmet hooks, Sitemap rules, and precise E-E-A-T JSON-LD schemas mapping out a best in class core web vital integration.
-- **`.agents/skills/cta-conversion.md`** - Marketing focus logic, UI sizing limits, interactive trigger bounds, honeypot filters.
+- **`.agents/skills/seo-excellence.md`** - Best-in-class core web vital and E-E-A-T integration.
+- **`.agents/skills/cta-conversion.md`** - Marketing focus logic and interaction trigger bounds.
+- **`.agents/skills/content-engine.md`** - Story JSON schemas and MDX blog pipeline.
+- **`.agents/skills/site-engineering.md`** - Routing topology and API boundary definitions.
+- **`.agents/skills/ui-patterns.md`** - Component scaffolding, animations, and design tokens.
+- **`.agents/skills/dashboard-logic.md`** - Layout and state guidelines for Teacher/Parent portals.
+- **`.agents/skills/search-architecture.md`** - Search indexing, keyboard navigation, and UI patterns.
 
 ### Automated Workflows (`.agents/workflows/`)
 *Run specific workflows executing repetitive procedural patterns directly.*
