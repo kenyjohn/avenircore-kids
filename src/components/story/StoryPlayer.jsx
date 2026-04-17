@@ -5,6 +5,7 @@ import StoryStep from './StoryStep';
 import QuestionStep from './QuestionStep';
 import ActivityStep from './ActivityStep';
 import { getStoryById } from '../../data/stories';
+import ContentGate from '../ContentGate';
 
 export default function StoryPlayer() {
   const { id } = useParams();
@@ -119,26 +120,47 @@ export default function StoryPlayer() {
     );
   }
 
-  return (
-    <div className="story-player-container container section">
+  // Teaser: always visible even when gated
+  const teaser = (
+    <div className="story-player-container container" style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
       {seoMetadata}
       <div className="story-player-header">
         <div className="story-player-nav">
           <Link to="/stories" className="story-back-link">&larr; Back to Stories</Link>
-          <span className="story-step-counter">Step {currentStepIdx} of {story.steps.length}</span>
+          <span className="story-step-counter">{story.steps.length} steps · {story.ageRange}</span>
         </div>
         <h2 className="story-player-title">
           {story.character?.emoji && <span style={{marginRight: '0.5rem'}}>{story.character.emoji}</span>}
           {story.title}
         </h2>
-        <div className="story-progress-bar">
-          <div className="story-progress-fill" style={{ width: `${progressPercent}%` }}></div>
-        </div>
-      </div>
-
-      <div className="story-step-wrapper">
-        {renderStep()}
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          {story.description}
+        </p>
       </div>
     </div>
+  );
+
+  return (
+    <ContentGate contentType="story" teaser={teaser}>
+      <div className="story-player-container container section">
+        <div className="story-player-header">
+          <div className="story-player-nav">
+            <Link to="/stories" className="story-back-link">&larr; Back to Stories</Link>
+            <span className="story-step-counter">Step {currentStepIdx} of {story.steps.length}</span>
+          </div>
+          <h2 className="story-player-title">
+            {story.character?.emoji && <span style={{marginRight: '0.5rem'}}>{story.character.emoji}</span>}
+            {story.title}
+          </h2>
+          <div className="story-progress-bar">
+            <div className="story-progress-fill" style={{ width: `${progressPercent}%` }}></div>
+          </div>
+        </div>
+
+        <div className="story-step-wrapper">
+          {renderStep()}
+        </div>
+      </div>
+    </ContentGate>
   );
 }

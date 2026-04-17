@@ -1,0 +1,260 @@
+/* ─── ContentGate.css ──────────────────────────────────────────────────────── */
+/* Metered paywall overlay. Matches AvenirCore's teal/navy/light palette.      */
+/* Uses CSS custom properties so it inherits any brand token overrides.         */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Layout root ────────────────────────────────────────────────────────────── */
+.cg-root {
+  position: relative;
+}
+
+/* ── Teaser (always visible) ────────────────────────────────────────────────── */
+.cg-teaser {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Blurred content layer ──────────────────────────────────────────────────── */
+.cg-blur-wrapper {
+  /* Still in DOM (good for SEO crawlers that don't run JS), just unreadable */
+  max-height: 340px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  filter: blur(3px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Overlay container ──────────────────────────────────────────────────────── */
+.cg-overlay {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem 3rem;
+  /* Pulls up slightly to overlap the fade-out of blurred content */
+  margin-top: -80px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────────── */
+.cg-card {
+  background: #ffffff;
+  border: 1.5px solid var(--color-border, #e2e8f0);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.07),
+    0 20px 40px -8px rgba(13, 110, 90, 0.12);
+  padding: 2.5rem 2rem 2rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  animation: cg-rise 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cg-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Icon ───────────────────────────────────────────────────────────────────── */
+.cg-icon {
+  font-size: 2.25rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+/* ── Heading ────────────────────────────────────────────────────────────────── */
+.cg-heading {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-navy, #0d1b2a);
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+}
+
+/* ── Subtext ────────────────────────────────────────────────────────────────── */
+.cg-subtext {
+  font-size: 0.95rem;
+  color: var(--color-text-muted, #4a5568);
+  margin: 0 0 0.5rem;
+  line-height: 1.55;
+}
+
+/* ── Promise line ───────────────────────────────────────────────────────────── */
+.cg-promise {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-emerald, #059669);
+  margin: 0 0 1.4rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── Form ───────────────────────────────────────────────────────────────────── */
+.cg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.cg-label {
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text, #2d3748);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cg-input {
+  width: 100%;
+  padding: 0.72rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--color-border, #cbd5e0);
+  border-radius: 10px;
+  background: var(--color-bg, #f7fafc);
+  color: var(--color-text, #1a202c);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+  -webkit-text-fill-color: var(--color-text, #1a202c);
+  font-family: var(--font-body, sans-serif);
+}
+
+.cg-input:focus {
+  outline: none;
+  border-color: var(--color-emerald, #059669);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+  background: #ffffff;
+}
+
+.cg-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Error ──────────────────────────────────────────────────────────────────── */
+.cg-error {
+  font-size: 0.82rem;
+  color: #e53e3e;
+  margin: 0;
+}
+
+/* ── CTA Button ─────────────────────────────────────────────────────────────── */
+.cg-button {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  color: #ffffff;
+  background: var(--color-emerald, #059669);
+  border: none;
+  border-radius: var(--radius-pill, 50px);
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  letter-spacing: 0.01em;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; /* WCAG touch target */
+}
+
+.cg-button:hover:not(:disabled) {
+  background: #047857;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.3);
+}
+
+.cg-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.cg-button--loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* ── Spinner ────────────────────────────────────────────────────────────────── */
+.cg-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: cg-spin 0.65s linear infinite;
+}
+
+@keyframes cg-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Success state ──────────────────────────────────────────────────────────── */
+.cg-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  animation: cg-rise 0.3s ease both;
+}
+
+.cg-success-icon {
+  font-size: 2rem;
+}
+
+.cg-success p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-emerald, #059669);
+  margin: 0;
+}
+
+/* ── Fine print ─────────────────────────────────────────────────────────────── */
+.cg-fine-print {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #718096);
+  margin: 1.1rem 0 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cg-fine-print abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .cg-card {
+    padding: 2rem 1.25rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .cg-heading {
+    font-size: 1.2rem;
+  }
+
+  .cg-overlay {
+    padding: 0 0.75rem 2rem;
+  }
+}

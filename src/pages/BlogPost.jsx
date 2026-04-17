@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { getPostBySlug, getRelatedPosts, getAdjacentPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
 import AuthorBox from '../components/AuthorBox'
+import ContentGate from '../components/ContentGate'
 
 // ── Share buttons ──────────────────────────────────────────────
 const ShareButtons = ({ title, slug }) => {
@@ -226,6 +227,39 @@ const BlogPost = () => {
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avenircore.com/blog/${slug}` },
   }
 
+  // Blog teaser — always visible above the gate
+  const blogTeaser = (
+    <>
+      {/* Breadcrumb nav */}
+      <div style={{ background: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)', padding: '0.75rem 0' }}>
+        <div className="container" style={{ maxWidth: '760px' }}>
+          <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
+            <Link to="/" style={{ color: 'var(--color-emerald)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span>›</span>
+            <Link to="/blog" style={{ color: 'var(--color-emerald)', textDecoration: 'none', fontWeight: 600 }}>Blog</Link>
+            <span>›</span>
+            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '280px' }}>{title}</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Hero */}
+      <div style={{ background: 'var(--color-navy)', padding: '3.5rem 0 2.5rem', color: 'white' }}>
+        <div className="container" style={{ maxWidth: '760px' }}>
+          <span className="section-label" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>{category}</span>
+          <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 900, color: 'white', margin: '1rem 0', lineHeight: 1.15 }}>
+            {title}
+          </h1>
+          <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/about" style={{ color: 'white', textDecoration: 'none', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.3)' }}>By {author}</Link>
+            <span>{date}</span>
+            {readingTime && <span>· {readingTime}</span>}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <>
       <Helmet>
@@ -249,84 +283,58 @@ const BlogPost = () => {
       </Helmet>
 
       <article>
-        {/* ── Breadcrumb nav ── */}
-        <div style={{ background: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)', padding: '0.75rem 0' }}>
-          <div className="container" style={{ maxWidth: '760px' }}>
-            <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-              <Link to="/" style={{ color: 'var(--color-emerald)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
-              <span>›</span>
-              <Link to="/blog" style={{ color: 'var(--color-emerald)', textDecoration: 'none', fontWeight: 600 }}>Blog</Link>
-              <span>›</span>
-              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '280px' }}>{title}</span>
-            </nav>
-          </div>
-        </div>
+        <ContentGate contentType="blog" teaser={blogTeaser}>
+          {/* Body */}
+          <div style={{ padding: '3rem 0', background: 'var(--color-bg)' }}>
+            <div className="container" style={{ maxWidth: '760px' }}>
 
-        {/* ── Hero ── */}
-        <div style={{ background: 'var(--color-navy)', padding: '3.5rem 0 2.5rem', color: 'white' }}>
-          <div className="container" style={{ maxWidth: '760px' }}>
-            <span className="section-label" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>{category}</span>
-            <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 900, color: 'white', margin: '1rem 0', lineHeight: 1.15 }}>
-              {title}
-            </h1>
-            <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', flexWrap: 'wrap', alignItems: 'center' }}>
-              <Link to="/about" style={{ color: 'white', textDecoration: 'none', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.3)' }}>By {author}</Link>
-              <span>{date}</span>
-              {readingTime && <span>· {readingTime}</span>}
-            </div>
-          </div>
-        </div>
-
-        {/* ── Body ── */}
-        <div style={{ padding: '3rem 0', background: 'var(--color-bg)' }}>
-          <div className="container" style={{ maxWidth: '760px' }}>
-
-            <div className="blog-content">
-              <MDXProvider components={components}>
-                <Content />
-              </MDXProvider>
-            </div>
-
-            {/* Share buttons */}
-            <ShareButtons title={title} slug={slug} />
-
-            {/* FAQ accordion */}
-            {faqs && (
-              <div style={{ marginTop: '2rem', padding: '2rem', background: 'white', borderRadius: 'var(--radius-xl)', border: '1.5px solid var(--color-border)' }}>
-                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1.25rem', color: 'var(--color-navy)' }}>Frequently asked questions</h2>
-                {faqs.map((faq, i) => (
-                  <details key={i} style={{ marginBottom: '0.75rem', padding: '1rem', background: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', cursor: 'pointer' }}>
-                    <summary style={{ fontWeight: 700, cursor: 'pointer', color: 'var(--color-navy)', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-                      {faq.q}
-                      <span style={{ flexShrink: 0, fontSize: '1.1rem', color: 'var(--color-emerald)' }}>+</span>
-                    </summary>
-                    <p style={{ marginTop: '0.75rem', color: 'var(--color-text-muted)', lineHeight: 1.7, paddingRight: '1rem' }}>{faq.a}</p>
-                  </details>
-                ))}
+              <div className="blog-content">
+                <MDXProvider components={components}>
+                  <Content />
+                </MDXProvider>
               </div>
-            )}
 
-            {/* Newsletter CTA */}
-            <div style={{ marginTop: '2.5rem', padding: '2.5rem', background: 'var(--color-emerald-bg)', borderRadius: 'var(--radius-xl)', textAlign: 'center', border: '1.5px solid var(--color-emerald-soft)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🌱</div>
-              <h3 style={{ fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-navy)' }}>Want more guides like this?</h3>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>Join our free weekly newsletter for parents.</p>
-              <button type="button" className="btn btn-primary" onClick={scrollWaitlist}>
-                Join the Waitlist →
-              </button>
+              {/* Share buttons */}
+              <ShareButtons title={title} slug={slug} />
+
+              {/* FAQ accordion */}
+              {faqs && (
+                <div style={{ marginTop: '2rem', padding: '2rem', background: 'white', borderRadius: 'var(--radius-xl)', border: '1.5px solid var(--color-border)' }}>
+                  <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1.25rem', color: 'var(--color-navy)' }}>Frequently asked questions</h2>
+                  {faqs.map((faq, i) => (
+                    <details key={i} style={{ marginBottom: '0.75rem', padding: '1rem', background: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', cursor: 'pointer' }}>
+                      <summary style={{ fontWeight: 700, cursor: 'pointer', color: 'var(--color-navy)', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                        {faq.q}
+                        <span style={{ flexShrink: 0, fontSize: '1.1rem', color: 'var(--color-emerald)' }}>+</span>
+                      </summary>
+                      <p style={{ marginTop: '0.75rem', color: 'var(--color-text-muted)', lineHeight: 1.7, paddingRight: '1rem' }}>{faq.a}</p>
+                    </details>
+                  ))}
+                </div>
+              )}
+
+              {/* Newsletter CTA */}
+              <div style={{ marginTop: '2.5rem', padding: '2.5rem', background: 'var(--color-emerald-bg)', borderRadius: 'var(--radius-xl)', textAlign: 'center', border: '1.5px solid var(--color-emerald-soft)' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🌱</div>
+                <h3 style={{ fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-navy)' }}>Want more guides like this?</h3>
+                <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>Join our free weekly newsletter for parents.</p>
+                <button type="button" className="btn btn-primary" onClick={scrollWaitlist}>
+                  Join the Waitlist →
+                </button>
+              </div>
+
+              {/* Author box */}
+              <AuthorBox />
+
+              {/* Related posts */}
+              <RelatedPosts posts={relatedPosts} />
+
+              {/* Prev / Next */}
+              <PrevNextNav prev={prev} next={next} />
+
             </div>
-
-            {/* Author box */}
-            <AuthorBox />
-
-            {/* Related posts */}
-            <RelatedPosts posts={relatedPosts} />
-
-            {/* Prev / Next */}
-            <PrevNextNav prev={prev} next={next} />
-
           </div>
-        </div>
+        </ContentGate>
       </article>
     </>
   )
