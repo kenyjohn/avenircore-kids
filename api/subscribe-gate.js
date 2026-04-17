@@ -15,6 +15,7 @@ const ALLOWED_ORIGINS = [
   'https://avenircore.com',
   'https://avenircore-kids.vercel.app',
   'http://localhost:5173',
+  'http://localhost:5174',
   'http://localhost:3000',
 ];
 
@@ -31,6 +32,12 @@ export default async function handler(req, res) {
     return res.status(403).json({ error: 'Forbidden' });
   }
 
+  // ── Payload size guard (matches /api/subscribe.js) ────────────────────────
+  const contentLength = parseInt(req.headers['content-length'] || '0', 10);
+  if (contentLength > 2048) {
+    return res.status(413).json({ error: 'Payload too large' });
+  }
+
   // ── Parse body ───────────────────────────────────────────────────────────────
   let body;
   try {
@@ -45,12 +52,15 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Email is required' });
   }
 
-  const email = rawEmail.trim().toLowerCase();
+  const email = rawEmail.trim().toLowerCase().slice(0, 254); // RFC 5321 max
   if (!EMAIL_REGEX.test(email)) {
     return res.status(400).json({ error: 'Invalid email address' });
   }
 
-  const source = typeof rawSource === 'string' ? rawSource.slice(0, 50) : 'content-gate';
+  // Strip control chars from source (defence-in-depth)
+  const source = typeof rawSource === 'string'
+    ? rawSource.replace(/[\u0000-\u001F\u007F]/g, '').slice(0, 50)
+    : 'content-gate';
 
   // ── Config guard ──────────────────────────────────────────────────────────────
   const RESEND_API_KEY = process.env.RESEND_API_KEY ?? '';

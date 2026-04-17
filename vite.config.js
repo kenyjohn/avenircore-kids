@@ -57,6 +57,12 @@ export default defineConfig({
       hostname: 'https://avenircore.com',
       generateRobotsTxt: false,
       dynamicRoutes: [
+        // Core pages
+        '/about',
+        '/contact',
+        '/workbook',
+        '/stories',
+        // Blog articles
         '/blog',
         '/blog/ai-for-kids-guide',
         '/blog/teachers-ai-guide',
@@ -69,8 +75,18 @@ export default defineConfig({
         '/blog/free-ai-tools-for-kids-2026',
         '/blog/what-age-can-kids-use-ai',
         '/blog/will-ai-make-kids-lazy',
-        '/about',
-        '/workbook',
+        // Stories — original 5
+        '/stories/curious-robot',
+        '/stories/smart-assistant',
+        '/stories/data-detective',
+        '/stories/kind-ai',
+        '/stories/ai-mistake',
+        // Stories — 5 new ethical AI (Issue #12)
+        '/stories/the-robot-that-couldnt-see-amara',
+        '/stories/mia-and-the-weather-machine',
+        '/stories/the-news-bot-that-lied',
+        '/stories/zara-builds-a-doctor',
+        '/stories/the-privacy-jar',
       ],
     }),
   ],

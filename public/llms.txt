@@ -60,13 +60,21 @@ clarity, and strong values at the core.
 - AI lesson planning: https://avenircore.com/blog/ai-lesson-planning-for-teachers
 - AI prompts for group work: https://avenircore.com/blog/ai-prompts-for-group-work
 
-## Stories
+## Stories (10 interactive)
 
+### Original AI literacy stories (ages 6–10)
 - [The Curious Robot](/stories/curious-robot): Interactive story teaching pattern recognition for kids ages 6–8.
 - [The Data Detective](/stories/data-detective): Story about good vs bad training data for kids ages 6–8.
 - [The Smart Assistant](/stories/smart-assistant): Story about how AI makes decisions, ages 6–8.
 - [Being Kind to AI](/stories/kind-ai): Story about respectful and honest AI use, ages 6–8.
 - [When AI Gets It Wrong](/stories/ai-mistake): Story about AI limitations and critical thinking, ages 8–10.
+
+### Ethical AI stories — new (ages 9–14)
+- [The Robot That Couldn't See Amara](/stories/the-robot-that-couldnt-see-amara): AI bias and fairness story — how training data can exclude people. Ages 9–13.
+- [Mia and the Weather Machine](/stories/mia-and-the-weather-machine): AI and climate — when AI predictions and human decisions intersect. Ages 8–12.
+- [The News Bot That Lied (Sort Of)](/stories/the-news-bot-that-lied): AI hallucination and transparency — why even confident AI can be wrong. Ages 10–14.
+- [Zara Builds a Doctor](/stories/zara-builds-a-doctor): AI in healthcare and the importance of human oversight. Ages 10–14.
+- [The Privacy Jar](/stories/the-privacy-jar): Data privacy and digital rights — what your data really means. Ages 8–13.
 
 ## Content standards
 
