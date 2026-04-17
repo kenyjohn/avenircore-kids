@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getAllPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
 
@@ -66,16 +66,7 @@ const teacherFaqSchema = {
 import NewsletterCTA from '../components/NewsletterCTA'
 
 const TeacherHub = () => {
-  const navigate = useNavigate()
   const allPosts = getAllPosts()
-
-  const scrollWaitlist = () => {
-    navigate('/')
-    setTimeout(() => {
-      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
-    }, 100)
-  }
-
   const teacherPosts = TEACHER_ARTICLES
     .map(item => {
       const post = allPosts.find(p => p.slug === item.slug)

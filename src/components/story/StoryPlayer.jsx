@@ -9,22 +9,25 @@ import ContentGate from '../ContentGate';
 
 export default function StoryPlayer() {
   const { id } = useParams();
-  const [story, setStory] = useState(null);
+  const [story, setStory] = useState(() => getStoryById(id));
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
-  const [score, setScore] = useState(0); // Track successful quiz/activities
+  const [score, setScore] = useState(0); 
   const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
-    // In a real app, you might fetch this based on the ID.
-    // Here we load from our local JSON array.
+    // When ID changes, we need to refresh the story if the component wasn't remounted.
+    // However, if we use a 'key' in the parent, this component will remount naturally.
+    // For safety, we update if id changes but foundStory differs.
     const foundStory = getStoryById(id);
-    if (foundStory) {
+    if (foundStory && (!story || foundStory.id !== story.id)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setStory(foundStory);
       setCurrentStepIdx(0);
       setScore(0);
       setIsCompleted(false);
     }
-  }, [id]);
+  }, [id, story]);
+
 
   if (!story) {
     return (
