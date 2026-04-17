@@ -1,12 +1,11 @@
 // ─── api/subscribe-gate.js ────────────────────────────────────────────────────
 // Vercel Serverless Function — Content Gate subscriber endpoint.
-// Accepts POST { email, source } → adds contact to Resend Audience.
+// Accepts POST { email, source } → adds subscriber to Beehiiv (same pub as waitlist).
 //
-// Separate from /api/subscribe.js (which handles Beehiiv waitlist signups).
+// Strategy: reuses BEEHIIV_API_KEY + BEEHIIV_PUB_ID already set in Vercel.
+// No new environment variables needed.
 //
-// Environment variables required (set in Vercel dashboard):
-//   RESEND_API_KEY      — your Resend API key
-//   RESEND_AUDIENCE_ID  — your Resend audience/list ID (create one in Resend dashboard)
+// Tagged via utm_medium: 'content-gate' so you can filter in Beehiiv analytics.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,7 +31,7 @@ export default async function handler(req, res) {
     return res.status(403).json({ error: 'Forbidden' });
   }
 
-  // ── Payload size guard (matches /api/subscribe.js) ────────────────────────
+  // ── Payload size guard ────────────────────────────────────────────────────────
   const contentLength = parseInt(req.headers['content-length'] || '0', 10);
   if (contentLength > 2048) {
     return res.status(413).json({ error: 'Payload too large' });
@@ -62,45 +61,42 @@ export default async function handler(req, res) {
     ? rawSource.replace(/[\u0000-\u001F\u007F]/g, '').slice(0, 50)
     : 'content-gate';
 
-  // ── Config guard ──────────────────────────────────────────────────────────────
-  const RESEND_API_KEY = process.env.RESEND_API_KEY ?? '';
-  const RESEND_AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? '';
+  // ── Config — reuse Beehiiv keys already configured in Vercel ─────────────────
+  const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY || process.env.VITE_BEEHIIV_API_KEY || '';
+  const BEEHIIV_PUB_ID  = process.env.BEEHIIV_PUB_ID  || process.env.VITE_BEEHIIV_PUB_ID  || '';
 
-  if (!RESEND_API_KEY || !RESEND_AUDIENCE_ID) {
-    console.error('[subscribe-gate] Missing RESEND_API_KEY or RESEND_AUDIENCE_ID');
-    // Fail open — don't block the user if we're misconfigured
+  if (!BEEHIIV_API_KEY || !BEEHIIV_PUB_ID) {
+    console.error('[subscribe-gate] Missing BEEHIIV_API_KEY or BEEHIIV_PUB_ID');
+    // Fail open — never block a user due to a config error
     return res.status(200).json({ ok: true, warn: 'config_missing' });
   }
 
-  // ── Add to Resend Audience ────────────────────────────────────────────────────
+  // ── Subscribe to Beehiiv ──────────────────────────────────────────────────────
   try {
-    const resendRes = await fetch(
-      `https://api.resend.com/audiences/${RESEND_AUDIENCE_ID}/contacts`,
+    const beehiivRes = await fetch(
+      `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUB_ID}/subscriptions`,
       {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${BEEHIIV_API_KEY}`,
         },
         body: JSON.stringify({
           email,
-          unsubscribed: false,
-          data: {
-            source,
-            subscribed_at: new Date().toISOString(),
-          },
+          reactivate_existing: true,
+          send_welcome_email: false,
+          utm_source: 'avenircore-website',
+          utm_medium: 'content-gate',       // distinguishes gate subs from waitlist
+          utm_campaign: source,             // e.g. "content-gate"
+          referring_site: 'https://avenircore.com',
         }),
       }
     );
 
-    // 409 = already subscribed — treat as success
-    if (resendRes.status === 409) {
-      return res.status(200).json({ ok: true, alreadySubscribed: true });
-    }
+    const data = await beehiivRes.json().catch(() => ({}));
 
-    if (!resendRes.ok) {
-      const errBody = await resendRes.json().catch(() => ({}));
-      console.error('[subscribe-gate] Resend error:', resendRes.status, errBody);
+    if (!beehiivRes.ok) {
+      console.error('[subscribe-gate] Beehiiv error:', beehiivRes.status, data);
       return res.status(502).json({ error: 'Could not save subscription' });
     }
 

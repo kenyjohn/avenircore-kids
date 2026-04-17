@@ -4,7 +4,8 @@
 
 export const FREE_STORY_LIMIT = 3;
 export const FREE_BLOG_LIMIT = 2;
-// Content-gate uses a separate API endpoint to add contacts to Resend Audiences
-// (distinct from /api/subscribe which handles Beehiiv waitlist signups)
+// Content gate POSTs to /api/subscribe-gate → Beehiiv (utm_medium=content-gate)
+// distinct from /api/subscribe (waitlist, utm_medium=waitlist)
 export const SUBSCRIBE_API_ENDPOINT = "/api/subscribe-gate";
 export const SUBSCRIBE_SOURCE_TAG = "content-gate";
+
