@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
 
 const FEATURES = [
@@ -13,11 +13,10 @@ const TAGS = ['10 Activities', 'Certificate', 'Printable', 'Ages 6–12']
 
 const WorkbookCTA = () => {
   const ref = useReveal()
+  const navigate = useNavigate()
 
   const handleWaitlist = () => {
-    const el = document.getElementById('waitlist')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    else window.location.href = '/#waitlist'
+    navigate('/#waitlist')
   }
 
   return (

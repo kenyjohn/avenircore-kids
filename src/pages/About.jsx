@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { safeJsonLd } from '../utils/security'
 
 const personSchema = {
@@ -55,11 +55,10 @@ const START_HERE = [
 ]
 
 const About = () => {
+  const navigate = useNavigate()
 
-  const scrollWaitlist = () => {
-    const el = document.getElementById('waitlist')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    else window.location.href = '/#waitlist'
+  const handleWaitlist = () => {
+    navigate('/#waitlist')
   }
 
   return (
@@ -195,7 +194,7 @@ const About = () => {
             <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>Questions, partnership ideas, or just want to say hello — we read every email.</p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="mailto:hello@avenircore.com" className="btn btn-primary">Email us →</a>
-              <button type="button" className="btn btn-outline" onClick={scrollWaitlist}>Join the Waitlist</button>
+              <button type="button" className="btn btn-outline" onClick={handleWaitlist}>Join the Waitlist</button>
             </div>
           </div>
 

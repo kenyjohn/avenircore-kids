@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPostBySlug, getRelatedPosts, getAdjacentPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
@@ -148,16 +148,15 @@ import { components } from '../components/MDXComponents'
 // ── Main BlogPost component ─────────────────────────────────────
 const BlogPost = () => {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const post = getPostBySlug(slug)
 
   if (!post) return <Navigate to="/blog" replace />
 
   const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps } = post
 
-  const scrollWaitlist = () => {
-    const el = document.getElementById('waitlist')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    else window.location.href = '/#waitlist'
+  const handleWaitlist = () => {
+    navigate('/#waitlist')
   }
   const relatedPosts = getRelatedPosts(slug, category)
   const { prev, next } = getAdjacentPosts(slug)
@@ -316,7 +315,7 @@ const BlogPost = () => {
                 <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🌱</div>
                 <h3 style={{ fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-navy)' }}>Want more guides like this?</h3>
                 <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>Join our free weekly newsletter for parents.</p>
-                <button type="button" className="btn btn-primary" onClick={scrollWaitlist}>
+                <button type="button" className="btn btn-primary" onClick={handleWaitlist}>
                   Join the Waitlist →
                 </button>
               </div>

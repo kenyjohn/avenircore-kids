@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 import Logo from './Logo'
 
 // Primary nav — full weight, visible hierarchy
 const PRIMARY_NAV = [
-  { label: 'For Parents', href: '/#offerings',            external: true },
-  { label: 'For Teachers', to:   '/blog/teachers-ai-guide' },
-  { label: 'Workbook',     to:   '/workbook' },
-  { label: 'Stories',      to:   '/stories' },
-  { label: 'Blog',         to:   '/blog' },
+  { label: 'For Parents',  to: '/#offerings' },
+  { label: 'For Teachers', to: '/blog/teachers-ai-guide' },
+  { label: 'Workbook',     to: '/workbook' },
+  { label: 'Stories',      to: '/stories' },
+  { label: 'Blog',         to: '/blog' },
 ]
 
 // Secondary nav — smaller, muted, right-aligned before CTA
@@ -21,11 +21,10 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const close = () => setMenuOpen(false)
 
+  const navigate = useNavigate()
   const handleWaitlist = () => {
     close()
-    const el = document.getElementById('waitlist')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    else window.location.href = '/#waitlist'
+    navigate('/#waitlist')
   }
 
   return (
@@ -42,19 +41,15 @@ const Header = () => {
         <nav className="nav" aria-label="Main navigation">
           {/* Primary links */}
           <div className="nav-primary">
-            {PRIMARY_NAV.map(l =>
-              l.external ? (
-                <a key={l.label} href={l.href} className="nav-link">{l.label}</a>
-              ) : (
-                <NavLink
-                  key={l.label}
-                  to={l.to}
-                  className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}
-                >
-                  {l.label}
-                </NavLink>
-              )
-            )}
+            {PRIMARY_NAV.map(l => (
+              <NavLink
+                key={l.label}
+                to={l.to}
+                className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}
+              >
+                {l.label}
+              </NavLink>
+            ))}
           </div>
 
           {/* Divider */}
@@ -103,20 +98,16 @@ const Header = () => {
         <div id="mobile-nav" className="mobile-nav" role="dialog" aria-label="Navigation menu">
           <nav>
             <div className="mobile-nav-section-label">Explore</div>
-            {PRIMARY_NAV.map(l =>
-              l.external ? (
-                <a key={l.label} href={l.href} className="mobile-nav-link" onClick={close}>{l.label}</a>
-              ) : (
-                <NavLink
-                  key={l.label}
-                  to={l.to}
-                  className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`}
-                  onClick={close}
-                >
-                  {l.label}
-                </NavLink>
-              )
-            )}
+            {PRIMARY_NAV.map(l => (
+              <NavLink
+                key={l.label}
+                to={l.to}
+                className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`}
+                onClick={close}
+              >
+                {l.label}
+              </NavLink>
+            ))}
             <div className="mobile-nav-section-label" style={{ marginTop: '0.5rem' }}>Company</div>
             {SECONDARY_NAV.map(l => (
               <NavLink

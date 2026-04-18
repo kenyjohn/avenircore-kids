@@ -1,4 +1,4 @@
-import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <footer className="footer">
@@ -24,7 +24,7 @@ const Footer = () => (
           { label: 'Stories', href: '/stories' },
           { label: 'Join Waitlist', href: '/#waitlist' },
         ].map(l => (
-          <a key={l.label} href={l.href} className="footer-link">{l.label}</a>
+          <Link key={l.label} to={l.href} className="footer-link">{l.label}</Link>
         ))}
       </div>
 
@@ -40,11 +40,11 @@ const Footer = () => (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <span>© {new Date().getFullYear()} AvenirCore. All rights reserved.</span>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <a href="/about" className="footer-link">About Us</a>
-            <a href="/privacy" className="footer-link">Privacy Policy</a>
-            <a href="/terms" className="footer-link">Terms of Service</a>
+            <Link to="/about" className="footer-link">About Us</Link>
+            <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            <Link to="/terms" className="footer-link">Terms of Service</Link>
             <a href="/sitemap.xml" className="footer-link">Sitemap</a>
-            <a href="/contact" className="footer-link">Contact</a>
+            <Link to="/contact" className="footer-link">Contact</Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { stories } from '../data/stories';
 
@@ -27,6 +27,7 @@ const CONCEPT_EMOJIS = {
 
 export default function StoriesIndex() {
   const [activeAge, setActiveAge] = useState('all');
+  const navigate = useNavigate();
 
   const totalCount = stories.length;
 
@@ -35,9 +36,7 @@ export default function StoriesIndex() {
     : stories.filter(s => s.ageRange === activeAge);
 
   const handleWaitlist = () => {
-    const el = document.getElementById('waitlist')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    else window.location.href = '/#waitlist'
+    navigate('/#waitlist');
   }
 
   // Dynamic meta description
