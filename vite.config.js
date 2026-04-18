@@ -62,6 +62,8 @@ export default defineConfig({
         '/contact',
         '/workbook',
         '/stories',
+        '/privacy',
+        '/terms',
         // Blog articles
         '/blog',
         '/blog/ai-for-kids-guide',
