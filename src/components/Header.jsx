@@ -4,7 +4,7 @@ import Logo from './Logo'
 
 // Primary nav — full weight, visible hierarchy
 const PRIMARY_NAV = [
-  { label: 'For Families', href: '/#offerings',            external: true },
+  { label: 'For Parents', href: '/#offerings',            external: true },
   { label: 'For Teachers', to:   '/blog/teachers-ai-guide' },
   { label: 'Workbook',     to:   '/workbook' },
   { label: 'Stories',      to:   '/stories' },

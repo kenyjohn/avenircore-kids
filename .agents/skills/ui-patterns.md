@@ -1,39 +1,22 @@
-# Skill: UI Pattern Library & Component Standards
+# Skill: UI Components & Standards
 
-Trigger this skill when building new components, styling layouts, or adding animations in AvenirCore.
+Trigger for: new components, styling, animations.
 
-## 1. Design Tokens (Vanilla CSS)
-Rely on `src/index.css` variables. **Never hardcode hex values.**
+## 1. Tokens (`src/index.css`)
+- **Colors**: `var(--color-emerald)`, `var(--color-teacher)`, `var(--color-amber)`.
+- **Radii**: `var(--radius-xl)` (cards), `var(--radius-pill)` (buttons).
+- **Shadows**: `var(--shadow-md)` (standard), `var(--shadow-lg)` (hover).
 
-- **Colors**: `var(--color-emerald)` (Primary), `var(--color-teacher)` (Educator Accent), `var(--color-amber)` (Highlight).
-- **Rounding**: `var(--radius-xl)` (Large cards), `var(--radius-pill)` (Buttons).
-- **Shadows**: `var(--shadow-md)` (Standard), `var(--shadow-lg)` (Interactive/Hover).
+## 2. Scaffolding
+Use `.section` -> `.container` -> `.section-label` + `.section-title` -> `.custom-grid`.
 
-## 2. Component Scaffolding
-### Section Template
-```jsx
-<section className="section">
-  <div className="container">
-    <span className="section-label">Label</span>
-    <h2 className="section-title">Headline</h2>
-    <div className="custom-grid">
-      {/* Cards here */}
-    </div>
-  </div>
-</section>
-```
+## 3. Buttons
+- **Styles**: `.btn-primary`, `.btn-outline`, `.btn-white`.
+- **Size**: `.btn-lg` (hero).
+- **Mobile**: Click targets >= 44px.
 
-### Actionable Buttons
-- Primary: `.btn .btn-primary`
-- Outline: `.btn .btn-outline`
-- Responsive: Add `.btn-lg` for hero contexts.
-
-## 3. Brand Animations
-Use native CSS keyframes defined in `index.css`:
-- **Entrance**: `.animate-fade-up` (standard content reveal).
-- **Attention**: `.animate-float` (soft hover or hero background).
-- **Feedback**: `.animate-shake` (errors), `.animate-pop` (success).
-
-## 4. CTA Rules
-- Hover states must include `transform: translateY(-2px);` for depth.
-- Click targets on mobile must be >= 44px.
+## 4. Animations
+- **Entrance**: `.animate-fade-up`.
+- **Attention**: `.animate-float`.
+- **Feedback**: `.animate-shake` (error), `.animate-pop` (success).
+- **CTA Hover**: `transform: translateY(-2px)`.

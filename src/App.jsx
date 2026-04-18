@@ -2,12 +2,12 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import StatsStrip from './components/StatsStrip'
-import ValuesPillars from './components/ValuesPillars'
+import AudienceSection from './components/AudienceSection'
+import FeaturedStories from './components/FeaturedStories'
+import SocialProof from './components/SocialProof'
 import HowItWorks from './components/HowItWorks'
 import ValuesCharter from './components/ValuesCharter'
 import FutureRoadmap from './components/FutureRoadmap'
-import StoriesTeaser from './components/StoriesTeaser'
 import WorkbookCTA from './components/WorkbookCTA'
 import EmailCapture from './components/EmailCapture'
 import Footer from './components/Footer'
@@ -29,11 +29,11 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <StatsStrip />
-      <ValuesPillars />
+      <SocialProof />
+      <FeaturedStories />
+      <AudienceSection />
       <HowItWorks />
       <ValuesCharter />
-      <StoriesTeaser />
       <FutureRoadmap />
       <WorkbookCTA />
       <EmailCapture />

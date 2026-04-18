@@ -1,20 +1,20 @@
-# Skill: SEO Excellence & Schema Authority
+# Skill: SEO & Schema Authority
 
-AvenirCore requires best-in-class search engine authority mapped securely to E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness) standards. Trigger this skill whenever you are tasked with routing new pages, configuring Meta headers, or migrating blog entries.
+Trigger for: routing, meta headers, blog migrations.
 
-## 1. Context Injection (`react-helmet-async`)
-Every single frontend payload MUST inject metadata overrides replacing index.html baselines.
-- Minimum Tags: `<title>`, `<meta name="description">`
-- Essential OpenGraph Attributes: `<meta property="og:title">`, `<meta property="og:type">`, `<meta property="og:url">`
-- Injecting canonical URLs guarantees identical path mappings resolve to one true SEO page.
+## 1. Meta Injection (`react-helmet-async`)
+Inject metadata overrides to replace `index.html` defaults:
+- **Tags**: `<title>`, `<meta name="description">`.
+- **OpenGraph**: `og:title`, `og:type`, `og:url`.
+- **Canonical**: Always inject canonical URL to prevent duplication.
 
-## 2. Dynamic JSON-LD Generation
-Integrate nested LD-JSON schema arrays specifically on content-rich templates. Leverage `src/utils/security.js` implementations like `safeJsonLd()` to securely pipe JSON without escaping breaks.
-- Target templates: `Article` schemas for blog-posts.
-- Provide `BreadcrumbList` for index/category hierarchy linking.
-- Ensure Author profiles bind to `Person` mapping structures referencing authoritative external sources.
-- Attach `FAQPage` configurations exclusively to `src/posts/*.mdx` objects emitting detailed FAQ array constants.
+## 2. JSON-LD Schema
+Use `src/utils/security.js` with `safeJsonLd()` for injection.
+- **Article**: For `src/posts/*.mdx`.
+- **BreadcrumbList**: For navigation hierarchy.
+- **Author**: Use `Person` mapping to external authority sources.
+- **FAQPage**: For MDX articles with `faqs` arrays.
 
-## 3. SEO Sitemap & Deployment Integrity 
-Sitemaps update sequentially utilizing Vite tooling mapping to root `/sitemap.xml`.
-When crafting new major site sections, bind the dynamic routing path strictly directly to the `dynamicRoutes` block configuration housed inside `vite.config.js`.
+## 3. Sitemap & Routing
+- **Sitemap**: Vite-managed at `/sitemap.xml`.
+- **Routing**: Major site sections must be added to `dynamicRoutes` block in `vite.config.js`.
