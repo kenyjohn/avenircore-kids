@@ -270,6 +270,7 @@ const BlogPost = () => {
         <meta property="og:url" content={`https://avenircore.com/blog/${slug}`} />
         <meta property="og:image" content="https://avenircore.com/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://avenircore.com/og-image.png" />

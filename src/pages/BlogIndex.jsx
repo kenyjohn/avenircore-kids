@@ -19,6 +19,14 @@ const BlogIndex = () => {
         <title>Blog — AI for Kids | AvenirCore</title>
         <meta name="description" content="Parent guides, tips, and honest advice on helping kids navigate AI safely. Written for families, not tech experts." />
         <link rel="canonical" href="https://avenircore.com/blog" />
+        <meta property="og:title" content="Blog — AI for Kids | AvenirCore" />
+        <meta property="og:description" content="Parent guides, tips, and honest advice on helping kids navigate AI safely." />
+        <meta property="og:image" content="https://avenircore.com/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@avenircore" />
+        <meta name="twitter:title" content="Blog — AI for Kids | AvenirCore" />
+        <meta name="twitter:description" content="Parent guides, tips, and honest advice on helping kids navigate AI safely." />
+        <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
       </Helmet>
 
       <section style={{ padding: '5rem 0', background: 'var(--color-bg)' }}>
@@ -46,25 +54,17 @@ const BlogIndex = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
             {posts.map(post => (
               <Link key={post.slug} to={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
-                <article className="card" style={{ height: '100%', cursor: 'pointer' }}>
-                  <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
-                    <span className="section-label" style={{ margin: 0, fontSize: '0.65rem' }}>{post.category}</span>
-                    {post.featured && (
-                      <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '0.25rem 0.6rem', background: 'var(--color-amber-soft)', color: '#92400e', borderRadius: 'var(--radius-pill)' }}>Featured</span>
-                    )}
+                <article className="blog-card">
+                  <div className="blog-card-meta">
+                    <span className="blog-card-tag">{post.category}</span>
+                    {post.featured && <span className="blog-card-featured">Featured</span>}
+                    {post.readingTime && <span className="blog-card-time">{post.readingTime}</span>}
                   </div>
-                  <h2 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-navy)', marginBottom: '0.5rem', lineHeight: 1.3 }}>
-                    {post.title}
-                  </h2>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.65, marginBottom: '1rem', flex: 1 }}>
-                    {post.excerpt}
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-                    <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-                      <span>{post.date}</span>
-                      {post.readingTime && <span style={{ opacity: 0.6 }}>· {post.readingTime}</span>}
-                    </div>
-                    <span style={{ color: 'var(--color-emerald)', fontWeight: 700 }}>Read →</span>
+                  <h2 className="blog-card-title">{post.title}</h2>
+                  <p className="blog-card-excerpt">{post.excerpt}</p>
+                  <div className="blog-card-footer">
+                    <span className="blog-card-date">{post.date}</span>
+                    <span className="blog-card-read">Read →</span>
                   </div>
                 </article>
               </Link>

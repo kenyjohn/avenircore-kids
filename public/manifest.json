@@ -1,0 +1,17 @@
+{
+  "name": "AvenirCore — AI Literacy for Kids",
+  "short_name": "AvenirCore",
+  "description": "Safe AI literacy stories and guides for children ages 6–14.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

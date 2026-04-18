@@ -59,6 +59,14 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Contact Us | AvenirCore</title>
+        <meta property="og:title" content="Contact AvenirCore | Support & Partnerships" />
+        <meta property="og:description" content="Questions about AI for kids? Partnership ideas? Reach out to the AvenirCore team." />
+        <meta property="og:image" content="https://avenircore.com/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@avenircore" />
+        <meta name="twitter:title" content="Contact AvenirCore | Support & Partnerships" />
+        <meta name="twitter:description" content="Questions about AI for kids? Partnership ideas? Reach out to the AvenirCore team." />
+        <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
         <meta
           name="description"
           content="Get in touch with AvenirCore — questions for parents, classroom resources for teachers, or press and partnership enquiries."

@@ -114,7 +114,7 @@ The story engine is fully data-driven via JSON. Adding a new story requires only
 ```mermaid
 flowchart LR
     Index[Stories Index] -->|Selects Story| Player[Story Player]
-    Player -->|Loads| JSON[(Story JSON Data\n5 Stories)]
+    Player -->|Loads| JSON[(Story JSON Data\n11 Stories)]
     
     JSON --> RouterLogic{Step Type}
     
@@ -165,6 +165,12 @@ flowchart LR
 | `data-detective` | The Data Detective | 🕵️ Dan | 6–8 | Data Quality |
 | `kind-ai` | Being Kind to AI | 🌸 Mira | 6–8 | AI Ethics |
 | `ai-mistake` | When AI Gets It Wrong | 🔍 Finn | 8–10 | AI Limitations |
+| `the-robot-that-couldnt-see-amara` | The Robot That Couldn't See Amara | 🤖 Robi | 9–13 | AI Bias & Fairness |
+| `mia-and-the-weather-machine` | Mia and the Weather Machine | 🌦️ Mia | 8–12 | AI Predictions |
+| `the-news-bot-that-lied` | The News Bot That Lied | 📰 NewsBot | 10–14 | Hallucination |
+| `zara-builds-a-doctor` | Zara Builds a Doctor | 🩺 Zara | 10–14 | Human Oversight |
+| `the-privacy-jar` | The Privacy Jar | 🏺 Sam | 8–13 | Data Privacy |
+| `the-day-leo-stopped-thinking` | The Day Leo Stopped Thinking | 🧩 Leo | 9–13 | AI Over-Reliance |
 
 ---
 

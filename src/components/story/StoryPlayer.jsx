@@ -67,8 +67,19 @@ export default function StoryPlayer() {
 
   const seoMetadata = (
     <Helmet>
-      <title>{story.title} — AI Story for Kids | AvenirCore</title>
-      <meta name="description" content={`${story.description} A free interactive AI literacy story for children ages ${story.ageRange}.`} />
+      <title>{story.title} | AI Literacy Story | AvenirCore</title>
+      <meta name="description" content={`${story.description} An interactive AI literacy story for ages ${story.ageRange}. Free at AvenirCore.`} />
+      <link rel="canonical" href={`https://avenircore.com/stories/${story.id}`} />
+      <meta property="og:title" content={`${story.title} | AvenirCore`} />
+      <meta property="og:description" content={story.description} />
+      <meta property="og:url" content={`https://avenircore.com/stories/${story.id}`} />
+      <meta property="og:type" content="article" />
+      <meta property="og:image" content="https://avenircore.com/og-image.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@avenircore" />
+      <meta name="twitter:title" content={`${story.title} | AvenirCore`} />
+      <meta name="twitter:description" content={story.description} />
+      <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -117,6 +128,22 @@ export default function StoryPlayer() {
           <div className="story-completed-actions mt-2">
             <button className="btn-replay-story" onClick={handleReplay}>Play again</button>
             <Link to="/stories" className="btn-next-story">Pick Another Story</Link>
+          </div>
+        </div>
+
+        <div className="story-end-cta">
+          <div className="story-end-cta-inner">
+            <p className="story-end-cta-text">
+              Enjoyed this story? There are 10 more in the library.
+            </p>
+            <div className="story-end-actions">
+              <Link to="/stories" className="btn btn-primary">
+                Explore all stories →
+              </Link>
+              <Link to="/#waitlist" className="btn btn-outline">
+                Join the waitlist
+              </Link>
+            </div>
           </div>
         </div>
       </div>

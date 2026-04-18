@@ -6,6 +6,12 @@ const Terms = () => (
     <Helmet>
       <title>Terms of Service | AvenirCore</title>
       <meta name="description" content="AvenirCore's terms of service — how to use our platform, age requirements, and your rights." />
+      <meta property="og:title" content="Terms of Service | AvenirCore" />
+      <meta property="og:description" content="The terms governing the use of AvenirCore's AI literacy platform for families." />
+      <meta property="og:image" content="https://avenircore.com/og-image.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@avenircore" />
+      <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
       <link rel="canonical" href="https://avenircore.com/terms" />
     </Helmet>
 

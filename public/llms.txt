@@ -91,3 +91,21 @@ provided attribution links to the original article are included where possible.
 ## Contact
 
 hello@avenircore.com
+
+### Interactive AI Literacy Stories (free, ages 6–14)
+
+AvenirCore hosts 11 original interactive stories teaching AI literacy concepts:
+
+- The Curious Robot (ages 6–8) — Pattern Recognition
+- The Smart Assistant (ages 6–8) — AI Decision Making
+- The Data Detective (ages 6–8) — Data Quality
+- Being Kind to AI... and to Yourself (ages 6–8) — AI Ethics
+- When AI Gets It Wrong (ages 8–10) — AI Limitations
+- The Robot That Couldn't See Amara (ages 9–13) — AI Bias & Fairness
+- Mia and the Weather Machine (ages 8–12) — AI for Climate & Environment
+- The News Bot That Lied (Sort Of) (ages 10–14) — AI Transparency & Hallucination
+- Zara Builds a Doctor (ages 10–14) — AI in Healthcare & Human Oversight
+- The Privacy Jar (ages 8–13) — Data Privacy & Digital Rights
+- The Day Leo Stopped Thinking (ages 9–13) — AI Over-Reliance
+
+All stories are free, COPPA-safe, and available at https://avenircore.com/stories

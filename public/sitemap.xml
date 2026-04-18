@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://avenircore.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://avenircore.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://avenircore.com/workbook</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://avenircore.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://avenircore.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Blog index + pillar pages -->
+  <url><loc>https://avenircore.com/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://avenircore.com/blog/ai-for-kids-guide</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://avenircore.com/blog/teachers-ai-guide</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
+
+  <!-- Blog posts -->
+  <url><loc>https://avenircore.com/blog/is-ai-safe-for-kids</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://avenircore.com/blog/how-to-talk-to-kids-about-ai</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://avenircore.com/blog/what-age-can-kids-use-ai</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/blog/will-ai-make-kids-lazy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/blog/free-ai-tools-for-kids-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/blog/ai-classroom-safety-guide</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/blog/detect-ai-homework-guide</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/blog/ai-lesson-planning-for-teachers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://avenircore.com/blog/ai-prompts-for-group-work</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+  <!-- Stories library + individual stories -->
+  <url><loc>https://avenircore.com/stories</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://avenircore.com/stories/curious-robot</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/smart-assistant</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/data-detective</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/kind-ai</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/ai-mistake</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-robot-that-couldnt-see-amara</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/mia-and-the-weather-machine</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-news-bot-that-lied</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/zara-builds-a-doctor</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-privacy-jar</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-day-leo-stopped-thinking</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+</urlset>

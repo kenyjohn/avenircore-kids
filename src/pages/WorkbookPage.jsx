@@ -36,9 +36,15 @@ const WorkbookPage = () => {
       <Helmet>
         <title>My AI Adventure Workbook | AvenirCore Kids</title>
         <meta name="description" content="A 28-page printable AI literacy workbook teaching computational thinking and ethics to kids ages 6-12 without screens." />
+        <link rel="canonical" href="https://avenircore.com/workbook" />
         <meta property="og:title" content="My AI Adventure Workbook" />
         <meta property="og:description" content="A 28-page printable AI literacy workbook teaching computational thinking and ethics to kids ages 6-12 without screens." />
         <meta property="og:image" content="https://avenircore.com/images/workbook-cover.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@avenircore" />
+        <meta name="twitter:title" content="My AI Adventure Workbook | AvenirCore Kids" />
+        <meta name="twitter:description" content="A 28-page printable AI literacy workbook for kids ages 6–12. No screens required." />
+        <meta name="twitter:image" content="https://avenircore.com/images/workbook-cover.png" />
         <script type="application/ld+json">{safeJsonLd(productSchema)}</script>
       </Helmet>
 
