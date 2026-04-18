@@ -34,6 +34,12 @@ export default function StoriesIndex() {
     ? stories
     : stories.filter(s => s.ageRange === activeAge);
 
+  const handleWaitlist = () => {
+    const el = document.getElementById('waitlist')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else window.location.href = '/#waitlist'
+  }
+
   // Dynamic meta description
   const metaDesc = `Explore ${totalCount} interactive AI literacy stories for children ages 6–14. Teach kids about fairness, privacy, climate, and critical thinking through emotionally resonant adventures.`;
 
@@ -153,9 +159,13 @@ export default function StoriesIndex() {
               <strong>New stories every month.</strong>
               <span> Join the waitlist to get them first.</span>
             </div>
-            <Link to="/#waitlist" className="btn btn-primary">
+            <button 
+              type="button"
+              className="btn btn-primary"
+              onClick={handleWaitlist}
+            >
               Join free →
-            </Link>
+            </button>
           </div>
         </div>
       </div>
