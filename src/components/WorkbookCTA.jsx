@@ -14,6 +14,12 @@ const TAGS = ['10 Activities', 'Certificate', 'Printable', 'Ages 6–12']
 const WorkbookCTA = () => {
   const ref = useReveal()
 
+  const handleWaitlist = () => {
+    const el = document.getElementById('waitlist')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else window.location.href = '/#waitlist'
+  }
+
   return (
     <section id="workbook" className="workbook-v2-section">
       <div className="container workbook-v2-inner" ref={ref}>
@@ -47,9 +53,7 @@ const WorkbookCTA = () => {
             </Link>
             <button
               className="btn workbook-v2-btn-outline btn-lg"
-              onClick={() =>
-                document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })
-              }
+              onClick={handleWaitlist}
             >
               Join Waitlist
             </button>

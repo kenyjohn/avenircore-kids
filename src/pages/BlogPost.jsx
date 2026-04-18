@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate, useNavigate } from 'react-router-dom'
+import { useParams, Link, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { getPostBySlug, getRelatedPosts, getAdjacentPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
@@ -148,7 +148,6 @@ import { components } from '../components/MDXComponents'
 // ── Main BlogPost component ─────────────────────────────────────
 const BlogPost = () => {
   const { slug } = useParams()
-  const navigate = useNavigate()
   const post = getPostBySlug(slug)
 
   if (!post) return <Navigate to="/blog" replace />
@@ -156,10 +155,9 @@ const BlogPost = () => {
   const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps } = post
 
   const scrollWaitlist = () => {
-    navigate('/')
-    setTimeout(() => {
-      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
-    }, 100)
+    const el = document.getElementById('waitlist')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else window.location.href = '/#waitlist'
   }
   const relatedPosts = getRelatedPosts(slug, category)
   const { prev, next } = getAdjacentPosts(slug)

@@ -11,6 +11,7 @@ const EmailCapture = () => {
   const [email, setEmail]       = useState('')
   const [role, setRole]         = useState('parent')
   const [name, setName]         = useState('')
+  const [website, setWebsite]   = useState('') // Honeypot
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading]   = useState(false)
   const [error, setError]       = useState('')
@@ -24,7 +25,7 @@ const EmailCapture = () => {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, role, name }),
+        body: JSON.stringify({ email, role, name, website }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -116,6 +117,20 @@ const EmailCapture = () => {
                 placeholder="you@example.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+
+            {/* Honeypot field to catch bots — hidden from real users */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input 
+                id="website" 
+                name="website" 
+                type="text" 
+                tabIndex="-1" 
+                autoComplete="off" 
+                value={website}
+                onChange={e => setWebsite(e.target.value)}
               />
             </div>
 

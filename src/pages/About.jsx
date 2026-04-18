@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { safeJsonLd } from '../utils/security'
 
 const personSchema = {
@@ -55,13 +55,11 @@ const START_HERE = [
 ]
 
 const About = () => {
-  const navigate = useNavigate()
 
   const scrollWaitlist = () => {
-    navigate('/')
-    setTimeout(() => {
-      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
-    }, 100)
+    const el = document.getElementById('waitlist')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else window.location.href = '/#waitlist'
   }
 
   return (
