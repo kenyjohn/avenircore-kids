@@ -75,6 +75,7 @@ clarity, and strong values at the core.
 - [The News Bot That Lied (Sort Of)](/stories/the-news-bot-that-lied): AI hallucination and transparency — why even confident AI can be wrong. Ages 10–14.
 - [Zara Builds a Doctor](/stories/zara-builds-a-doctor): AI in healthcare and the importance of human oversight. Ages 10–14.
 - [The Privacy Jar](/stories/the-privacy-jar): Data privacy and digital rights — what your data really means. Ages 8–13.
+- [The Day Leo Stopped Thinking](/stories/the-day-leo-stopped-thinking): AI Over-Reliance story — learning to think with AI, not instead of it. Ages 9–13.
 
 ## Content standards
 

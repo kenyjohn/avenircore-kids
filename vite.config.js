@@ -89,6 +89,7 @@ export default defineConfig({
         '/stories/the-news-bot-that-lied',
         '/stories/zara-builds-a-doctor',
         '/stories/the-privacy-jar',
+        '/stories/the-day-leo-stopped-thinking',
       ],
     }),
   ],

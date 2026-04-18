@@ -1,0 +1,49 @@
+{
+  "id": "the-day-leo-stopped-thinking",
+  "title": "The Day Leo Stopped Thinking",
+  "description": "Leo's AI homework helper is incredible — until the day it isn't there, and Leo realises he can't remember how to think without it.",
+  "ageRange": "9–13",
+  "difficulty": "Intermediate",
+  "aiConcept": "AI Over-Reliance",
+  "character": {
+    "name": "Leo",
+    "emoji": "🧩",
+    "color": "#0369a1"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Leo is ten years old and brilliant at most things — except sitting still long enough to think. When his school started letting students use an AI homework helper, Leo was thrilled. Within a week, he had a routine: type the question, read the answer, copy it down. His grades went up. His teachers were impressed. Leo felt like a genius.\n\nBut three months later, his teacher Mrs. Okafor put a single question on the board for a timed test — no devices allowed. Leo stared at it. It was the kind of question he'd answered twenty times with the AI. Alone, without it, his mind was blank."
+    },
+    {
+      "type": "question",
+      "question": "What had Leo actually been practising every day for three months?",
+      "options": [
+        "Critical thinking and problem-solving",
+        "Copying answers without understanding them",
+        "Learning to use AI responsibly",
+        "Memorising facts"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "After the test, Leo talked to Mrs. Okafor. She wasn't angry. She asked him a question: 'When you used the AI, did you ever ask yourself why the answer was right — or did you just check that it matched what you expected?'\n\nLeo thought hard. He'd never done that. He'd used the AI the same way some people use a calculator they don't understand — as a magic box. He got the output. He never understood the process.\n\n'AI is a brilliant thinking partner,' Mrs. Okafor said, 'but only if you're doing the thinking too.'"
+    },
+    {
+      "type": "activity",
+      "instruction": "Leo wants to use AI properly from now on. Which of these is the RIGHT way to use an AI homework helper?",
+      "options": [
+        "Ask it for the answer, copy it, move on",
+        "Ask it to explain the method step by step, then try the next similar problem yourself",
+        "Use it only when the teacher isn't watching",
+        "Ask it to write the whole essay and change a few words"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Leo changed his approach. Instead of asking the AI for answers, he started asking it to explain things differently when he was stuck — then closed it and tried the problem himself. If he got it wrong, he went back and asked where his thinking broke down.\n\nHis grades dipped a little at first. But six weeks later, he sat another no-device test. He didn't get every question right. But he wasn't blank. He had thoughts. He had a process. He had his own mind back — and the AI had helped him build it, not replace it.\n\nThe best tools make you stronger. The worst ones make you forget you were ever strong."
+    }
+  ]
+}

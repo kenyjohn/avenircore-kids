@@ -2,28 +2,28 @@ import useReveal from '../hooks/useReveal'
 
 const VALUES = [
   {
-    icon: '❤️',
-    accent: 'var(--color-emerald)',
-    title: 'Values at the core',
-    desc: 'Not just screen time — every feature is built around character.',
+    icon: '🧭',
+    tileBg: 'var(--color-emerald-soft)',
+    title: 'Questions build thinkers. Answers build dependents.',
+    desc: 'Our AI never hands over the answer. It teaches children how to reach it themselves — so they grow up knowing how to think with AI, not because of it.',
   },
   {
-    icon: '👨‍👩‍👧',
-    accent: 'var(--color-amber)',
-    title: 'Built together',
-    desc: 'Designed for kids, parents, and teachers as a team — not in silos.',
+    icon: '🌱',
+    tileBg: 'var(--color-amber-soft)',
+    title: 'Character first. Capability second.',
+    desc: 'The world has enough people who can use AI fast. We are building the generation that uses it wisely — children who question its outputs and hold onto what makes them human.',
   },
   {
-    icon: '🧠',
-    accent: 'var(--color-purple)',
-    title: 'Teaches, not replaces',
-    desc: 'Our AI explains and asks questions — it never does the thinking for kids.',
+    icon: '🤝',
+    tileBg: 'var(--color-purple-soft)',
+    title: 'No child learns in isolation.',
+    desc: 'Real AI literacy happens in a thousand small moments — at dinner, in the classroom, on the walk home. We build for parents and teachers too, because they are half the lesson.',
   },
   {
-    icon: '💬',
-    accent: 'var(--color-sky)',
-    title: 'Clear human language',
-    desc: 'No jargon. No dark patterns. Honest communication at every step.',
+    icon: '🔍',
+    tileBg: 'var(--color-sky-soft)',
+    title: 'Honest about what nobody fully knows yet.',
+    desc: "AI's future is genuinely uncertain. We won't pretend otherwise. What we can shape is how the generation that will decide its direction grows up thinking about it.",
   },
 ]
 
@@ -39,49 +39,88 @@ const ValuesCharter = () => {
   const ref = useReveal()
 
   return (
-    <section id="values" className="values-section">
-      <div className="container" ref={ref}>
+    <section id="values" className="vc-section">
 
-        {/* ── Centred founder blockquote ── */}
-        <div className="values-quote-wrap reveal">
-          <span className="section-label">Our Charter</span>
-          <blockquote className="values-blockquote">
-            "We promise to never sell your child's data, to always design AI
-            that explains instead of just answers, and to keep parents and
-            teachers in the loop at every step of the journey."
-          </blockquote>
-          <div className="values-quote-author">
-            <span className="values-author-avatar" aria-hidden="true">🌱</span>
-            <div>
-              <div className="values-author-name">The AvenirCore Founders</div>
-              <div className="values-author-role">Building the future, carefully.</div>
-            </div>
-          </div>
+      {/* Wave entry — dissolves from navy HowItWorks into white */}
+      <div className="vc-wave-entry" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" fill="none">
+          <path d="M0,0 L0,28 Q360,56 720,36 Q1080,16 1440,40 L1440,0 Z" fill="var(--color-white)" />
+        </svg>
+      </div>
 
-          {/* Trust badge strip */}
-          <div className="values-trust-strip">
-            {TRUST_BADGES.map(b => (
-              <span key={b} className="values-trust-badge">{b}</span>
+      {/* Ambient blobs */}
+      <div className="vc-blob vc-blob--emerald" aria-hidden="true" />
+      <div className="vc-blob vc-blob--purple"  aria-hidden="true" />
+
+      <div className="container vc-inner" ref={ref}>
+
+        {/* ── LEFT COLUMN ── */}
+        <div className="vc-left">
+          <span className="section-label reveal">Our Charter</span>
+          <h2 className="section-title reveal delay-1">Why AvenirCore?</h2>
+          <p className="vc-intro reveal delay-1">
+            Every AI tool teaches children something —
+            whether we intend it or not.{' '}
+            <strong>We intend it.</strong>{' '}
+            AvenirCore is built on four principles we will never
+            trade away for speed, scale, or profit.
+          </p>
+
+          <div className="vc-list">
+            {VALUES.map((v, i) => (
+              <div key={i} className={`vc-item reveal delay-${i + 1}`}>
+                <div
+                  className="vc-item-icon"
+                  style={{ background: v.tileBg }}
+                  aria-hidden="true"
+                >
+                  {v.icon}
+                </div>
+                <div>
+                  <strong className="vc-item-title">{v.title}</strong>
+                  <span className="vc-item-desc">{v.desc}</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* ── 2×2 value cards ── */}
-        <div className="values-cards-grid">
-          {VALUES.map((v, i) => (
-            <div
-              key={i}
-              className={`value-card reveal delay-${i + 1}`}
-              style={{ '--value-accent': v.accent }}
-            >
-              <span className="value-card-icon" aria-hidden="true">{v.icon}</span>
-              <h3 className="value-card-title">{v.title}</h3>
-              <p className="value-card-desc">{v.desc}</p>
+        {/* ── RIGHT COLUMN — promise card ── */}
+        <div className="vc-promise reveal delay-2">
+          <span className="vc-quote-mark" aria-hidden="true">"</span>
+          <p className="vc-quote-text">
+            The children alive today are the first generation for whom
+            AI has always existed. They did not discover it —{' '}
+            <em>they were born into it.</em>{' '}
+            The habits they form right now, the questions they learn to
+            ask, the instinct to think rather than just accept — these
+            become the values they carry into every decision AI will one
+            day help them make. AvenirCore exists because{' '}
+            <em>that formation is too important to leave to chance.</em>
+          </p>
+          <div className="vc-author">
+            <div className="vc-avatar" aria-hidden="true">🌱</div>
+            <div>
+              <div className="vc-author-name">John &amp; Abigail Kennedy</div>
+              <div className="vc-author-role">Founders, AvenirCore</div>
             </div>
-          ))}
+          </div>
+          <div className="vc-badges">
+            {TRUST_BADGES.map(b => (
+              <span key={b} className="vc-badge">{b}</span>
+            ))}
+          </div>
         </div>
 
       </div>
+
+      {/* Wave exit — dissolves from white into navy FutureRoadmap v2 */}
+      <div className="vc-wave-exit" aria-hidden="true">
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none" fill="none">
+          <path d="M0,64 L0,32 Q240,0 480,24 Q720,48 960,20 Q1200,0 1440,28 L1440,64 Z" fill="var(--color-navy)" />
+        </svg>
+      </div>
+
     </section>
   )
 }
