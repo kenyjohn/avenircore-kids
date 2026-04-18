@@ -1,66 +1,94 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import useReveal from '../hooks/useReveal'
 
-const features = [
-  '10 hands-on activities for ages 6–12',
-  'Prompt writing, AI safety & careers',
-  'Completion certificate included',
-  'Printable & ready to use today',
-  'Pairs with any AI tool or classroom'
-];
+const FEATURES = [
+  { icon: '✏️', text: '10 hands-on activities for ages 6–12' },
+  { icon: '💡', text: 'Prompt writing, AI safety & careers' },
+  { icon: '🎓', text: 'Completion certificate included' },
+  { icon: '🖨️', text: 'Printable & ready to use today' },
+  { icon: '🔗', text: 'Pairs with any AI tool or classroom' },
+]
 
-const WorkbookCTA = () => (
-  <section id="workbook" className="workbook-section">
-    <div className="container workbook-inner">
-      <div>
-        <span className="section-label">Free Resource</span>
-        <h2 className="section-title">Download the Kids AI Workbook</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--color-text-muted)', marginBottom: '2rem', lineHeight: 1.75 }}>
-          A 10-page activity workbook to introduce your child to AI concepts — through games, drawing, storytelling, and critical thinking challenges. Created by the AvenirCore team.
-        </p>
-        <div className="workbook-features">
-          {features.map(f => (
-            <div key={f} className="workbook-feature">
-              <span className="wf-check">✓</span>
-              {f}
+const TAGS = ['10 Activities', 'Certificate', 'Printable', 'Ages 6–12']
+
+const WorkbookCTA = () => {
+  const ref = useReveal()
+
+  return (
+    <section id="workbook" className="workbook-v2-section">
+      <div className="container workbook-v2-inner" ref={ref}>
+
+        {/* ── Left column ── */}
+        <div className="reveal">
+          <div className="workbook-v2-free-badge">
+            Free forever · No email required
+          </div>
+          <span className="workbook-v2-label">Free Resource</span>
+          <h2 className="section-title workbook-v2-title">
+            Download the Kids AI Workbook
+          </h2>
+          <p className="workbook-v2-desc">
+            A 10-page activity workbook to introduce your child to AI concepts —
+            through games, drawing, storytelling, and critical thinking challenges.
+          </p>
+
+          <div className="workbook-v2-features">
+            {FEATURES.map(f => (
+              <div key={f.text} className="workbook-v2-feature">
+                <span className="workbook-v2-feature-icon" aria-hidden="true">{f.icon}</span>
+                {f.text}
+              </div>
+            ))}
+          </div>
+
+          <div className="workbook-v2-ctas">
+            <Link to="/workbook" className="btn btn-white btn-lg">
+              Get the Workbook →
+            </Link>
+            <button
+              className="btn workbook-v2-btn-outline btn-lg"
+              onClick={() =>
+                document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Join Waitlist
+            </button>
+          </div>
+        </div>
+
+        {/* ── Right column — illustrated cover ── */}
+        <div className="workbook-v2-cover reveal delay-2">
+          <div className="workbook-v2-cover-inner">
+            <span className="workbook-v2-cover-tag">⭐ New — 2026</span>
+
+            {/* Book spine accent */}
+            <div className="workbook-v2-spine" aria-hidden="true" />
+
+            <div className="workbook-v2-cover-emoji" aria-hidden="true">📖</div>
+
+            <div className="workbook-v2-cover-title">
+              My AI Activity Workbook
             </div>
-          ))}
-        </div>
-        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link to="/workbook" className="btn btn-primary btn-lg">
-            Get the Workbook →
-          </Link>
-          <button className="btn btn-outline btn-lg" onClick={() => document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })}>
-            Join Waitlist
-          </button>
-        </div>
-        <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.75rem' }}>
-          Free forever. No email required to download.
-        </p>
-      </div>
+            <div className="workbook-v2-cover-sub">
+              For curious kids, ages 6–12
+            </div>
 
-      <div className="workbook-preview">
-        <span className="workbook-tag">⭐ New — March 2026</span>
-        <span className="workbook-emoji">📖</span>
-        <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.3rem', color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
-          My AI Activity Workbook
-        </div>
-        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-          For curious kids, ages 6–12
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', gap: '0.5rem', marginBottom: '1.5rem' }}>
-          <span className="price-main">Free</span>
-          <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', textDecoration: 'line-through' }}>$9</span>
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>
-          {['10 Activities', 'Certificate', 'Printable', 'Ages 6–12'].map(t => (
-            <span key={t} style={{ fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-pill)', background: 'white', color: 'var(--color-emerald)', border: '1.5px solid var(--color-emerald-soft)' }}>
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
+            <div className="workbook-v2-price-row">
+              <span className="workbook-v2-price">Free</span>
+              <span className="workbook-v2-price-was">was $9</span>
+            </div>
 
-export default WorkbookCTA;
+            <div className="workbook-v2-tags">
+              {TAGS.map(t => (
+                <span key={t} className="workbook-v2-tag">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+export default WorkbookCTA
