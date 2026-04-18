@@ -11,6 +11,7 @@ import FutureRoadmap from './components/FutureRoadmap'
 import WorkbookCTA from './components/WorkbookCTA'
 import EmailCapture from './components/EmailCapture'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 const BlogIndex = lazy(() => import('./pages/BlogIndex'))
 const BlogPost  = lazy(() => import('./pages/BlogPost'))
@@ -40,8 +41,6 @@ function HomePage() {
     </>
   )
 }
-
-import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
