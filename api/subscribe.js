@@ -58,6 +58,7 @@ export default async function handler(req, res) {
     email: rawEmail, 
     role: rawRole, 
     name: rawName,
+    source: rawSource,
     website: botField // Honeypot field
   } = body || {}
 
@@ -76,6 +77,7 @@ export default async function handler(req, res) {
 
   // 7. Sanitise name (optional field)
   const name = sanitise(rawName, 100)
+  const source = sanitise(rawSource, 100) || 'waitlist'
 
   // 8. Validate role against allowlist
   const role = ALLOWED_ROLES.includes(rawRole) ? rawRole : 'general'
@@ -90,6 +92,11 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: 'Server configuration error.' })
   }
 
+  // ── Prepare Tags ─────────────────────────────────────────────────────────────
+  // Tags appear as bubbles in Beehiiv dashboard — very searchable.
+  const tags = [`role:${role}`, `src:${source}`]
+  if (source.includes('teacher')) tags.push('audience:educator')
+
   // 8. Forward to Beehiiv API
   try {
     const response = await fetch(
@@ -102,14 +109,17 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           email,
+          tags,
           custom_fields: [
             { name: 'role', value: role },
             { name: 'First Name', value: name },
+            { name: 'source_location', value: source },
           ],
           reactivate_existing: true,
           send_welcome_email: false, // Must be false so custom Automations (e.g. 02-parent-welcome) trigger instead of generic email
           utm_source: 'avenircore-website',
           utm_medium: 'waitlist',
+          utm_campaign: source,
           referring_site: 'https://avenircore.com',
         }),
       }

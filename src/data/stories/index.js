@@ -9,6 +9,7 @@ import theNewsBotThatLied from './the-news-bot-that-lied.json';
 import zaraBuildsADoctor from './zara-builds-a-doctor.json';
 import thePrivacyJar from './the-privacy-jar.json';
 import theDayLeoStoppedThinking from './the-day-leo-stopped-thinking.json';
+import theMemoryBot from './the-memory-bot.json';
 
 export const stories = [
   curiousRobot,
@@ -22,6 +23,7 @@ export const stories = [
   zaraBuildsADoctor,
   thePrivacyJar,
   theDayLeoStoppedThinking,
+  theMemoryBot,
 ];
 
 export const getStoryById = (id) => stories.find(s => s.id === id);

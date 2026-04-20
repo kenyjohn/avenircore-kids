@@ -83,11 +83,16 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           email,
+          tags: ['role:subscriber', `src:${source}`],
+          custom_fields: [
+            { name: 'role', value: 'subscriber' },
+            { name: 'source_location', value: source },
+          ],
           reactivate_existing: true,
           send_welcome_email: false,
           utm_source: 'avenircore-website',
           utm_medium: 'content-gate',       // distinguishes gate subs from waitlist
-          utm_campaign: source,             // e.g. "content-gate"
+          utm_campaign: source,             // e.g. "content-gate" or "story-memory-bot"
           referring_site: 'https://avenircore.com',
         }),
       }

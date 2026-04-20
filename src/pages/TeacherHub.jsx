@@ -139,6 +139,8 @@ const TeacherHub = () => {
             
             <NewsletterCTA 
               variant="mid" 
+              role="teacher"
+              location="teacher-hub-mid"
               heading="Reclaim your weekends"
               subheading="Join teachers getting one practical AI classroom idea every week. Free."
             />
@@ -198,6 +200,8 @@ const TeacherHub = () => {
 
           <NewsletterCTA 
             variant="end"
+            role="teacher"
+            location="teacher-hub-end"
             heading="Join the Educator Brief"
             subheading="Practical, jargon-free AI guidance for teachers. Sent every Tuesday."
           />

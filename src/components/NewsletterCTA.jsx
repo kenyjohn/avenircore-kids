@@ -9,6 +9,7 @@ const MailIcon = () => (
 const NewsletterCTA = ({ 
   variant = 'end', 
   role = 'parent', // 'parent' | 'teacher' | 'general'
+  location = 'newsletter',
   heading, 
   subheading, 
   buttonText 
@@ -69,6 +70,7 @@ const NewsletterCTA = ({
           email, 
           role, 
           name: name.trim(),
+          source: location,
           website: botField // Honeypot catch
         })
       })

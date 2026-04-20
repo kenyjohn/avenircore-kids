@@ -25,7 +25,7 @@ const EmailCapture = () => {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, role, name, website }),
+        body: JSON.stringify({ email, role, name, website, source: 'waitlist-main' }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))

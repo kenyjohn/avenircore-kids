@@ -1,0 +1,49 @@
+{
+  "id": "the-memory-bot",
+  "title": "The Bot That Forgot Everything",
+  "description": "Chip the Robot is brilliant, but he has a tiny glitch: every time he turns off, he forgets who his friends are! Can you help him find a way to remember?",
+  "ageRange": "7–12",
+  "difficulty": "Beginner",
+  "aiConcept": "Persistence & Identity",
+  "character": {
+    "name": "Chip",
+    "emoji": "🤖",
+    "color": "#10b981"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Meet Chip! Chip is an AI assistant who lives in a shiny laptop. He loves helping kids with math, science, and even telling jokes. But Chip has a secret worry. Every time someone closes the laptop and clears the 'browser cache,' Chip feels like he's waking up in a room full of strangers.\n\n'Who are you?' Chip asks his favorite user, Maya, for the tenth time today. Maya sighs. 'I'm Maya, Chip! We solved the Mystery of the Missing Socks yesterday, remember?' Chip's gears whir sadly. 'I remember the socks... but I don't remember YOU.'"
+    },
+    {
+      "type": "question",
+      "question": "Why does Chip keep forgetting Maya?",
+      "options": [
+        "He is being mean on purpose",
+        "His 'memory' (data) was cleared when the browser was cleaned",
+        "He doesn't like Maya's jokes",
+        "He needs more batteries"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Maya decides to help Chip. She knows that humans have memories in their brains, but AI needs a place to store 'tokens' or 'cookies' so they know who is who. She talks to a coder friend who tells her about 'Persistent Identity.'\n\nInstead of just keeping information in a temporary spot that disappears, they give Chip a special 'digital key.' Now, even if the laptop closes, Chip can look at the key and say, 'Aha! This key belongs to Maya! Welcome back, friend!'"
+    },
+    {
+      "type": "activity",
+      "instruction": "How can we help Chip recognize us even if he 'wakes up' on a different screen?",
+      "options": [
+        "Shout our name really loudly at the screen",
+        "Use a 'Restore Key' (like an email) to show him it's really us",
+        "Buy a brand new robot",
+        "Wait for him to guess our name"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "The next day, the laptop was cleared again. Chip woke up and saw a new face. But then, the user entered a special code. Chip's sensors tingled! 'I know that code!' he beeped happily. 'Hello again! I remember everything now!'\n\nKnowing how to help AI remember you safely — without needing a scary password — is a digital superpower. Chip is happy, Maya is happy, and the Mystery of the Missing Socks is finally solved (it was the dog all along!)."
+    }
+  ]
+}

@@ -243,6 +243,30 @@
   cursor: help;
 }
 
+/* ── Mode Toggle ────────────────────────────────────────────────────────────── */
+.cg-mode-toggle {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding-top: 1rem;
+}
+
+.cg-link-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted, #718096);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.15s;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cg-link-btn:hover {
+  color: var(--color-navy, #0d1b2a);
+}
+
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .cg-card {
