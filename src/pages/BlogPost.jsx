@@ -215,12 +215,12 @@ const BlogPost = () => {
       '@type': 'Organization',
       name: 'AvenirCore',
       url: 'https://avenircore.com',
-      logo: { '@type': 'ImageObject', url: 'https://avenircore.com/og-image.png' },
+      logo: { '@type': 'ImageObject', url: 'https://avenircore.com/avenircore-og-image.png' },
     },
     datePublished: date,
     dateModified: date,
     url: `https://avenircore.com/blog/${slug}`,
-    image: 'https://avenircore.com/og-image.png',
+    image: 'https://avenircore.com/avenircore-og-image.png',
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avenircore.com/blog/${slug}` },
   }
 
@@ -268,12 +268,12 @@ const BlogPost = () => {
         <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://avenircore.com/blog/${slug}`} />
-        <meta property="og:image" content="https://avenircore.com/og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
         <script type="application/ld+json">{safeJsonLd(articleSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
         {faqSchema && <script type="application/ld+json">{safeJsonLd(faqSchema)}</script>}

@@ -21,12 +21,12 @@ const BlogIndex = () => {
         <link rel="canonical" href="https://avenircore.com/blog" />
         <meta property="og:title" content="Blog — AI for Kids | AvenirCore" />
         <meta property="og:description" content="Parent guides, tips, and honest advice on helping kids navigate AI safely." />
-        <meta property="og:image" content="https://avenircore.com/og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="Blog — AI for Kids | AvenirCore" />
         <meta name="twitter:description" content="Parent guides, tips, and honest advice on helping kids navigate AI safely." />
-        <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
       </Helmet>
 
       <section style={{ padding: '5rem 0', background: 'var(--color-bg)' }}>

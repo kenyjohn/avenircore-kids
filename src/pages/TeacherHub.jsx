@@ -84,12 +84,12 @@ const TeacherHub = () => {
         <meta name="description" content="The ultimate hub for educators using AI in 2026. Practical guides on classroom safety, homework detection, and 10x lesson planning. From AvenirCore." />
         <meta name="keywords" content="AI for teachers 2026, AI lesson planning guide, AI classroom safety, detect AI homework, AI group work prompts" />
         <link rel="canonical" href="https://avenircore.com/blog/teachers-ai-guide" />
-        <meta property="og:image" content="https://avenircore.com/og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="AvenirCore Teacher Hub | AI Classroom Resources" />
         <meta name="twitter:description" content="Reclaim your weekends and lead the AI revolution in your school. The complete guide for educators." />
-        <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
         <script type="application/ld+json">{safeJsonLd(teacherHubSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(teacherFaqSchema)}</script>

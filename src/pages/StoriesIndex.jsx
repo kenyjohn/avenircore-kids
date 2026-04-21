@@ -58,12 +58,12 @@ export default function StoriesIndex() {
         <link rel="canonical" href="https://avenircore.com/stories" />
         <meta property="og:title" content="Interactive AI Stories for Kids | AvenirCore" />
         <meta property="og:description" content="Free interactive stories that teach kids about AI bias, privacy, and ethics. Built for families and classrooms." />
-        <meta property="og:image" content="https://avenircore.com/og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="Interactive AI Stories for Kids | AvenirCore" />
         <meta name="twitter:description" content="Free interactive stories that teach kids about AI bias, privacy, and ethics." />
-        <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
       </Helmet>
 
       {/* ── Hero ─────────────────────────────────────────── */}

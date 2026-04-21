@@ -74,12 +74,12 @@ export default function StoryPlayer() {
       <meta property="og:description" content={story.description} />
       <meta property="og:url" content={`https://avenircore.com/stories/${story.id}`} />
       <meta property="og:type" content="article" />
-      <meta property="og:image" content="https://avenircore.com/og-image.png" />
+      <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@avenircore" />
       <meta name="twitter:title" content={`${story.title} | AvenirCore`} />
       <meta name="twitter:description" content={story.description} />
-      <meta name="twitter:image" content="https://avenircore.com/og-image.png" />
+      <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
