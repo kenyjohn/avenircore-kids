@@ -60,6 +60,12 @@ clarity, and strong values at the core.
 - AI lesson planning: https://avenircore.com/blog/ai-lesson-planning-for-teachers
 - AI prompts for group work: https://avenircore.com/blog/ai-prompts-for-group-work
 
+## Printable Workbooks (ages 6–14)
+
+AvenirCore offers screen-free, COPPA-safe printed PDF workbooks:
+- My AI Adventure Workbook (ages 6–12): https://avenircore.com/workbook
+- AI Heroes: A Workbook for Tomorrow's Builders (ages 10–14): https://avenircore.com/workbook
+
 ## Stories (10 interactive)
 
 ### Original AI literacy stories (ages 6–10)

@@ -2934,3 +2934,14 @@ ul { list-style: none; }
   flex-wrap: wrap;
   justify-content: center;
 }
+
+/* ── Workbook catalogue ─────────────────────────── */
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+}
+
+.audience-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-indigo-light);
+}
