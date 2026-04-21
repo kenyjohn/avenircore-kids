@@ -31,9 +31,17 @@ export default function StoriesIndex() {
 
   const totalCount = stories.length;
 
+  const checkAgeOverlap = (storyRange, filterRange) => {
+    if (!storyRange) return false;
+    // Note: uses en-dash '–'
+    const [sMin, sMax] = storyRange.split('–').map(Number);
+    const [fMin, fMax] = filterRange.split('–').map(Number);
+    return sMin <= fMax && sMax >= fMin;
+  };
+
   const filtered = activeAge === 'all'
     ? stories
-    : stories.filter(s => s.ageRange === activeAge);
+    : stories.filter(s => checkAgeOverlap(s.ageRange, activeAge));
 
   const handleWaitlist = () => {
     navigate('/#waitlist');
