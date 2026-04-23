@@ -20,6 +20,8 @@ export function getAllPosts() {
         isNew: mod.isNew || false,
         readingTime: mod.readingTime || '4 min read',
         howToSteps: mod.howToSteps || null,
+        author: mod.author || null,
+        ogImage: mod.ogImage || null,
       }
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -42,6 +44,8 @@ export function getPostBySlug(slug) {
     isNew: mod.isNew || false,
     readingTime: mod.readingTime || '4 min read',
     howToSteps: mod.howToSteps || null,
+    author: mod.author || null,
+    ogImage: mod.ogImage || null,
   }
 }
 

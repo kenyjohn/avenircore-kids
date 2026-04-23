@@ -60,7 +60,7 @@ clarity, and strong values at the core.
 - AI lesson planning: https://avenircore.com/blog/ai-lesson-planning-for-teachers
 - AI prompts for group work: https://avenircore.com/blog/ai-prompts-for-group-work
 
-## Blog
+## Blog articles
 
 - [Your Child Will Be Fine. Here's Why You Should Believe That.](https://avenircore.com/blog/your-child-will-be-fine-ai-future): A research-backed guide for parents on AI, the future of work, and raising resilient children.
 - [Teaching in the Age of AI: You're Not Being Replaced. You're Being Tested.](https://avenircore.com/blog/teaching-in-the-age-of-ai-not-being-replaced): A candid piece for educators on what AI actually disrupts in classrooms — and what it can't touch.

@@ -103,7 +103,7 @@ const NewsletterCTA = ({
 
   if (isMid) {
     return (
-      <div className="newsletter-cta-mid">
+      <div className="newsletter-cta-mid" data-role={role}>
         {status === 'success' ? (
           successUI
         ) : (
@@ -173,7 +173,7 @@ const NewsletterCTA = ({
   }
 
   return (
-    <div className="newsletter-cta-end">
+    <div className="newsletter-cta-end" data-role={role}>
       <div className="rainbow-accent"></div>
       {status === 'success' ? (
         successUI

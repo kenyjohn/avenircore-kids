@@ -39,7 +39,7 @@ const BlogIndex = () => {
 
           {/* Category filter */}
           <div id="categoryFilter" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2.5rem' }}>
-            {['All', 'Parents', 'Teachers', 'Safety', 'Tools', 'Activities'].map(cat => (
+            {['All', 'Parents', 'Teachers', 'Safety', 'Tools'].map(cat => (
               <button
                 key={cat}
                 className={activeCategory === cat ? "btn btn-primary" : "btn btn-outline"}

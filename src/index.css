@@ -483,10 +483,10 @@ ul { list-style: none; }
 /* ── Blog content styles ── */
 .blog-content h2 { font-size: 1.5rem; font-weight: 800; color: var(--color-navy); margin: 2rem 0 0.75rem; }
 .blog-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--color-navy); margin: 1.5rem 0 0.5rem; }
-.blog-content p { font-size: 1rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.1rem; }
+.blog-content p { font-size: 1.0625rem; color: var(--color-text); line-height: 1.8; margin-bottom: 1.25rem; }
 .blog-content strong { color: var(--color-navy); font-weight: 700; }
 .blog-content ul, .blog-content ol { margin: 0.75rem 0 1.1rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
-.blog-content li { font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; }
+.blog-content li { font-size: 1.0625rem; color: var(--color-text); line-height: 1.7; }
 .blog-content a { color: var(--color-emerald); text-decoration: underline; text-underline-offset: 3px; }
 .blog-content blockquote { border-left: 4px solid var(--color-emerald); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--color-emerald-bg); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
 .blog-content blockquote p { margin: 0; font-style: italic; }
@@ -1198,6 +1198,30 @@ ul { list-style: none; }
   max-width: 500px;
 }
 
+/* Teacher variant — indigo brand override */
+.newsletter-cta-mid[data-role="teacher"],
+.newsletter-cta-end[data-role="teacher"] {
+  border-color: var(--color-teacher-soft);
+  background: var(--color-teacher-bg-light);
+}
+
+.newsletter-cta-mid[data-role="teacher"] .newsletter-cta-title,
+.newsletter-cta-end[data-role="teacher"] .newsletter-cta-title {
+  color: var(--color-teacher-bg);
+}
+
+.newsletter-cta-mid[data-role="teacher"] .btn-primary,
+.newsletter-cta-end[data-role="teacher"] .btn-primary {
+  background: var(--color-teacher);
+  box-shadow: 0 4px 14px rgba(79,70,229,0.28);
+}
+
+.newsletter-cta-mid[data-role="teacher"] .btn-primary:hover,
+.newsletter-cta-end[data-role="teacher"] .btn-primary:hover {
+  background: var(--color-teacher-dark);
+  box-shadow: 0 8px 22px rgba(79,70,229,0.36);
+}
+
 .cta-end-form-wrap {
   width: 100%;
   max-width: 800px;
@@ -1269,6 +1293,17 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+  .blog-content p,
+  .blog-content li {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+  }
+
+  .blog-content h2 {
+    font-size: 1.3rem;
+    margin-top: 1.75rem;
+  }
+
   .newsletter-cta-mid {
     flex-direction: column;
     padding: 1.5rem;

@@ -107,7 +107,7 @@ const RelatedPosts = ({ posts }) => {
             <div className="card" style={{ height: '100%' }}>
               <span className="section-label" style={{ margin: '0 0 0.6rem', fontSize: '0.62rem', display: 'inline-block' }}>{p.category}</span>
               <h3 style={{ fontSize: '0.975rem', fontWeight: 800, color: 'var(--color-navy)', lineHeight: 1.35, marginBottom: '0.5rem' }}>{p.title}</h3>
-              <p style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '0.75rem' }}>{p.excerpt}</p>
+              <p style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '0.75rem' }}>{p.excerpt || p.description}</p>
               <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--color-emerald)' }}>Read article →</span>
             </div>
           </Link>
@@ -144,6 +144,7 @@ const PrevNextNav = ({ prev, next }) => {
 
 import { MDXProvider } from '@mdx-js/react'
 import { components } from '../components/MDXComponents'
+import { useReadingProgress } from '../hooks/useReadingProgress'
 
 // ── Main BlogPost component ─────────────────────────────────────
 const BlogPost = () => {
@@ -153,7 +154,12 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps } = post
+  const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps, ogImage } = post
+  const readingProgress = useReadingProgress()
+
+  const socialImage = ogImage
+    ? `https://avenircore.com${ogImage}`
+    : 'https://avenircore.com/avenircore-og-image.png'
 
   const handleWaitlist = () => {
     navigate('/#waitlist')
@@ -220,7 +226,7 @@ const BlogPost = () => {
     datePublished: date,
     dateModified: date,
     url: `https://avenircore.com/blog/${slug}`,
-    image: 'https://avenircore.com/avenircore-og-image.png',
+    image: socialImage,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avenircore.com/blog/${slug}` },
   }
 
@@ -268,12 +274,12 @@ const BlogPost = () => {
         <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://avenircore.com/blog/${slug}`} />
-        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta property="og:image" content={socialImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta name="twitter:image" content={socialImage} />
         <script type="application/ld+json">{safeJsonLd(articleSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
         {faqSchema && <script type="application/ld+json">{safeJsonLd(faqSchema)}</script>}
@@ -281,6 +287,20 @@ const BlogPost = () => {
       </Helmet>
 
       <article>
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: `${readingProgress}%`,
+            height: '3px',
+            background: category === 'Teachers' ? 'var(--color-teacher)' : 'var(--color-emerald)',
+            zIndex: 200,
+            transition: 'width 0.1s linear',
+            pointerEvents: 'none',
+          }}
+          aria-hidden="true"
+        />
         <ContentGate contentType="blog" teaser={blogTeaser}>
           {/* Body */}
           <div style={{ padding: '3rem 0', background: 'var(--color-bg)' }}>
