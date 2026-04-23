@@ -23,6 +23,7 @@ The entirety of AI direction exists efficiently centralized under the `.agents/`
 - **`.agents/skills/dashboard-logic.md`** - Layout and state guidelines for Teacher/Parent portals.
 - **`.agents/skills/search-architecture.md`** - Search indexing, keyboard navigation, and UI patterns.
 - **`.agents/skills/pre-merge-validation.md`** - Final checklist for sitemaps, llms.txt, and security before merging features to main.
+- **`.agents/skills/content-syndication.md`** - Rules for syndicating content across pillar pages, adding NEW badges, and injecting CTAs.
 
 ### Automated Workflows (`.agents/workflows/`)
 *Run specific workflows executing repetitive procedural patterns directly.*

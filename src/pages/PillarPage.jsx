@@ -9,6 +9,7 @@ const PILLAR_ARTICLES = [
   { slug: 'how-to-talk-to-kids-about-ai', icon: '💬', order: 3 },
   { slug: 'free-ai-tools-for-kids-2026', icon: '🛠️', order: 4 },
   { slug: 'will-ai-make-kids-lazy', icon: '🧠', order: 5 },
+  { slug: 'your-child-will-be-fine-ai-future', icon: '🌱', order: 6 },
 ]
 
 const pillarSchema = {
@@ -152,6 +153,7 @@ const PillarPage = () => {
                   <div className="pillar-article-body">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
                       <span className="section-label" style={{ margin: 0, fontSize: '0.6rem' }}>{post.category}</span>
+                      {post.isNew && <span style={{ background: 'var(--color-amber)', color: 'white', padding: '0.1rem 0.4rem', borderRadius: '4px', fontSize: '0.6rem', fontWeight: 'bold' }}>NEW</span>}
                       {post.readingTime && (
                         <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{post.readingTime}</span>
                       )}

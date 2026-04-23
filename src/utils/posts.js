@@ -17,6 +17,7 @@ export function getAllPosts() {
         keywords: mod.keywords,
         faqs: mod.faqs || null,
         featured: mod.featured || false,
+        isNew: mod.isNew || false,
         readingTime: mod.readingTime || '4 min read',
         howToSteps: mod.howToSteps || null,
       }
@@ -38,6 +39,7 @@ export function getPostBySlug(slug) {
     keywords: mod.keywords,
     faqs: mod.faqs || null,
     featured: mod.featured || false,
+    isNew: mod.isNew || false,
     readingTime: mod.readingTime || '4 min read',
     howToSteps: mod.howToSteps || null,
   }

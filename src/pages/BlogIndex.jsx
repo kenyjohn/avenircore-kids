@@ -57,6 +57,7 @@ const BlogIndex = () => {
                 <article className="blog-card">
                   <div className="blog-card-meta">
                     <span className="blog-card-tag">{post.category}</span>
+                    {post.isNew && <span className="blog-card-new" style={{ background: 'var(--color-amber)', color: 'white', padding: '0.1rem 0.4rem', borderRadius: '4px', fontSize: '0.65rem', marginLeft: '0.4rem', fontWeight: 'bold' }}>NEW</span>}
                     {post.featured && <span className="blog-card-featured">Featured</span>}
                     {post.readingTime && <span className="blog-card-time">{post.readingTime}</span>}
                   </div>

@@ -8,6 +8,7 @@ const TEACHER_ARTICLES = [
   { slug: 'detect-ai-homework-guide', icon: '🔍', order: 2 },
   { slug: 'ai-lesson-planning-for-teachers', icon: '📚', order: 3 },
   { slug: 'ai-prompts-for-group-work', icon: '🤝', order: 4 },
+  { slug: 'teaching-in-the-age-of-ai-not-being-replaced', icon: '🍎', order: 5 },
 ]
 
 const teacherHubSchema = {
@@ -155,6 +156,7 @@ const TeacherHub = () => {
                   <div className="pillar-article-body">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
                       <span className="section-label" style={{ margin: 0, fontSize: '0.6rem', color: 'var(--color-teacher)', background: 'var(--color-teacher-soft)', borderColor: 'var(--color-teacher-light)' }}>FOR EDUCATORS</span>
+                      {post.isNew && <span style={{ background: 'var(--color-amber)', color: 'white', padding: '0.1rem 0.4rem', borderRadius: '4px', fontSize: '0.6rem', fontWeight: 'bold' }}>NEW</span>}
                       <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{post.readingTime}</span>
                     </div>
                     <h2 className="pillar-article-title">{post.title}</h2>
