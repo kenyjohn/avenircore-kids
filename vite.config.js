@@ -77,6 +77,8 @@ export default defineConfig({
         '/blog/free-ai-tools-for-kids-2026',
         '/blog/what-age-can-kids-use-ai',
         '/blog/will-ai-make-kids-lazy',
+        '/blog/your-child-will-be-fine-ai-future',
+        '/blog/teaching-in-the-age-of-ai-not-being-replaced',
         // Stories — original 5
         '/stories/curious-robot',
         '/stories/smart-assistant',
