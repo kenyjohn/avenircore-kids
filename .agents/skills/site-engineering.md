@@ -10,6 +10,6 @@ Trigger for: routing, APIs, environment config.
 - **Endpoints**: `/api/subscribe` (Beehiiv), `/api/contact` (Resend).
 - **Security**: Method validation, environment key checks, input sanitization via `src/utils/security.js`.
 
-## 3. Environment
-- **Client**: Must prefix with `VITE_`.
-- **Server**: No `VITE_` prefix (e.g., `RESEND_API_KEY`) to prevent client leakage.
+## 4. Build Automation
+- **Sitemap**: Automated via `vite-plugin-sitemap`. `vite.config.js` dynamically scans `src/posts/` and `src/data/stories/` to generate `public/sitemap.xml` on every build.
+- **Search Pings**: `scripts/ping-search-engines.js` notifies Google/Bing. Triggered automatically by GitHub Actions (`.github/workflows/submit-sitemap.yml`) on push to `main`.

@@ -15,6 +15,12 @@ Use `src/utils/security.js` with `safeJsonLd()` for injection.
 - **Author**: Use `Person` mapping to external authority sources.
 - **FAQPage**: For MDX articles with `faqs` arrays.
 
-## 3. Sitemap & Routing
-- **Sitemap**: Vite-managed at `/sitemap.xml`.
-- **Routing**: Major site sections must be added to `dynamicRoutes` block in `vite.config.js`.
+## 3. Sitemap & Search Console
+- **Sitemap**: Automated via `vite-plugin-sitemap`. Routes are dynamically discovered by scanning content folders in `vite.config.js`.
+- **Search Console**: Automated submission via GitHub Actions to Google and Bing after every deploy to `main`.
+
+## 4. Social Metadata Standards
+To ensure rich previews on WhatsApp and LinkedIn:
+- **Dimensions**: Always specify `og:image:width` and `og:image:height`.
+- **Article Data**: For `og:type="article"`, include `article:author`, `article:published_time`, and `article:section`.
+- **Optimization**: Keep OG images under 300KB and use `.jpg` for maximum compatibility.

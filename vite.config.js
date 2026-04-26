@@ -56,23 +56,23 @@ export default defineConfig({
     sitemap({
       hostname: 'https://avenircore.com',
       generateRobotsTxt: false,
-      dynamicRoutes: () => {
+      dynamicRoutes: (() => {
         const routes = [
           '/about', '/contact', '/workbook', '/stories', '/privacy', '/terms', '/blog'
         ]
 
         // Auto-detect blog posts from src/posts/
         const postFiles = readdirSync(resolve(__dirname, 'src/posts'))
-          .filter(file => file.endswith('.mdx'))
+          .filter(file => file.endsWith('.mdx'))
           .map(file => `/blog/${file.replace('.mdx', '')}`)
         
         // Auto-detect stories from src/data/stories/
         const storyFiles = readdirSync(resolve(__dirname, 'src/data/stories'))
-          .filter(file => file.endswith('.json'))
+          .filter(file => file.endsWith('.json'))
           .map(file => `/stories/${file.replace('.json', '')}`)
 
         return [...routes, ...postFiles, ...storyFiles]
-      },
+      })(),
     }),
   ],
   server: {
