@@ -159,7 +159,11 @@ const BlogPost = () => {
 
   const socialImage = ogImage
     ? `https://avenircore.com${ogImage}`
-    : 'https://avenircore.com/avenircore-og-image.png'
+    : 'https://avenircore.com/avenircore-og-image.jpg'
+
+  const imageWidth = ogImage ? '1200' : '1024'
+  const imageHeight = ogImage ? '630' : '1024'
+  const imageType = 'image/jpeg'
 
   const handleWaitlist = () => {
     navigate('/#waitlist')
@@ -221,7 +225,7 @@ const BlogPost = () => {
       '@type': 'Organization',
       name: 'AvenirCore',
       url: 'https://avenircore.com',
-      logo: { '@type': 'ImageObject', url: 'https://avenircore.com/avenircore-og-image.png' },
+      logo: { '@type': 'ImageObject', url: 'https://avenircore.com/avenircore-og-image.jpg' },
     },
     datePublished: date,
     dateModified: date,
@@ -275,6 +279,9 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://avenircore.com/blog/${slug}`} />
         <meta property="og:image" content={socialImage} />
+        <meta property="og:image:width" content={imageWidth} />
+        <meta property="og:image:height" content={imageHeight} />
+        <meta property="og:image:type" content={imageType} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content={title} />

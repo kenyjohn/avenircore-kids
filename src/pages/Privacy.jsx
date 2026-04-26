@@ -8,10 +8,13 @@ const Privacy = () => (
       <meta name="description" content="AvenirCore's privacy policy — how we protect children's data, COPPA compliance, and your rights as a parent." />
       <meta property="og:title" content="Privacy Policy | AvenirCore" />
       <meta property="og:description" content="How we protect children's data and uphold COPPA standards at AvenirCore." />
-      <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
+      <meta property="og:image" content="https://avenircore.com/avenircore-og-image.jpg" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:type" content="image/jpeg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@avenircore" />
-      <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
+      <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.jpg" />
       <link rel="canonical" href="https://avenircore.com/privacy" />
     </Helmet>
 

@@ -61,12 +61,15 @@ export default function Contact() {
         <title>Contact Us | AvenirCore</title>
         <meta property="og:title" content="Contact AvenirCore | Support & Partnerships" />
         <meta property="og:description" content="Questions about AI for kids? Partnership ideas? Reach out to the AvenirCore team." />
-        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.jpg" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="Contact AvenirCore | Support & Partnerships" />
         <meta name="twitter:description" content="Questions about AI for kids? Partnership ideas? Reach out to the AvenirCore team." />
-        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.jpg" />
         <meta
           name="description"
           content="Get in touch with AvenirCore — questions for parents, classroom resources for teachers, or press and partnership enquiries."

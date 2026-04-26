@@ -88,12 +88,15 @@ const PillarPage = () => {
         <meta property="og:description" content="Everything parents need to know about AI and children in one place. Safety, age guidance, tools, and how to have the conversation." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://avenircore.com/blog/ai-for-kids-guide" />
-        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.jpg" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="The Complete Parent Guide to AI for Kids (2026) | AvenirCore" />
         <meta name="twitter:description" content="Everything parents need to know about AI and children in 2026 — safety, right age, best tools, and more." />
-        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.jpg" />
         <script type="application/ld+json">{safeJsonLd(pillarSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(pillarFaqSchema)}</script>

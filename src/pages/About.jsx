@@ -68,12 +68,15 @@ const About = () => {
         <meta property="og:description" content="We built AvenirCore because children deserve AI tools built around their values, not just their attention." />
         <meta property="og:url" content="https://avenircore.com/about" />
         <meta property="og:type" content="profile" />
-        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta property="og:image" content="https://avenircore.com/avenircore-og-image.jpg" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="About AvenirCore | Our Story, Mission & Values" />
         <meta name="twitter:description" content="We built AvenirCore because children deserve AI tools built around their values, not just their attention." />
-        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.png" />
+        <meta name="twitter:image" content="https://avenircore.com/avenircore-og-image.jpg" />
         <script type="application/ld+json">{safeJsonLd(personSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(orgSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
