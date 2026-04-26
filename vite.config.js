@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { defineConfig } from 'vite'
@@ -56,43 +56,23 @@ export default defineConfig({
     sitemap({
       hostname: 'https://avenircore.com',
       generateRobotsTxt: false,
-      dynamicRoutes: [
-        // Core pages
-        '/about',
-        '/contact',
-        '/workbook',
-        '/stories',
-        '/privacy',
-        '/terms',
-        // Blog articles
-        '/blog',
-        '/blog/ai-for-kids-guide',
-        '/blog/teachers-ai-guide',
-        '/blog/ai-classroom-safety-guide',
-        '/blog/detect-ai-homework-guide',
-        '/blog/ai-lesson-planning-for-teachers',
-        '/blog/ai-prompts-for-group-work',
-        '/blog/is-ai-safe-for-kids',
-        '/blog/how-to-talk-to-kids-about-ai',
-        '/blog/free-ai-tools-for-kids-2026',
-        '/blog/what-age-can-kids-use-ai',
-        '/blog/will-ai-make-kids-lazy',
-        '/blog/your-child-will-be-fine-ai-future',
-        '/blog/teaching-in-the-age-of-ai-not-being-replaced',
-        // Stories — original 5
-        '/stories/curious-robot',
-        '/stories/smart-assistant',
-        '/stories/data-detective',
-        '/stories/kind-ai',
-        '/stories/ai-mistake',
-        // Stories — 5 new ethical AI (Issue #12)
-        '/stories/the-robot-that-couldnt-see-amara',
-        '/stories/mia-and-the-weather-machine',
-        '/stories/the-news-bot-that-lied',
-        '/stories/zara-builds-a-doctor',
-        '/stories/the-privacy-jar',
-        '/stories/the-day-leo-stopped-thinking',
-      ],
+      dynamicRoutes: () => {
+        const routes = [
+          '/about', '/contact', '/workbook', '/stories', '/privacy', '/terms', '/blog'
+        ]
+
+        // Auto-detect blog posts from src/posts/
+        const postFiles = readdirSync(resolve(__dirname, 'src/posts'))
+          .filter(file => file.endswith('.mdx'))
+          .map(file => `/blog/${file.replace('.mdx', '')}`)
+        
+        // Auto-detect stories from src/data/stories/
+        const storyFiles = readdirSync(resolve(__dirname, 'src/data/stories'))
+          .filter(file => file.endswith('.json'))
+          .map(file => `/stories/${file.replace('.json', '')}`)
+
+        return [...routes, ...postFiles, ...storyFiles]
+      },
     }),
   ],
   server: {
