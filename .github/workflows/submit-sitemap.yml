@@ -1,0 +1,25 @@
+name: Submit Sitemap to Search Engines
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/checkout@v4
+        with:
+          node-version: '20'
+
+      - name: Wait for Vercel Deployment
+        run: sleep 60 # Give Vercel a minute to deploy the new sitemap.xml
+
+      - name: Ping Search Engines
+        run: node scripts/ping-search-engines.js
