@@ -92,6 +92,9 @@ const PillarPage = () => {
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
         <meta property="og:image:type" content="image/jpeg" />
+        <meta property="article:author" content="John & Abigail Kennedy" />
+        <meta property="article:published_time" content="2026-04-20T10:00:00Z" />
+        <meta property="article:section" content="Parents" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content="The Complete Parent Guide to AI for Kids (2026) | AvenirCore" />

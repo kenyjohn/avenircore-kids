@@ -282,6 +282,12 @@ const BlogPost = () => {
         <meta property="og:image:width" content={imageWidth} />
         <meta property="og:image:height" content={imageHeight} />
         <meta property="og:image:type" content={imageType} />
+        <meta property="article:author" content={author} />
+        <meta property="article:published_time" content={`${date}T09:00:00Z`} />
+        <meta property="article:section" content={category} />
+        {keywords && keywords.split(',').map(tag => (
+          <meta property="article:tag" content={tag.trim()} key={tag} />
+        ))}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@avenircore" />
         <meta name="twitter:title" content={title} />
