@@ -1,7 +1,7 @@
 // api/subscribe.js — complete replacement
 
 import { Resend } from 'resend';
-import { generateWelcomeEmail } from './utils/welcomeEmailTemplate.js';
+import { generateGeneralWelcomeEmail, generateRoleSpecificEmail } from './utils/welcomeEmailTemplate.js';
 // Simple but effective email regex — matches RFC 5321 common cases
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -133,26 +133,40 @@ export default async function handler(req, res) {
       return res.status(502).json({ message: `Beehiiv returned ${response.status}: ${data.message || JSON.stringify(data)}` })
     }
 
-    // --- NEW: Send Beautiful Welcome Email via Resend ---
+    // --- NEW: Send Beautiful Welcome Email Sequence via Resend ---
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
     if (RESEND_API_KEY && email) {
       const resend = new Resend(RESEND_API_KEY);
-      const subjectLine = role === 'parent' 
-        ? "Welcome to AvenirCore — you're doing the right thing"
+      
+      const roleSubjectLine = role === 'parent' 
+        ? "Welcome to Avenircore — you're doing the right thing"
         : role === 'teacher' || role === 'educator'
-        ? "Welcome to AvenirCore — thank you for being here"
-        : "You're in 🌱 — here's your free AI workbook";
+        ? "Welcome to Avenircore — your first AI idea is on its way"
+        : "Welcome to Avenircore — AI and kids, explained simply";
         
       try {
+        // Email 1: General Welcome
         await resend.emails.send({
           from: 'John at AvenirCore <hello@avenircore.com>',
           to: email,
           replyTo: 'hello@avenircore.com',
-          subject: subjectLine,
-          html: generateWelcomeEmail(role, name)
+          subject: "You're in 🌱 — here's your free AI workbook",
+          html: generateGeneralWelcomeEmail(name)
+        });
+
+        // 3 second delay for better inbox delivery perception
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        // Email 2: Role Specific
+        await resend.emails.send({
+          from: 'John at AvenirCore <hello@avenircore.com>',
+          to: email,
+          replyTo: 'hello@avenircore.com',
+          subject: roleSubjectLine,
+          html: generateRoleSpecificEmail(role, name)
         });
       } catch (emailErr) {
-        console.error('Failed to send Resend welcome email:', emailErr);
+        console.error('Failed to send Resend welcome email sequence:', emailErr);
         // Do not block the primary subscription success return
       }
     }

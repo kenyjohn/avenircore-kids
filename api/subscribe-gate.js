@@ -1,5 +1,7 @@
 // ─── api/subscribe-gate.js ────────────────────────────────────────────────────
 // Vercel Serverless Function — Content Gate subscriber endpoint.
+import { Resend } from 'resend';
+import { generateGeneralWelcomeEmail, generateRoleSpecificEmail } from './utils/welcomeEmailTemplate.js';
 // Accepts POST { email, source } → adds subscriber to Beehiiv (same pub as waitlist).
 //
 // Strategy: reuses BEEHIIV_API_KEY + BEEHIIV_PUB_ID already set in Vercel.
@@ -103,6 +105,45 @@ export default async function handler(req, res) {
     if (!beehiivRes.ok) {
       console.error('[subscribe-gate] Beehiiv error:', beehiivRes.status, data);
       return res.status(502).json({ error: 'Could not save subscription' });
+    }
+
+    // --- NEW: Send Beautiful Welcome Email Sequence via Resend ---
+    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+    // content-gate doesn't capture name natively in the current UI, so we pass null or empty
+    const name = ''; 
+    // content-gate is mainly for general readers unless specified
+    const role = 'general'; 
+    
+    if (RESEND_API_KEY && email) {
+      const resend = new Resend(RESEND_API_KEY);
+      
+      const roleSubjectLine = "Welcome to Avenircore — AI and kids, explained simply";
+        
+      try {
+        // Email 1: General Welcome
+        await resend.emails.send({
+          from: 'John at AvenirCore <hello@avenircore.com>',
+          to: email,
+          replyTo: 'hello@avenircore.com',
+          subject: "You're in 🌱 — here's your free AI workbook",
+          html: generateGeneralWelcomeEmail(name)
+        });
+
+        // 3 second delay for better inbox delivery perception
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        // Email 2: Role Specific
+        await resend.emails.send({
+          from: 'John at AvenirCore <hello@avenircore.com>',
+          to: email,
+          replyTo: 'hello@avenircore.com',
+          subject: roleSubjectLine,
+          html: generateRoleSpecificEmail(role, name)
+        });
+      } catch (emailErr) {
+        console.error('[subscribe-gate] Failed to send Resend welcome email sequence:', emailErr);
+        // Do not block the primary subscription success return
+      }
     }
 
     return res.status(200).json({ ok: true });
