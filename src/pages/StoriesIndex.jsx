@@ -10,6 +10,7 @@ const AGE_FILTERS = [
   { label: '8–10', value: '8–10' },
   { label: '9–13', value: '9–13' },
   { label: '10–14', value: '10–14' },
+  { label: '11–14', value: '11–14' },
 ];
 
 const CONCEPT_EMOJIS = {
@@ -23,6 +24,12 @@ const CONCEPT_EMOJIS = {
   'AI Transparency & Hallucination': '🔎',
   'AI in Healthcare & Human Oversight': '🏥',
   'Data Privacy & Digital Rights': '🔐',
+  'Machine Learning': '🌙',
+  'Sentiment Analysis': '💬',
+  'Reinforcement Learning': '🏆',
+  'Generative AI & Deepfakes': '🎭',
+  'Recommendation Algorithms & Filter Bubbles': '📱',
+  'AI & The Future of Work': '🔭',
 };
 
 export default function StoriesIndex() {
@@ -123,7 +130,29 @@ export default function StoriesIndex() {
             {filtered.map(story => {
               const conceptEmoji = CONCEPT_EMOJIS[story.aiConcept] || '✨';
               return (
-                <Link to={`/stories/${story.id}`} key={story.id} className="story-card">
+                <Link to={`/stories/${story.id}`} key={story.id} className="story-card" style={{ position: 'relative' }}>
+                  {/* New badge — shown only when story.isNew is true */}
+                  {story.isNew && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        zIndex: 10,
+                        background: '#16a34a',
+                        color: '#fff',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                        letterSpacing: '0.04em',
+                        padding: '3px 10px',
+                        borderRadius: '99px',
+                        textTransform: 'uppercase',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      New
+                    </span>
+                  )}
                   {/* Banner */}
                   <div
                     className="story-card-banner"

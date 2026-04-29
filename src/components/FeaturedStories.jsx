@@ -28,10 +28,32 @@ export default function FeaturedStories() {
               to={`/stories/${story.id}`}
               className="featured-card animate-fade-up"
               style={{
+                position: 'relative',
                 animationDelay: `${i * 0.12}s`,
                 '--card-accent': story.character?.color || 'var(--color-purple)',
               }}
             >
+              {story.isNew && (
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    zIndex: 10,
+                    background: '#16a34a',
+                    color: '#fff',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    padding: '3px 10px',
+                    borderRadius: '99px',
+                    textTransform: 'uppercase',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  New
+                </span>
+              )}
               {/* Coloured accent bar */}
               <div
                 className="featured-card-accent"

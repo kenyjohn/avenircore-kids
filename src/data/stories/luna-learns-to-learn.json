@@ -1,0 +1,50 @@
+{
+  "id": "luna-learns-to-learn",
+  "title": "Luna Learns to Learn",
+  "description": "Luna the robot has never seen a cat before — follow her journey as she looks at thousands of pictures to figure out what makes a cat a cat!",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "Machine Learning",
+  "isNew": true,
+  "character": {
+    "name": "Luna",
+    "emoji": "🌙",
+    "color": "#7c3aed"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Luna is a young robot who has never seen a cat before. Her friend Pip wants her to recognise cats, but Luna has no idea where to start. 'Don't worry,' says Pip, 'I'll show you lots and lots of pictures. After a while, you'll figure it out yourself!'\n\nPip shows Luna 10 pictures. Some are cats. Some are dogs, rabbits, and teddy bears. Luna stares carefully at every single one."
+    },
+    {
+      "type": "question",
+      "question": "After looking at lots of pictures, what do you think Luna starts to notice about cats?",
+      "options": [
+        "Cats always wear hats",
+        "Cats have pointy ears, whiskers, and a certain shape",
+        "Cats are always orange",
+        "Cats are always sitting down"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "After 1,000 pictures, Luna started to see it. Pointy ears. Whiskers near the nose. A certain fluffiness. She wasn't told these rules — she noticed them herself, just from looking at examples.\n\nThis is exactly how machine learning works. Instead of a human writing a list of rules, the computer looks at thousands of examples and finds the patterns all by itself. It *learns* — just like you learned what a chair is before anyone explained it."
+    },
+    {
+      "type": "activity",
+      "instruction": "Pip shows Luna a new picture. It has pointy ears, whiskers, and a fluffy tail. What should Luna say?",
+      "options": [
+        "I don't know — nobody told me the rules",
+        "Probably a cat! It matches the pattern I learned",
+        "Definitely a dog",
+        "I need to look at one million more pictures first"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "'You got it!' cheered Pip. Luna beeped happily.\n\nBut then Pip showed her a drawing of a cartoon cat. Luna got confused. 'I've never seen a cat that looks like *that* before,' she said.\n\n'That's okay,' said Pip. 'Even the best learners — robots and humans — get confused by things they haven't seen before. The more examples you see, the better you get. But you never stop learning.'\n\nLuna smiled her robot smile. Neither do I, she thought."
+    }
+  ]
+}

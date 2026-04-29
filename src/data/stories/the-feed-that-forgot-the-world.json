@@ -1,0 +1,50 @@
+{
+  "id": "the-feed-that-forgot-the-world",
+  "title": "The Feed That Forgot the World",
+  "description": "Sam notices his video feed only ever shows things he already agrees with — and starts to wonder what he might be missing.",
+  "ageRange": "11–14",
+  "difficulty": "Intermediate",
+  "aiConcept": "Recommendation Algorithms & Filter Bubbles",
+  "isNew": true,
+  "character": {
+    "name": "Sam",
+    "emoji": "📱",
+    "color": "#0f766e"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Sam and his best friend Jess both used the same video platform. One afternoon they compared their feeds.\n\nSam's was full of football highlights, fast food reviews, and comedy clips. Jess's was full of wildlife documentaries, book discussions, and science experiments.\n\nThey were using the same app, on the same day, in the same room.\n\n'How is yours so different from mine?' asked Sam.\n\n'I don't know,' said Jess. 'But I've never seen a single football video. Have you ever seen a wildlife documentary?'\n\nSam hadn't. Not once."
+    },
+    {
+      "type": "question",
+      "question": "Why do Sam and Jess see completely different feeds on the same app?",
+      "options": [
+        "The app randomly assigns content",
+        "An algorithm tracks what each person watches and shows more of the same",
+        "The app shows different things in different countries",
+        "Sam and Jess have different phones"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Recommendation algorithms are AI systems that track everything you watch, pause on, rewatch, or skip. They build a model of you — your interests, your attention span, what makes you click — and use it to predict what will keep you watching longest.\n\nThey're very good at their job. But their job isn't to show you the world. It's to keep you on the platform.\n\nOver time, people can end up in a *filter bubble* — a personalised version of reality where they only see things that already match their existing views and interests. Other perspectives gradually disappear from view."
+    },
+    {
+      "type": "activity",
+      "instruction": "Sam wants to burst his filter bubble. Which action would help the most?",
+      "options": [
+        "Watch more football",
+        "Deliberately search for and watch content outside his usual interests for a week",
+        "Delete the app",
+        "Share his feed with Jess"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Sam spent one week deliberately watching things he'd never have chosen himself. A documentary about coral reefs. A video essay about architecture. A short film made by a teenager in Kenya.\n\nSome of it bored him. But some of it was extraordinary. A clip about ocean noise pollution made him feel something he hadn't expected: that the world was much bigger, and much more complicated, than his feed had ever suggested.\n\n'I didn't know I was missing this,' he told Jess.\n\n'That's the point,' she said. 'You can't miss what you never knew existed.'\n\nSam changed his viewing habits. Not completely — he still loved football. But he started asking a new question every time he opened his feed: *What isn't being shown to me today?*"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "the-robot-who-counted-feelings",
+  "title": "The Robot Who Counted Feelings",
+  "description": "Bex the robot is trying to understand if a message is happy or sad — but feelings turn out to be trickier than numbers.",
+  "ageRange": "8–10",
+  "difficulty": "Beginner",
+  "aiConcept": "Sentiment Analysis",
+  "isNew": true,
+  "character": {
+    "name": "Bex",
+    "emoji": "💬",
+    "color": "#0891b2"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Bex was given one job: read messages and decide if they were Happy, Sad, or Neutral. Simple, right?\n\nThe first message was: 'I got ice cream today!' Bex spotted the word 'ice cream' — that was in the Happy column. Easy.\n\nThe second message was: 'I can't believe I missed the bus AGAIN.' Bex spotted 'can't' and 'missed' — both Sad words. Also easy.\n\nThen came the third message: 'Oh great, another Monday.' Bex froze."
+    },
+    {
+      "type": "question",
+      "question": "'Oh great, another Monday.' Is this message happy or sarcastic (actually unhappy)?",
+      "options": [
+        "Happy — 'great' is a positive word",
+        "Sarcastic — the person probably means the opposite of what they said",
+        "Neutral — Monday is just a day",
+        "Impossible to tell"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Bex had never learned about sarcasm. She only knew what words *usually* meant — not what people sometimes *mean* when they say them.\n\nThis is a real challenge for AI systems that read text. They can count positive and negative words very well. But human communication is layered. The same sentence can mean completely different things depending on tone, context, and who's saying it.\n\nAI that reads feelings is called a *sentiment analyser* — and even the best ones get sarcasm wrong more often than you'd expect."
+    },
+    {
+      "type": "activity",
+      "instruction": "Which of these sentences would be hardest for Bex to understand correctly?",
+      "options": [
+        "'I love puppies!'",
+        "'This is the best day of my life' — said by someone who just spilled their lunch",
+        "'I am sad'",
+        "'Today was okay'"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Bex learned something important that day: understanding language isn't just about counting words. It's about knowing the whole story — who's speaking, what happened before, and even the tiny clues humans use like emojis, capital letters, and tone.\n\nShe asked her trainer for more examples. Not just words, but *context*. Stories. Conversations.\n\nMonths later, Bex got sarcasm right 80% of the time. Not perfect — but much better.\n\n'80% is good!' said her trainer.\n\n'Oh, *great*,' said Bex.\n\nThe trainer laughed. Bex had learned something else too."
+    }
+  ]
+}

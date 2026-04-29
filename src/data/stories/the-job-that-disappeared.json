@@ -1,0 +1,50 @@
+{
+  "id": "the-job-that-disappeared",
+  "title": "The Job That Disappeared",
+  "description": "When Nadia's mum loses her job to an automated system, Nadia sets out to understand what AI can and can't replace — and what skills will always belong to humans.",
+  "ageRange": "11–14",
+  "difficulty": "Advanced",
+  "aiConcept": "AI & The Future of Work",
+  "isNew": true,
+  "character": {
+    "name": "Nadia",
+    "emoji": "🔭",
+    "color": "#1d4ed8"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Nadia's mum had worked at the same logistics company for eleven years. She was good at her job — coordinating delivery routes, solving problems when things went wrong, keeping her team calm under pressure.\n\nIn March, the company installed an AI routing system. It could plan 10,000 delivery routes in the time it took a human to plan ten.\n\nBy April, Nadia's mum was made redundant. So were fourteen of her colleagues.\n\nNadia didn't feel angry at the AI exactly. But she felt something she couldn't name. Something between scared and determined."
+    },
+    {
+      "type": "question",
+      "question": "What kind of tasks is AI currently best at replacing?",
+      "options": [
+        "Tasks that require human connection, creativity, and moral judgment",
+        "Repetitive, rule-based tasks that can be broken into clear steps and patterns",
+        "Tasks that involve physical movement in unpredictable environments",
+        "Tasks that nobody has done before"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Nadia researched. She found that economists were split — some said AI would create as many jobs as it destroyed, others weren't so sure. What most of them agreed on was *which skills* were hardest to automate:\n\n— Empathy and human connection\n— Creative problem-solving in situations nobody has seen before\n— Ethical judgment in messy, real-world situations\n— Teaching, mentoring, and earning trust\n— Adapting quickly when the world changes\n\nNadia looked at the list. Then she looked at her mum — who had spent eleven years calming panicked drivers, mentoring new staff, and solving problems no algorithm had been trained on.\n\n'You have every skill on this list,' she told her mum."
+    },
+    {
+      "type": "activity",
+      "instruction": "Which of these jobs would be hardest for AI to fully replace, even in 20 years?",
+      "options": [
+        "Sorting warehouse packages by size",
+        "Scanning supermarket barcodes",
+        "A school counsellor helping a student through a difficult time",
+        "Checking whether a photo contains a cat"
+      ],
+      "correct": 2
+    },
+    {
+      "type": "story",
+      "content": "Nadia's mum found a new job — not in logistics, but training other workers to use AI systems. Her eleven years of knowing where humans got it wrong turned out to be exactly what the company needed.\n\nNadia wrote an essay for school called 'The Skills Machines Can't Steal.' Her teacher gave her the highest grade of the year. More importantly, three parents asked if they could read it.\n\n'You figured something out that most adults are still scared to look at,' her teacher said.\n\nNadia thought about her mum. About the fourteen colleagues. About all the people figuring out what comes next.\n\n'I think scared and determined feel pretty similar,' she said. 'You just have to choose which one to act on.'"
+    }
+  ]
+}

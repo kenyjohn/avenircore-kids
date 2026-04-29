@@ -1,0 +1,50 @@
+{
+  "id": "the-face-that-wasnt-real",
+  "title": "The Face That Wasn't Real",
+  "description": "Priya sees a video of her favourite scientist saying something shocking — but something feels wrong. She investigates how AI can create faces and voices that never existed.",
+  "ageRange": "10–14",
+  "difficulty": "Intermediate",
+  "aiConcept": "Generative AI & Deepfakes",
+  "isNew": true,
+  "character": {
+    "name": "Priya",
+    "emoji": "🎭",
+    "color": "#be185d"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Priya was scrolling through a science channel she trusted when she saw it: a video of Dr. Amara Osei — one of her favourite climate scientists — saying that climate change wasn't real and had all been made up by governments.\n\nPriya's stomach dropped. Dr. Osei had dedicated her whole career to studying the climate. This made no sense.\n\nShe watched it again. Something was slightly off about the mouth. The blinking felt strange. The voice was *almost* right but not quite."
+    },
+    {
+      "type": "question",
+      "question": "What is it called when AI generates a realistic-looking fake video of a real person saying something they never said?",
+      "options": [
+        "A glitch",
+        "A deepfake",
+        "A green screen",
+        "A simulation"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Priya searched Dr. Osei's official website and found a statement: 'A deepfake video is circulating using my image. I never said this. Please report it.'\n\nDeepfakes are made by AI systems that have studied thousands of hours of a person's real videos and audio. The AI learns to mimic their face, voice, and mannerisms — and can then generate entirely new videos of them saying or doing anything.\n\nThey're getting harder to spot every year. In 2025, several deepfakes fooled news organisations before being caught. The technology that creates them is the same technology used to make impressive movie effects — but used with completely different intentions."
+    },
+    {
+      "type": "activity",
+      "instruction": "Priya wants to check if a video is real. Which of these steps helps the most?",
+      "options": [
+        "Watch it again more carefully",
+        "Search the person's official website or verified accounts for a statement about the video",
+        "Share it and ask friends what they think",
+        "Check how many views it has"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Priya reported the video. She also wrote three questions in her notebook — her new deepfake checklist:\n\n1. Does the mouth sync perfectly with every word?\n2. Does the person blink naturally, or too much / too little?\n3. Can I find this on their verified official channels?\n\nShe shared the checklist with her class. Her teacher printed it and put it on the wall.\n\n'You didn't just protect yourself,' her teacher said. 'You protected everyone who sees that wall.'\n\nPriya looked at the checklist. The best defence against fake things, she thought, is knowing how real things work."
+    }
+  ]
+}
