@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { stories } from '../data/stories';
@@ -46,9 +46,11 @@ export default function StoriesIndex() {
     return sMin <= fMax && sMax >= fMin;
   };
 
-  const filtered = activeAge === 'all'
-    ? stories
-    : stories.filter(s => checkAgeOverlap(s.ageRange, activeAge));
+  const filtered = useMemo(() => {
+    return activeAge === 'all'
+      ? stories
+      : stories.filter(s => checkAgeOverlap(s.ageRange, activeAge));
+  }, [activeAge]);
 
   const handleWaitlist = () => {
     navigate('/#waitlist');

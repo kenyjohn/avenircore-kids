@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
 import { getAllPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
 
@@ -68,14 +69,16 @@ const pillarFaqSchema = {
 import NewsletterCTA from '../components/NewsletterCTA'
 
 const PillarPage = () => {
-  const allPosts = getAllPosts()
-  const pillarPosts = PILLAR_ARTICLES
-    .map(item => {
-      const post = allPosts.find(p => p.slug === item.slug)
-      return post ? { ...post, icon: item.icon, order: item.order } : null
-    })
-    .filter(Boolean)
-    .sort((a, b) => a.order - b.order)
+  const pillarPosts = useMemo(() => {
+    const allPosts = getAllPosts()
+    return PILLAR_ARTICLES
+      .map(item => {
+        const post = allPosts.find(p => p.slug === item.slug)
+        return post ? { ...post, icon: item.icon, order: item.order } : null
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.order - b.order)
+  }, [])
 
   return (
     <>

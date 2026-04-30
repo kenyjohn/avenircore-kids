@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
 import { getAllPosts } from '../utils/posts'
 
 const BlogIndex = () => {
-  const allPosts = getAllPosts()
   const [activeCategory, setActiveCategory] = useState('All')
 
-  const posts = activeCategory === 'All'
-    ? allPosts
-    : allPosts.filter(p => p.category === activeCategory)
+  const posts = useMemo(() => {
+    const allPosts = getAllPosts()
+    return activeCategory === 'All'
+      ? allPosts
+      : allPosts.filter(p => p.category === activeCategory)
+  }, [activeCategory])
 
   const filterPosts = (cat) => setActiveCategory(cat)
 
