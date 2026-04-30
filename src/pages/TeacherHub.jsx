@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
 import { getAllPosts } from '../utils/posts'
 import { safeJsonLd } from '../utils/security'
 
@@ -67,14 +68,16 @@ const teacherFaqSchema = {
 import NewsletterCTA from '../components/NewsletterCTA'
 
 const TeacherHub = () => {
-  const allPosts = getAllPosts()
-  const teacherPosts = TEACHER_ARTICLES
-    .map(item => {
-      const post = allPosts.find(p => p.slug === item.slug)
-      return post ? { ...post, icon: item.icon, order: item.order } : null
-    })
-    .filter(Boolean)
-    .sort((a, b) => a.order - b.order)
+  const teacherPosts = useMemo(() => {
+    const allPosts = getAllPosts()
+    return TEACHER_ARTICLES
+      .map(item => {
+        const post = allPosts.find(p => p.slug === item.slug)
+        return post ? { ...post, icon: item.icon, order: item.order } : null
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.order - b.order)
+  }, [])
 
   const labelTint = { background: 'color-mix(in srgb, var(--color-teacher) 18%, transparent)', color: 'var(--color-teacher-light)', border: '1px solid color-mix(in srgb, var(--color-teacher) 30%, transparent)' }
 
@@ -203,7 +206,7 @@ const TeacherHub = () => {
               <Link to="/workbook" className="btn" style={{ background: 'var(--color-teacher)', color: 'white' }}>Get the Workbook for your Classroom →</Link>
             </div>
             <div style={{ width: '180px', flexShrink: 0, alignSelf: 'center', transform: 'rotate(2deg)', boxShadow: 'var(--shadow-lg)', borderRadius: '8px' }}>
-               <img src="/images/workbook-thumbnail.png" alt="Workbook Cover" style={{ borderRadius: '8px', border: '1px solid var(--color-border)' }} />
+               <img src="/images/workbook-thumbnail.png" alt="Workbook Cover" loading="lazy" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px', border: '1px solid var(--color-border)' }} />
             </div>
           </div>
 
