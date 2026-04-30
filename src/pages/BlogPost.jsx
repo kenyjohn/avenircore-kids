@@ -150,12 +150,12 @@ import { useReadingProgress } from '../hooks/useReadingProgress'
 const BlogPost = () => {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const readingProgress = useReadingProgress()
   const post = getPostBySlug(slug)
 
   if (!post) return <Navigate to="/blog" replace />
 
   const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps, ogImage } = post
-  const readingProgress = useReadingProgress()
 
   const socialImage = ogImage
     ? `https://avenircore.com${ogImage}`

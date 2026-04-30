@@ -41,6 +41,12 @@ export default function ContentGate({ contentType, children, teaser, freeLimit }
   const hasCounted = useRef(false);
 
   useEffect(() => {
+    // 0. Bypass gate entirely in local development
+    if (import.meta.env.DEV) {
+      setGateState("open");
+      return;
+    }
+
     // 1. Check URL for magic links (?sub=1 or ?restore=1)
     const params = new URLSearchParams(location.search);
     if (params.get("sub") === "1" || params.get("restore") === "1") {
