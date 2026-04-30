@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
 
 const FEATURES = [
@@ -13,11 +13,6 @@ const TAGS = ['10 Activities', 'Certificate', 'Printable', 'Ages 6–12']
 
 const WorkbookCTA = () => {
   const ref = useReveal()
-  const navigate = useNavigate()
-
-  const handleWaitlist = () => {
-    navigate('/#waitlist')
-  }
 
   return (
     <section id="workbook" className="workbook-v2-section">
@@ -47,21 +42,18 @@ const WorkbookCTA = () => {
           </div>
 
           <div className="workbook-v2-ctas">
-            <Link to="/workbook" className="btn btn-white btn-lg">
-              Get the Workbook →
+            <a href="/avenircore-kids-ai-workbook.pdf" download className="btn btn-white btn-lg">
+              Download Free PDF 📥
+            </a>
+            <Link to="/workbook" className="btn workbook-v2-btn-outline btn-lg">
+              Explore Full Catalogue →
             </Link>
-            <button
-              className="btn workbook-v2-btn-outline btn-lg"
-              onClick={handleWaitlist}
-            >
-              Join Waitlist
-            </button>
           </div>
         </div>
 
         {/* ── Right column — illustrated cover ── */}
-        <div className="workbook-v2-cover reveal delay-2">
-          <div className="workbook-v2-cover-inner">
+        <div className="workbook-v2-cover reveal delay-2" style={{ flexDirection: 'column', alignItems: 'center' }}>
+          <div className="workbook-v2-cover-inner" style={{ width: '100%' }}>
             <span className="workbook-v2-cover-tag">⭐ New — 2026</span>
 
             {/* Book spine accent */}
@@ -70,15 +62,14 @@ const WorkbookCTA = () => {
             <div className="workbook-v2-cover-emoji" aria-hidden="true">📖</div>
 
             <div className="workbook-v2-cover-title">
-              My AI Activity Workbook
+              Free Starter Workbook
             </div>
             <div className="workbook-v2-cover-sub">
               For curious kids, ages 6–12
             </div>
 
             <div className="workbook-v2-price-row">
-              <span className="workbook-v2-price">Free</span>
-              <span className="workbook-v2-price-was">was $9</span>
+              <span className="workbook-v2-price" style={{ color: 'var(--color-emerald)' }}>Free Download</span>
             </div>
 
             <div className="workbook-v2-tags">
@@ -86,6 +77,12 @@ const WorkbookCTA = () => {
                 <span key={t} className="workbook-v2-tag">{t}</span>
               ))}
             </div>
+          </div>
+          
+          <div style={{ marginTop: '1.5rem', textAlign: 'center', width: '100%' }}>
+            <Link to="/workbook" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 500 }}>
+              Loved the free starter? Discover our 30+ page premium workbooks.
+            </Link>
           </div>
         </div>
 
