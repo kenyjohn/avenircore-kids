@@ -1,10 +1,18 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { stories } from '../data/stories/index'
+import { getAllPosts } from '../utils/posts'
 
-const STATS = [
-  { value: 10, suffix: '+', label: 'Interactive Stories' },
-  { value: 3, suffix: '', label: 'Age Tracks' },
-  { value: 0, suffix: '', label: 'Cost to Start', prefix: '$' },
-]
+function getDynamicStats() {
+  const uniqueAgeTracks = new Set(stories.map(s => s.ageRange).filter(Boolean)).size
+  const totalPosts = getAllPosts().length
+  
+  return [
+    { value: stories.length, suffix: '+', label: 'Interactive Stories' },
+    { value: totalPosts, suffix: '+', label: 'Expert Articles' },
+    { value: uniqueAgeTracks, suffix: '', label: 'Age Tracks' },
+    { value: 0, suffix: '', label: 'Cost to Start', prefix: '$' },
+  ]
+}
 
 function AnimatedNumber({ value, prefix = '', suffix = '', duration = 1200 }) {
   const [current, setCurrent] = useState(0)
@@ -53,11 +61,12 @@ function AnimatedNumber({ value, prefix = '', suffix = '', duration = 1200 }) {
 }
 
 export default function SocialProof() {
+  const stats = getDynamicStats()
   return (
     <section className="social-proof" aria-label="Platform stats">
       <div className="container">
         <div className="proof-grid">
-          {STATS.map(s => (
+          {stats.map(s => (
             <div key={s.label} className="proof-item">
               <AnimatedNumber
                 value={s.value}
