@@ -79,6 +79,24 @@ export default function StoriesIndex() {
     }
   });
 
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('avenircore_universe_theme') || 'dark';
+    } catch {
+      return 'dark';
+    }
+  });
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    try {
+      localStorage.setItem('avenircore_universe_theme', nextTheme);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const navigate = useNavigate();
   const totalCount = stories.length;
 
@@ -177,39 +195,64 @@ export default function StoriesIndex() {
 
       {viewMode === 'map' ? (
         // ─── REVAMPED UNIVERSE MAP DASHBOARD (MAP VIEW) ───
-        <div className="genesis-body">
+        <div className={`genesis-body genesis-theme-${theme}`}>
           <style>{`
             .genesis-body {
               display: flex;
               min-height: calc(100vh - 80px); /* Adjust for header height */
+              overflow-x: hidden;
+            }
+
+            /* Theme-specific Overrides */
+            .genesis-theme-dark {
               background: linear-gradient(135deg, #090615 0%, #120b2d 50%, #05030c 100%);
               color: #ffffff;
-              font-family: 'Outfit', 'Inter', system-ui, sans-serif;
-              overflow-x: hidden;
+            }
+
+            .genesis-theme-light {
+              background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+              color: #1e293b;
             }
 
             /* Sidebar */
             .genesis-sidebar {
               width: 320px;
-              background: rgba(18, 12, 38, 0.6);
               backdrop-filter: blur(16px);
               -webkit-backdrop-filter: blur(16px);
-              border-right: 1px solid rgba(255, 255, 255, 0.08);
               padding: 2.5rem 1.5rem;
               display: flex;
               flex-direction: column;
               gap: 2rem;
               flex-shrink: 0;
+              transition: background 0.3s, border-color 0.3s;
+            }
+
+            .genesis-theme-dark .genesis-sidebar {
+              background: rgba(18, 12, 38, 0.6);
+              border-right: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .genesis-theme-light .genesis-sidebar {
+              background: rgba(255, 255, 255, 0.85);
+              border-right: 1px solid rgba(0, 0, 0, 0.08);
             }
 
             .genesis-profile-card {
-              background: rgba(255, 255, 255, 0.03);
-              border: 1px solid rgba(255, 255, 255, 0.06);
               border-radius: 18px;
               padding: 1.25rem;
               display: flex;
               align-items: center;
               gap: 1rem;
+            }
+
+            .genesis-theme-dark .genesis-profile-card {
+              background: rgba(255, 255, 255, 0.03);
+              border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .genesis-theme-light .genesis-profile-card {
+              background: rgba(0, 0, 0, 0.02);
+              border: 1px solid rgba(0, 0, 0, 0.06);
             }
 
             .genesis-avatar-wrapper {
@@ -250,8 +293,15 @@ export default function StoriesIndex() {
             .genesis-profile-name {
               font-weight: 800;
               font-size: 1rem;
-              color: #ffffff;
               margin: 0;
+            }
+
+            .genesis-theme-dark .genesis-profile-name {
+              color: #ffffff !important;
+            }
+
+            .genesis-theme-light .genesis-profile-name {
+              color: #0f172a !important;
             }
 
             .genesis-profile-stars {
@@ -273,20 +323,36 @@ export default function StoriesIndex() {
               font-size: 0.75rem;
               text-transform: uppercase;
               letter-spacing: 0.08em;
-              color: rgba(255, 255, 255, 0.4);
               font-weight: 700;
               margin: 0 0 0.25rem 0;
             }
 
+            .genesis-theme-dark .genesis-sidebar-title {
+              color: rgba(255, 255, 255, 0.4) !important;
+            }
+
+            .genesis-theme-light .genesis-sidebar-title {
+              color: #64748b !important;
+            }
+
             .genesis-streak-card {
-              background: rgba(251, 146, 60, 0.08);
-              border: 1.5px solid rgba(251, 146, 60, 0.25);
               border-radius: 14px;
               padding: 0.9rem 1rem;
               display: flex;
               align-items: center;
               gap: 0.75rem;
+            }
+
+            .genesis-theme-dark .genesis-streak-card {
+              background: rgba(251, 146, 60, 0.08);
+              border: 1.5px solid rgba(251, 146, 60, 0.25);
               color: #fdba74;
+            }
+
+            .genesis-theme-light .genesis-streak-card {
+              background: rgba(249, 115, 22, 0.08);
+              border: 1.5px solid rgba(249, 115, 22, 0.25);
+              color: #ea580c;
             }
 
             .genesis-streak-number {
@@ -296,14 +362,24 @@ export default function StoriesIndex() {
             }
 
             .genesis-quest-item {
-              background: rgba(255, 255, 255, 0.02);
-              border: 1px solid rgba(255, 255, 255, 0.05);
               border-radius: 12px;
               padding: 0.75rem 1rem;
               display: flex;
               justify-content: space-between;
               align-items: center;
               font-size: 0.85rem;
+            }
+
+            .genesis-theme-dark .genesis-quest-item {
+              background: rgba(255, 255, 255, 0.02);
+              border: 1px solid rgba(255, 255, 255, 0.05);
+              color: #ffffff;
+            }
+
+            .genesis-theme-light .genesis-quest-item {
+              background: rgba(0, 0, 0, 0.01);
+              border: 1px solid rgba(0, 0, 0, 0.05);
+              color: #334155;
             }
 
             .genesis-leaderboard-list {
@@ -317,15 +393,31 @@ export default function StoriesIndex() {
               justify-content: space-between;
               align-items: center;
               padding: 0.5rem 0.75rem;
-              background: rgba(255, 255, 255, 0.02);
               border-radius: 10px;
               font-size: 0.85rem;
             }
 
+            .genesis-theme-dark .genesis-leader-item {
+              background: rgba(255, 255, 255, 0.02);
+              color: #ffffff;
+            }
+
+            .genesis-theme-light .genesis-leader-item {
+              background: rgba(0, 0, 0, 0.02);
+              color: #334155;
+            }
+
             .genesis-leader-rank {
               font-weight: 800;
-              color: rgba(255,255,255,0.4);
               width: 20px;
+            }
+
+            .genesis-theme-dark .genesis-leader-rank {
+              color: rgba(255,255,255,0.4);
+            }
+
+            .genesis-theme-light .genesis-leader-rank {
+              color: #64748b;
             }
 
             /* Main map container */
@@ -349,17 +441,33 @@ export default function StoriesIndex() {
             .genesis-heading-title {
               font-size: 1.85rem;
               font-weight: 900;
-              background: linear-gradient(to right, #fff, #c084fc);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
               margin: 0;
               letter-spacing: -0.01em;
             }
 
+            .genesis-theme-dark .genesis-heading-title {
+              background: linear-gradient(to right, #fff, #c084fc);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            .genesis-theme-light .genesis-heading-title {
+              background: linear-gradient(to right, #1e1b4b, #7c3aed);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
             .genesis-heading-sub {
               font-size: 0.9rem;
-              color: rgba(255, 255, 255, 0.5);
               margin: 0.25rem 0 0 0;
+            }
+
+            .genesis-theme-dark .genesis-heading-sub {
+              color: rgba(255, 255, 255, 0.5);
+            }
+
+            .genesis-theme-light .genesis-heading-sub {
+              color: #475569;
             }
 
             .genesis-map-container {
@@ -392,8 +500,6 @@ export default function StoriesIndex() {
 
             /* Islands cards */
             .genesis-island-card {
-              background: rgba(255, 255, 255, 0.02);
-              border: 1.5px solid rgba(255, 255, 255, 0.08);
               border-radius: 24px;
               padding: 1.75rem;
               cursor: pointer;
@@ -404,6 +510,17 @@ export default function StoriesIndex() {
               display: flex;
               flex-direction: column;
               gap: 1.25rem;
+            }
+
+            .genesis-theme-dark .genesis-island-card {
+              background: rgba(255, 255, 255, 0.02);
+              border: 1.5px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .genesis-theme-light .genesis-island-card {
+              background: #ffffff;
+              border: 1.5px solid rgba(0, 0, 0, 0.08);
+              box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             }
 
             .genesis-island-card::before {
@@ -418,15 +535,31 @@ export default function StoriesIndex() {
 
             .genesis-island-card:hover {
               transform: translateY(-8px);
+            }
+
+            .genesis-theme-dark .genesis-island-card:hover {
               background: rgba(255, 255, 255, 0.04);
               border-color: rgba(255, 255, 255, 0.15);
               box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
             }
 
+            .genesis-theme-light .genesis-island-card:hover {
+              background: #fafafa;
+              border-color: rgba(0, 0, 0, 0.15);
+              box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1);
+            }
+
             .genesis-island-card.active-selected {
               border-color: #c084fc;
               box-shadow: 0 0 25px rgba(167, 139, 250, 0.25);
+            }
+
+            .genesis-theme-dark .genesis-island-card.active-selected {
               background: rgba(167, 139, 250, 0.05);
+            }
+
+            .genesis-theme-light .genesis-island-card.active-selected {
+              background: rgba(167, 139, 250, 0.08);
             }
 
             .genesis-island-header {
@@ -447,10 +580,25 @@ export default function StoriesIndex() {
               margin: 0;
             }
 
+            .genesis-theme-dark .genesis-island-name {
+              color: #ffffff !important;
+            }
+
+            .genesis-theme-light .genesis-island-name {
+              color: #0f172a !important;
+            }
+
             .genesis-island-sub {
               font-size: 0.8rem;
-              color: rgba(255, 255, 255, 0.5);
               font-weight: 600;
+            }
+
+            .genesis-theme-dark .genesis-island-sub {
+              color: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            .genesis-theme-light .genesis-island-sub {
+              color: var(--island-accent) !important;
             }
 
             .genesis-island-emoji {
@@ -465,12 +613,27 @@ export default function StoriesIndex() {
               font-size: 0.8rem;
             }
 
+            .genesis-theme-dark .genesis-island-card p {
+              color: rgba(255, 255, 255, 0.7) !important;
+            }
+
+            .genesis-theme-light .genesis-island-card p {
+              color: #475569 !important;
+            }
+
             .genesis-progress-bar-bg {
               flex: 1;
               height: 8px;
-              background: rgba(255,255,255,0.1);
               border-radius: 99px;
               overflow: hidden;
+            }
+
+            .genesis-theme-dark .genesis-progress-bar-bg {
+              background: rgba(255,255,255,0.1);
+            }
+
+            .genesis-theme-light .genesis-progress-bar-bg {
+              background: rgba(0,0,0,0.06);
             }
 
             .genesis-progress-bar-fill {
@@ -494,9 +657,7 @@ export default function StoriesIndex() {
             }
 
             .genesis-companion-bubble {
-              background: rgba(18, 12, 38, 0.9);
               backdrop-filter: blur(12px);
-              border: 1.5px solid rgba(167, 139, 250, 0.3);
               border-radius: 20px;
               padding: 1.25rem;
               font-size: 0.875rem;
@@ -506,6 +667,19 @@ export default function StoriesIndex() {
               animation: floatBubble 4s ease-in-out infinite;
             }
 
+            .genesis-theme-dark .genesis-companion-bubble {
+              background: rgba(18, 12, 38, 0.9);
+              border: 1.5px solid rgba(167, 139, 250, 0.3);
+              color: #ffffff;
+            }
+
+            .genesis-theme-light .genesis-companion-bubble {
+              background: #ffffff;
+              border: 1.5px solid rgba(124, 58, 237, 0.3);
+              color: #1e293b;
+              box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            }
+
             .genesis-companion-bubble::after {
               content: '';
               position: absolute;
@@ -513,9 +687,16 @@ export default function StoriesIndex() {
               right: 36px;
               border-width: 10px 10px 0;
               border-style: solid;
-              border-color: rgba(18, 12, 38, 0.9) transparent;
               display: block;
               width: 0;
+            }
+
+            .genesis-theme-dark .genesis-companion-bubble::after {
+              border-color: rgba(18, 12, 38, 0.9) transparent;
+            }
+
+            .genesis-theme-light .genesis-companion-bubble::after {
+              border-color: #ffffff transparent;
             }
 
             .genesis-companion-characters {
@@ -529,14 +710,22 @@ export default function StoriesIndex() {
               width: 56px;
               height: 56px;
               border-radius: 50%;
-              background: rgba(255,255,255,0.05);
-              border: 2px solid rgba(255,255,255,0.1);
               display: flex;
               align-items: center;
               justify-content: center;
               font-size: 1.75rem;
               cursor: pointer;
               transition: all 0.2s ease;
+            }
+
+            .genesis-theme-dark .genesis-char-circle {
+              background: rgba(255,255,255,0.05);
+              border: 2px solid rgba(255,255,255,0.1);
+            }
+
+            .genesis-theme-light .genesis-char-circle {
+              background: rgba(0,0,0,0.03);
+              border: 2px solid rgba(0, 0, 0, 0.1);
             }
 
             .genesis-char-circle:hover {
@@ -561,10 +750,8 @@ export default function StoriesIndex() {
 
             /* Detail slide-over drawer */
             .genesis-world-detail {
-              background: rgba(18, 12, 38, 0.85);
               backdrop-filter: blur(24px);
               -webkit-backdrop-filter: blur(24px);
-              border-left: 1px solid rgba(255, 255, 255, 0.08);
               width: 440px;
               height: 100vh;
               position: fixed;
@@ -575,8 +762,21 @@ export default function StoriesIndex() {
               display: flex;
               flex-direction: column;
               gap: 2rem;
-              box-shadow: -10px 0 40px rgba(0,0,0,0.5);
               overflow-y: auto;
+            }
+
+            .genesis-theme-dark .genesis-world-detail {
+              background: rgba(18, 12, 38, 0.85);
+              border-left: 1px solid rgba(255, 255, 255, 0.08);
+              color: #ffffff;
+              box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+            }
+
+            .genesis-theme-light .genesis-world-detail {
+              background: rgba(255, 255, 255, 0.95);
+              border-left: 1px solid rgba(0, 0, 0, 0.08);
+              color: #1e293b;
+              box-shadow: -10px 0 40px rgba(0,0,0,0.1);
             }
 
             @media (max-width: 480px) {
@@ -589,7 +789,6 @@ export default function StoriesIndex() {
               align-self: flex-start;
               background: rgba(255,255,255,0.05);
               border: 1px solid rgba(255,255,255,0.1);
-              color: white;
               border-radius: 50%;
               width: 36px;
               height: 36px;
@@ -601,8 +800,17 @@ export default function StoriesIndex() {
               transition: all 0.2s;
             }
 
+            .genesis-theme-dark .genesis-detail-close {
+              color: white;
+            }
+
+            .genesis-theme-light .genesis-detail-close {
+              color: #1e293b;
+              border-color: rgba(0,0,0,0.1);
+            }
+
             .genesis-detail-close:hover {
-              background: rgba(255,255,255,0.1);
+              background: rgba(0,0,0,0.08);
               transform: scale(1.05);
             }
 
@@ -618,11 +826,26 @@ export default function StoriesIndex() {
               margin: 0;
             }
 
+            .genesis-theme-dark .genesis-detail-title {
+              color: #ffffff !important;
+            }
+
+            .genesis-theme-light .genesis-detail-title {
+              color: #0f172a !important;
+            }
+
             .genesis-detail-desc {
               font-size: 0.9rem;
-              color: rgba(255, 255, 255, 0.6);
               line-height: 1.6;
               margin: 0;
+            }
+
+            .genesis-theme-dark .genesis-detail-desc {
+              color: rgba(255, 255, 255, 0.6) !important;
+            }
+
+            .genesis-theme-light .genesis-detail-desc {
+              color: #475569 !important;
             }
 
             .genesis-adventures-list {
@@ -632,8 +855,6 @@ export default function StoriesIndex() {
             }
 
             .genesis-adv-card {
-              background: rgba(255, 255, 255, 0.02);
-              border: 1.5px solid rgba(255, 255, 255, 0.06);
               border-radius: 16px;
               padding: 1.15rem;
               display: grid;
@@ -643,9 +864,24 @@ export default function StoriesIndex() {
               transition: all 0.2s;
             }
 
+            .genesis-theme-dark .genesis-adv-card {
+              background: rgba(255, 255, 255, 0.02);
+              border: 1.5px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .genesis-theme-light .genesis-adv-card {
+              background: rgba(0, 0, 0, 0.02);
+              border: 1.5px solid rgba(0, 0, 0, 0.06);
+            }
+
             .genesis-adv-card.unlocked:hover {
               background: rgba(255, 255, 255, 0.04);
               border-color: rgba(255, 255, 255, 0.12);
+            }
+
+            .genesis-theme-light .genesis-adv-card.unlocked:hover {
+              background: rgba(0, 0, 0, 0.04);
+              border-color: rgba(0, 0, 0, 0.12);
             }
 
             .genesis-adv-icon {
@@ -673,9 +909,24 @@ export default function StoriesIndex() {
               margin: 0.15rem 0;
             }
 
+            .genesis-theme-dark .genesis-adv-title {
+              color: #ffffff !important;
+            }
+
+            .genesis-theme-light .genesis-adv-title {
+              color: #1e293b !important;
+            }
+
             .genesis-adv-concept {
               font-size: 0.78rem;
+            }
+
+            .genesis-theme-dark .genesis-adv-concept {
               color: rgba(255,255,255,0.4);
+            }
+
+            .genesis-theme-light .genesis-adv-concept {
+              color: #64748b;
             }
 
             .genesis-adv-type-badge {
@@ -756,13 +1007,23 @@ export default function StoriesIndex() {
                 <h1 className="genesis-heading-title">AvenirCore Universe</h1>
                 <p className="genesis-heading-sub">Explore the worlds to play interactive stories and learn AI concepts.</p>
               </div>
-              <button
-                onClick={() => setViewMode('list')}
-                className="btn btn-outline"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.5rem 1.25rem' }}
-              >
-                🗂️ Classic List View
-              </button>
+              <div style={{ display: 'flex', gap: '0.75rem' }}>
+                <button
+                  onClick={toggleTheme}
+                  className="btn btn-outline"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.5rem 1rem', color: theme === 'dark' ? '#fff' : '#1e293b', borderColor: theme === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.15)' }}
+                  title="Toggle Light/Dark Theme"
+                >
+                  {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+                </button>
+                <button
+                  onClick={() => setViewMode('list')}
+                  className="btn btn-outline"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.5rem 1.25rem', color: theme === 'dark' ? '#fff' : '#1e293b', borderColor: theme === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.15)' }}
+                >
+                  🗂️ Classic List View
+                </button>
+              </div>
             </header>
 
             {/* Map Grid */}
@@ -790,7 +1051,7 @@ export default function StoriesIndex() {
                       <span className="genesis-island-emoji">{world.emoji}</span>
                     </div>
 
-                    <p style={{ margin: 0, fontSize: '0.825rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>
+                    <p style={{ margin: 0, fontSize: '0.825rem', lineHeight: 1.5 }}>
                       {world.description}
                     </p>
 
