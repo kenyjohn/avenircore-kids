@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { stories } from '../data/stories/index';
@@ -99,6 +99,36 @@ export default function StoriesIndex() {
     }
   };
 
+  // Deferred sync to avoid stale progress and ESLint set-state warnings
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        const completed = {};
+        const stars = {};
+        let totalCompleted = 0;
+
+        stories.forEach(s => {
+          const isDone = localStorage.getItem(`avenircore_completed_${s.id}`) === 'true';
+          if (isDone) {
+            completed[s.id] = true;
+            totalCompleted += 1;
+          }
+          const sStars = parseInt(localStorage.getItem(`avenircore_stars_${s.id}`) || '0', 10);
+          stars[s.id] = sStars;
+        });
+
+        setCompletedMap(completed);
+        setStarsMap(stars);
+
+        const savedStreak = parseInt(localStorage.getItem('avenircore_streak') || '0', 10);
+        setStreak(totalCompleted > 0 ? (savedStreak || 1) : 0);
+      } catch (e) {
+        console.error('Failed to sync progress on mount', e);
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   const navigate = useNavigate();
   const totalCount = stories.length;
 
@@ -139,7 +169,11 @@ export default function StoriesIndex() {
   }, [completedMap, starsMap]);
 
   // Reset Progress Handler
-  const handleResetProgress = () => {
+  const handleResetProgress = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (window.confirm('Are you sure you want to reset your AvenirCore Universe progress? This will clear all stars and streaks.')) {
       try {
         stories.forEach(s => {
@@ -241,6 +275,23 @@ export default function StoriesIndex() {
             .genesis-theme-light .genesis-sidebar {
               background: rgba(255, 255, 255, 0.85);
               border-right: 1px solid rgba(0, 0, 0, 0.08);
+            }
+
+            .genesis-reset-btn {
+              background: rgba(239, 68, 68, 0.08);
+              border: 1px solid rgba(239, 68, 68, 0.25);
+              color: #f87171;
+              padding: 0.6rem;
+              border-radius: 10px;
+              font-size: 0.8rem;
+              font-weight: 700;
+              cursor: pointer;
+              width: 100%;
+              transition: background 0.2s;
+            }
+
+            .genesis-reset-btn:hover {
+              background: rgba(239, 68, 68, 0.18) !important;
             }
 
             .genesis-theme-dark .genesis-companions-sidebar-box {
@@ -1028,24 +1079,11 @@ export default function StoriesIndex() {
               </div>
             </div>
 
-            {/* Reset Button */}
             <div className="genesis-sidebar-section" style={{ marginTop: 'auto' }}>
               <button 
+                type="button"
+                className="genesis-reset-btn"
                 onClick={handleResetProgress}
-                style={{
-                  background: 'rgba(239, 68, 68, 0.08)',
-                  border: '1px solid rgba(239, 68, 68, 0.25)',
-                  color: '#f87171',
-                  padding: '0.6rem',
-                  borderRadius: '10px',
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  width: '100%',
-                  transition: 'background 0.2s',
-                }}
-                onMouseEnter={(e) => e.target.style.background = 'rgba(239, 68, 68, 0.15)'}
-                onMouseLeave={(e) => e.target.style.background = 'rgba(239, 68, 68, 0.08)'}
               >
                 Reset Progress
               </button>
