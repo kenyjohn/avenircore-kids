@@ -90,6 +90,7 @@ AvenirCore offers screen-free, COPPA-safe printed PDF workbooks:
 - [The Day Leo Stopped Thinking](/stories/the-day-leo-stopped-thinking): AI Over-Reliance story — learning to think with AI, not instead of it. Ages 9–13.
 
 ### Newest stories (April 2026 updates)
+- [Day 1: Aria and the Guessing Game](/stories/day-001-aria-and-the-guessing-game): Help Aria discover how AI makes predictions by learning from examples. Ages 6–8.
 - [Aria and the Guessing Game](/stories/aria-and-the-guessing-game): Prediction and confidence levels in AI, ages 6–8.
 - [Luna Learns to Learn](/stories/luna-learns-to-learn): Machine Learning basics for kids ages 6–8.
 - [The Robot Who Counted Feelings](/stories/the-robot-who-counted-feelings): Sentiment Analysis and understanding context, ages 8–10.
@@ -97,6 +98,7 @@ AvenirCore offers screen-free, COPPA-safe printed PDF workbooks:
 - [The Face That Wasn't Real](/stories/the-face-that-wasnt-real): Generative AI & Deepfakes, ages 10–14.
 - [The Feed That Forgot the World](/stories/the-feed-that-forgot-the-world): Recommendation Algorithms & Filter Bubbles, ages 11–14.
 - [The Job That Disappeared](/stories/the-job-that-disappeared): AI & The Future of Work, ages 11–14.
+- [The Memory Bot](/stories/the-memory-bot): Data Storage & deep space memory banks, ages 8–10.
 
 ## Content standards
 
@@ -115,8 +117,9 @@ hello@avenircore.com
 
 ### Interactive AI Literacy Stories (free, ages 6–14)
 
-AvenirCore hosts 18 original interactive stories teaching AI literacy concepts:
+AvenirCore hosts 20 original interactive stories teaching AI literacy concepts:
 
+- Day 1: Aria and the Guessing Game (ages 6–8) — Machine Learning
 - The Curious Robot (ages 6–8) — Pattern Recognition
 - The Smart Assistant (ages 6–8) — AI Decision Making
 - The Data Detective (ages 6–8) — Data Quality
@@ -135,5 +138,6 @@ AvenirCore hosts 18 original interactive stories teaching AI literacy concepts:
 - The Face That Wasn't Real (ages 10–14) — Generative AI & Deepfakes
 - The Feed That Forgot the World (ages 11–14) — Recommendation Algorithms & Filter Bubbles
 - The Job That Disappeared (ages 11–14) — AI & The Future of Work
+- The Memory Bot (ages 8–10) — Data Storage
 
 All stories are free, COPPA-safe, and available at https://avenircore.com/stories
