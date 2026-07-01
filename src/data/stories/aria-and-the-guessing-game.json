@@ -1,0 +1,40 @@
+{
+  "id": "aria-and-the-guessing-game",
+  "title": "Aria and the Guessing Game",
+  "description": "Theo draws a picture and asks Aria to guess what it is. She gets it wrong — and that turns out to be the most useful part of the game.",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "Prediction & Confidence",
+  "isNew": true,
+  "character": {
+    "name": "Aria",
+    "emoji": "🎙️",
+    "color": "#8b5cf6"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Theo drew a round shape with two triangles on top and held it up. 'A cat!' Aria said right away, lights blinking proudly. 'Nope,' Theo grinned. 'It's a slice of pizza. Those are pepperoni.'"
+    },
+    {
+      "type": "question",
+      "question": "Why did Aria guess 'cat' instead of 'pizza'?",
+      "options": ["She was trying to trick Theo", "Round shapes with triangles on top usually mean cat", "She doesn't like pizza", "Her battery was low"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Aria wasn't lying, and she wasn't broken. She looked at the shape and picked whatever it reminded her of most. This time it just reminded her of the wrong thing."
+    },
+    {
+      "type": "activity",
+      "instruction": "Theo drew something new. This time Aria said, 'Maybe a snowman... or a robot... or a sandcastle? Not totally sure.' What's the best thing for Theo to do?",
+      "options": ["Tell her she has to pick just one", "Tell her which one is right", "Say 'wrong again' and stop playing", "Ask her why she thinks it could be a snowman"],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "'Sandcastle,' said Theo. 'But you weren't sure, and that's the part I liked.' Aria's lights flickered. 'Sounding sure and being right aren't the same thing. Guess I should say when I'm not.'"
+    }
+  ]
+}

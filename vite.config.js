@@ -58,7 +58,7 @@ export default defineConfig({
       generateRobotsTxt: false,
       dynamicRoutes: (() => {
         const routes = [
-          '/about', '/contact', '/workbook', '/stories', '/privacy', '/terms', '/blog'
+          '/about', '/contact', '/workbook', '/stories', '/privacy', '/terms', '/blog', '/voices'
         ]
 
         // Auto-detect blog posts from src/posts/

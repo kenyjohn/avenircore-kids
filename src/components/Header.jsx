@@ -8,6 +8,7 @@ const PRIMARY_NAV = [
   { label: 'For Teachers', to: '/blog/teachers-ai-guide' },
   { label: 'Workbook',     to: '/workbook' },
   { label: 'Stories',      to: '/stories' },
+  { label: 'Voices',       to: '/voices' },
   { label: 'Blog',         to: '/blog' },
 ]
 

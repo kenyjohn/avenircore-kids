@@ -13,6 +13,7 @@
   <url><loc>https://avenircore.com/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://avenircore.com/blog/ai-for-kids-guide</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
   <url><loc>https://avenircore.com/blog/teachers-ai-guide</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://avenircore.com/voices</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 
   <!-- Blog posts -->
   <url><loc>https://avenircore.com/blog/your-child-will-be-fine-ai-future</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -40,5 +41,13 @@
   <url><loc>https://avenircore.com/stories/zara-builds-a-doctor</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://avenircore.com/stories/the-privacy-jar</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://avenircore.com/stories/the-day-leo-stopped-thinking</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/aria-and-the-guessing-game</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/luna-learns-to-learn</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-robot-who-counted-feelings</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-boy-who-trained-a-champion</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-face-that-wasnt-real</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-feed-that-forgot-the-world</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-job-that-disappeared</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://avenircore.com/stories/the-memory-bot</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
 </urlset>

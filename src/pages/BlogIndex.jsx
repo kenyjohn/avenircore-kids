@@ -1,20 +1,35 @@
-import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link, useSearchParams } from 'react-router-dom'
 import { getAllPosts } from '../utils/posts'
 
 const BlogIndex = () => {
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const categoryQuery = searchParams.get('category')
+
+  const activeCategory = categoryQuery === 'classroom'
+    ? 'Classroom'
+    : (categoryQuery ? (categoryQuery.charAt(0).toUpperCase() + categoryQuery.slice(1)) : 'All')
 
   const posts = useMemo(() => {
     const allPosts = getAllPosts()
+    if (activeCategory === 'Classroom') {
+      return allPosts.filter(p => p.author && typeof p.author === 'object')
+    }
     return activeCategory === 'All'
       ? allPosts
       : allPosts.filter(p => p.category === activeCategory)
   }, [activeCategory])
 
-  const filterPosts = (cat) => setActiveCategory(cat)
+  const filterPosts = (cat) => {
+    if (cat === 'All') {
+      setSearchParams({})
+    } else if (cat === 'Classroom') {
+      setSearchParams({ category: 'classroom' })
+    } else {
+      setSearchParams({ category: cat.toLowerCase() })
+    }
+  }
 
   return (
     <>
@@ -45,7 +60,7 @@ const BlogIndex = () => {
 
           {/* Category filter */}
           <div id="categoryFilter" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2.5rem' }}>
-            {['All', 'Parents', 'Teachers', 'Safety', 'Tools'].map(cat => (
+            {(categoryQuery === 'classroom' ? ['All', 'Parents', 'Teachers', 'Safety', 'Tools', 'Classroom'] : ['All', 'Parents', 'Teachers', 'Safety', 'Tools']).map(cat => (
               <button
                 key={cat}
                 className={activeCategory === cat ? "btn btn-primary" : "btn btn-outline"}
@@ -57,6 +72,7 @@ const BlogIndex = () => {
             ))}
           </div>
 
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
             {posts.map(post => (
               <Link key={post.slug} to={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
@@ -67,8 +83,29 @@ const BlogIndex = () => {
                     {post.featured && <span className="blog-card-featured">Featured</span>}
                     {post.readingTime && <span className="blog-card-time">{post.readingTime}</span>}
                   </div>
-                  <h2 className="blog-card-title">{post.title}</h2>
+                  <h2 className="blog-card-title">
+                    {post.author && typeof post.author === 'object' && (
+                      <span
+                        style={{
+                          background: 'var(--color-emerald-soft)',
+                          color: 'var(--color-emerald)',
+                          fontSize: '0.65rem',
+                          fontWeight: 800,
+                          padding: '0.15rem 0.45rem',
+                          borderRadius: 'var(--radius-pill)',
+                          marginRight: '0.5rem',
+                          display: 'inline-block',
+                          verticalAlign: 'middle',
+                          fontFamily: 'var(--font-heading)',
+                        }}
+                      >
+                        From the classroom
+                      </span>
+                    )}
+                    {post.title}
+                  </h2>
                   <p className="blog-card-excerpt">{post.excerpt}</p>
+
                   <div className="blog-card-footer">
                     <span className="blog-card-date">{post.date}</span>
                     <span className="blog-card-read">Read →</span>

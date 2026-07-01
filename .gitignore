@@ -38,3 +38,6 @@ dist-ssr
 
 playwright-report/
 test-results/
+
+# Temporary Workspace Logs
+previous_conversation.md

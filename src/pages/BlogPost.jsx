@@ -147,6 +147,20 @@ import { components } from '../components/MDXComponents'
 import { useReadingProgress } from '../hooks/useReadingProgress'
 
 // ── Main BlogPost component ─────────────────────────────────────
+const avatarBgColors = {
+  teal: 'var(--color-emerald-soft)',
+  purple: 'var(--color-purple-soft)',
+  amber: 'var(--color-amber-soft)',
+  coral: 'rgba(255, 126, 107, 0.15)',
+};
+
+const avatarTextColors = {
+  teal: 'var(--color-emerald)',
+  purple: 'var(--color-purple)',
+  amber: 'var(--color-amber)',
+  coral: 'var(--color-coral)',
+};
+
 const BlogPost = () => {
   const { slug } = useParams()
   const navigate = useNavigate()
@@ -155,7 +169,10 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const { Content, title, description, date, category, keywords, faqs, author = 'John & Abigail Kennedy', readingTime, howToSteps, ogImage } = post
+  const { Content, title, description, date, category, keywords, faqs, author, readingTime, howToSteps, ogImage } = post
+
+  const hasAuthorObject = author && typeof author === 'object';
+  const authorName = hasAuthorObject ? author.name : (author || 'John & Abigail Kennedy');
 
   const socialImage = ogImage
     ? `https://avenircore.com${ogImage}`
@@ -217,10 +234,13 @@ const BlogPost = () => {
     description,
     author: {
       '@type': 'Person',
-      name: author,
-      url: 'https://avenircore.com/about',
-      sameAs: 'https://www.linkedin.com/in/johnkennedythangarajan',
+      name: authorName,
+      ...(hasAuthorObject ? {} : {
+        url: 'https://avenircore.com/about',
+        sameAs: 'https://www.linkedin.com/in/johnkennedythangarajan',
+      })
     },
+
     publisher: {
       '@type': 'Organization',
       name: 'AvenirCore',
@@ -233,6 +253,23 @@ const BlogPost = () => {
     image: socialImage,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avenircore.com/blog/${slug}` },
   }
+
+  const learningResourceSchema = hasAuthorObject ? {
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    name: title,
+    description,
+    author: {
+      '@type': 'Person',
+      name: authorName,
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'AvenirCore',
+      url: 'https://avenircore.com',
+    }
+  } : null;
+
 
   // Blog teaser — always visible above the gate
   const blogTeaser = (
@@ -253,17 +290,22 @@ const BlogPost = () => {
       {/* Hero */}
       <div style={{ background: 'var(--color-navy)', padding: '3.5rem 0 2.5rem', color: 'white' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
-          <span className="section-label" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>{category}</span>
+          {hasAuthorObject ? (
+            <span className="section-label" style={{ background: 'var(--color-emerald-soft)', color: 'var(--color-emerald)' }}>From the classroom</span>
+          ) : (
+            <span className="section-label" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>{category}</span>
+          )}
           <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 900, color: 'white', margin: '1rem 0', lineHeight: 1.15 }}>
             {title}
           </h1>
           <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', flexWrap: 'wrap', alignItems: 'center' }}>
-            <Link to="/about" style={{ color: 'white', textDecoration: 'none', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.3)' }}>By {author}</Link>
+            <Link to="/about" style={{ color: 'white', textDecoration: 'none', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.3)' }}>By {authorName}</Link>
             <span>{date}</span>
             {readingTime && <span>· {readingTime}</span>}
           </div>
         </div>
       </div>
+
     </>
   );
 
@@ -282,9 +324,10 @@ const BlogPost = () => {
         <meta property="og:image:width" content={imageWidth} />
         <meta property="og:image:height" content={imageHeight} />
         <meta property="og:image:type" content={imageType} />
-        <meta property="article:author" content={author} />
+        <meta property="article:author" content={authorName} />
         <meta property="article:published_time" content={`${date}T09:00:00Z`} />
         <meta property="article:section" content={category} />
+
         {keywords && keywords.split(',').map(tag => (
           <meta property="article:tag" content={tag.trim()} key={tag} />
         ))}
@@ -295,8 +338,10 @@ const BlogPost = () => {
         <meta name="twitter:image" content={socialImage} />
         <script type="application/ld+json">{safeJsonLd(articleSchema)}</script>
         <script type="application/ld+json">{safeJsonLd(breadcrumbSchema)}</script>
+        {learningResourceSchema && <script type="application/ld+json">{safeJsonLd(learningResourceSchema)}</script>}
         {faqSchema && <script type="application/ld+json">{safeJsonLd(faqSchema)}</script>}
         {howToSchema && <script type="application/ld+json">{safeJsonLd(howToSchema)}</script>}
+
       </Helmet>
 
       <article>
@@ -319,7 +364,64 @@ const BlogPost = () => {
           <div style={{ padding: '3rem 0', background: 'var(--color-bg)' }}>
             <div className="container" style={{ maxWidth: '760px' }}>
 
+              {hasAuthorObject && (
+                <div
+                  className="author-byline-card animate-fade-up"
+                  style={{
+                    display: 'flex',
+                    gap: '1rem',
+                    padding: '1.25rem',
+                    background: 'white',
+                    borderRadius: 'var(--radius-lg)',
+                    border: '1.5px solid var(--color-border)',
+                    marginBottom: '2rem',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      background: avatarBgColors[author.avatarColor] || 'var(--color-emerald-soft)',
+                      color: avatarTextColors[author.avatarColor] || 'var(--color-emerald)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: 800,
+                      fontSize: '0.85rem',
+                      fontFamily: 'var(--font-heading)',
+                      flexShrink: 0,
+                      border: `1.5px solid ${avatarTextColors[author.avatarColor] || 'var(--color-emerald)'}33`,
+                    }}
+                  >
+                    {author.initials}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', fontSize: '0.9rem' }}>
+                      <span style={{ fontWeight: 800, color: 'var(--color-navy)', fontFamily: 'var(--font-heading)' }}>
+                        {author.name}
+                      </span>
+                      <span style={{ color: 'var(--color-text-muted)' }}>·</span>
+                      <span style={{ color: 'var(--color-text-muted)', fontWeight: 600 }}>
+                        {author.role}
+                      </span>
+                      <span style={{ color: 'var(--color-text-muted)' }}>·</span>
+                      <span style={{ color: 'var(--color-text-muted)' }}>
+                        {author.location}
+                      </span>
+                    </div>
+                    {author.bio && (
+                      <p style={{ margin: '0.2rem 0 0', fontSize: '0.825rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+                        {author.bio}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <div className="blog-content">
+
                 <MDXProvider components={components}>
                   <Content />
                 </MDXProvider>
@@ -355,7 +457,8 @@ const BlogPost = () => {
               </div>
 
               {/* Author box */}
-              <AuthorBox />
+              {!hasAuthorObject && <AuthorBox />}
+
 
               {/* Related posts */}
               <RelatedPosts posts={relatedPosts} />

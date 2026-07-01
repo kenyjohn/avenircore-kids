@@ -25,6 +25,7 @@ const StoriesIndex = lazy(() => import('./pages/StoriesIndex'))
 const StoryPlayer  = lazy(() => import('./components/story/StoryPlayer'))
 const Contact      = lazy(() => import('./pages/Contact'))
 const WorkbookPage = lazy(() => import('./pages/WorkbookPage'))
+const Voices       = lazy(() => import('./pages/Voices'))
 
 function HomePage() {
   return (
@@ -68,6 +69,7 @@ function App() {
             <Route path="/stories"    element={<StoriesIndex />} />
             <Route path="/stories/:id" element={<StoryPlayer />} />
             <Route path="/workbook"   element={<WorkbookPage />} />
+            <Route path="/voices"     element={<Voices />} />
             <Route path="/contact"    element={<Contact />} />
             <Route path="*"           element={<NotFound />} />
           </Routes>
