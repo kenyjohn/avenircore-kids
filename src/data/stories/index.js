@@ -1,3 +1,4 @@
+import day001AriaAndTheGuessingGame from './day-001-aria-and-the-guessing-game.json';
 import ariaAndTheGuessingGame from './aria-and-the-guessing-game.json';
 import lunaLearnsToLearn from './luna-learns-to-learn.json';
 import theRobotWhoCountedFeelings from './the-robot-who-counted-feelings.json';
@@ -20,6 +21,7 @@ import theDayLeoStoppedThinking from './the-day-leo-stopped-thinking.json';
 import theMemoryBot from './the-memory-bot.json';
 
 export const stories = [
+  day001AriaAndTheGuessingGame,
   ariaAndTheGuessingGame,
   lunaLearnsToLearn,
   theRobotWhoCountedFeelings,

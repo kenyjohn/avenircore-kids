@@ -1,0 +1,69 @@
+{
+  "id": "day-001-aria-and-the-guessing-game",
+  "title": "Aria and the Guessing Game",
+  "description": "Help Aria discover how AI makes predictions by learning from examples.",
+  "ageRange": "6–8",
+  "difficulty": "Beginner",
+  "aiConcept": "Machine Learning",
+  "isNew": true,
+  "character": {
+    "name": "Aria",
+    "emoji": "🌟",
+    "color": "#8b5cf6"
+  },
+  "steps": [
+    {
+      "type": "story",
+      "content": "Aria loved guessing games. One sunny morning, she found three mystery boxes on her desk. One box had a picture of a sun, one had a rain cloud, and one had a snowflake."
+    },
+    {
+      "type": "story",
+      "content": "Byte the little robot rolled in and beeped, “Can you teach me how to guess the weather?” Aria smiled. “I can teach you by showing examples!”"
+    },
+    {
+      "type": "question",
+      "question": "If Aria shows Byte many sunny days with blue skies, what might Byte learn?",
+      "options": [
+        "Blue skies often mean sunny weather",
+        "Robots do not learn anything",
+        "Rain always comes from blue skies",
+        "Snow happens every day"
+      ],
+      "correct": 0
+    },
+    {
+      "type": "story",
+      "content": "Byte looked carefully at the examples. Blue sky, sunny day. Dark clouds, rainy day. White clouds and cold air, snowy day. Byte was not magic — Byte was learning from patterns."
+    },
+    {
+      "type": "activity",
+      "instruction": "Which example would best help Byte guess that it might rain?",
+      "options": [
+        "Dark clouds in the sky",
+        "A bright sun with no clouds",
+        "A snowman outside",
+        "A beach ball"
+      ],
+      "correct": 0
+    },
+    {
+      "type": "story",
+      "content": "“Now I understand!” beeped Byte. “AI learns from examples and uses patterns to make guesses.” Aria nodded. “Exactly. But remember — guesses can be wrong, so wise people always check.”"
+    },
+    {
+      "type": "question",
+      "question": "What is one smart thing to remember about AI predictions?",
+      "options": [
+        "AI is always right",
+        "AI guesses from patterns and should be checked",
+        "AI does not need examples",
+        "AI only works in stories"
+      ],
+      "correct": 1
+    },
+    {
+      "type": "story",
+      "content": "Aria gave Byte a golden star sticker. “Today you learned machine learning,” she said. “Tomorrow, we will learn how AI uses data!”"
+    }
+  ]
+}

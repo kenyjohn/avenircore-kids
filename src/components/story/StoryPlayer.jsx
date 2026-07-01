@@ -28,6 +28,40 @@ export default function StoryPlayer() {
     }
   }, [id, story]);
 
+  useEffect(() => {
+    if (isCompleted && story) {
+      try {
+        localStorage.setItem(`avenircore_completed_${story.id}`, 'true');
+        const stars = score >= 2 ? 3 : score === 1 ? 2 : 1;
+        const savedStars = localStorage.getItem(`avenircore_stars_${story.id}`);
+        if (!savedStars || parseInt(savedStars, 10) < stars) {
+          localStorage.setItem(`avenircore_stars_${story.id}`, String(stars));
+        }
+
+        // Initialize streak if first time
+        if (!localStorage.getItem('avenircore_streak')) {
+          localStorage.setItem('avenircore_streak', '1');
+        }
+        
+        // Track daily streak
+        const todayStr = new Date().toDateString();
+        const lastLoginDate = localStorage.getItem('avenircore_last_login_date');
+        if (lastLoginDate !== todayStr) {
+          localStorage.setItem('avenircore_last_login_date', todayStr);
+          const currentStreak = parseInt(localStorage.getItem('avenircore_streak') || '1', 10);
+          const yesterdayStr = new Date(Date.now() - 86400000).toDateString();
+          if (lastLoginDate === yesterdayStr) {
+            localStorage.setItem('avenircore_streak', String(currentStreak + 1));
+          } else {
+            localStorage.setItem('avenircore_streak', '1');
+          }
+        }
+      } catch (e) {
+        console.error('Failed to save story progress to localStorage', e);
+      }
+    }
+  }, [isCompleted, story, score]);
+
 
   if (!story) {
     return (
