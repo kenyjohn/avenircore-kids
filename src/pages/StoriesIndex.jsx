@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { stories } from '../data/stories/index';
 import worlds from '../data/worlds';
+import companions from '../data/characters';
 
 // Emojis for concepts in List view
 const CONCEPT_EMOJIS = {
@@ -38,6 +39,7 @@ export default function StoriesIndex() {
   const [activeAge, setActiveAge] = useState('all');
   const [activeWorld, setActiveWorld] = useState(null);
   const [selectedCompanion, setSelectedCompanion] = useState('aria');
+  const [explorerCompanion, setExplorerCompanion] = useState(null);
   const [completedMap, setCompletedMap] = useState(() => {
     const completed = {};
     try {
@@ -180,7 +182,11 @@ export default function StoriesIndex() {
 
   const companionTexts = {
     aria: `Hi Leo! I'm Aria 🌟. Welcome to the AvenirCore Universe! We are exploring key AI concepts across different worlds. Click on AI Forest 🌳 to start Day 1: Aria and the Guessing Game!`,
-    byte: `BEEP-BOOP! Byte 🤖 is ready! I make mistakes sometimes, but with your help I learn from patterns. Complete lessons to teach me and earn stars!`
+    byte: `BEEP-BOOP! Byte 🤖 is ready! I make mistakes sometimes, but with your help I learn from patterns. Complete lessons to teach me and earn stars!`,
+    nova: `Greetings, learner! I am Nova 🦉. I study neural networks, algorithms, and deep coding logic. Together, we will make difficult AI concepts simple to understand!`,
+    pixel: `Meow! Pixel 🐱 is here! I am so excited to press all the buttons! Wait, did I just trigger a glitch? Oops... let's learn how AI systems handle limits and errors!`,
+    echo: `Hello there! I am Echo 🦊. I care about fairness, privacy, and truth. When we build or use AI, we must always ask: is this safe, and is it fair?`,
+    spark: `Zoom! Spark 🚀 ready for action! I love creating, drawing, and designing smart models. Let's build some amazing creations today!`
   };
 
   const metaDesc = `Explore ${totalCount} interactive AI literacy stories for children ages 6–14. Teach kids about fairness, privacy, climate, and critical thinking through a gamified learning universe.`;
@@ -235,6 +241,16 @@ export default function StoriesIndex() {
             .genesis-theme-light .genesis-sidebar {
               background: rgba(255, 255, 255, 0.85);
               border-right: 1px solid rgba(0, 0, 0, 0.08);
+            }
+
+            .genesis-theme-dark .genesis-companions-sidebar-box {
+              background: rgba(255, 255, 255, 0.02);
+              border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .genesis-theme-light .genesis-companions-sidebar-box {
+              background: rgba(0, 0, 0, 0.02);
+              border: 1px solid rgba(0, 0, 0, 0.05);
             }
 
             .genesis-profile-card {
@@ -976,6 +992,42 @@ export default function StoriesIndex() {
               </div>
             </div>
 
+            {/* Universe Companions Explorer */}
+            <div className="genesis-sidebar-section">
+              <h5 className="genesis-sidebar-title">Universe Friends</h5>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.75rem', borderRadius: '14px' }} className="genesis-companions-sidebar-box">
+                {companions.map(c => (
+                  <button
+                    key={c.id}
+                    onClick={() => {
+                      setSelectedCompanion(c.id);
+                      setExplorerCompanion(c);
+                    }}
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '50%',
+                      background: selectedCompanion === c.id 
+                        ? (theme === 'dark' ? 'rgba(167, 139, 250, 0.15)' : 'rgba(124, 58, 237, 0.12)')
+                        : (theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,0.03)'),
+                      border: selectedCompanion === c.id 
+                        ? '2px solid #a78bfa' 
+                        : (theme === 'dark' ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0,0,0,0.08)'),
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1.25rem',
+                      cursor: 'pointer',
+                      boxShadow: selectedCompanion === c.id ? '0 0 10px rgba(167, 139, 250, 0.25)' : 'none',
+                    }}
+                    title={`Explore ${c.name}`}
+                  >
+                    {c.emoji}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Reset Button */}
             <div className="genesis-sidebar-section" style={{ marginTop: 'auto' }}>
               <button 
@@ -1078,26 +1130,22 @@ export default function StoriesIndex() {
             <div className="genesis-companion-dock">
               <div className="genesis-companion-bubble">
                 <span className="genesis-companion-label">
-                  Companion ({selectedCompanion === 'aria' ? 'Aria' : 'Byte'})
+                  Companion ({companions.find(c => c.id === selectedCompanion)?.name})
                 </span>
                 {companionTexts[selectedCompanion]}
               </div>
 
               <div className="genesis-companion-characters">
-                <button
-                  className={`genesis-char-circle ${selectedCompanion === 'aria' ? 'active' : ''}`}
-                  onClick={() => setSelectedCompanion('aria')}
-                  title="Speak to Aria"
-                >
-                  🌟
-                </button>
-                <button
-                  className={`genesis-char-circle ${selectedCompanion === 'byte' ? 'active' : ''}`}
-                  onClick={() => setSelectedCompanion('byte')}
-                  title="Speak to Byte"
-                >
-                  🤖
-                </button>
+                {companions.map(c => (
+                  <button
+                    key={c.id}
+                    className={`genesis-char-circle ${selectedCompanion === c.id ? 'active' : ''}`}
+                    onClick={() => setSelectedCompanion(c.id)}
+                    title={`Speak to ${c.name}`}
+                  >
+                    {c.emoji}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -1171,7 +1219,104 @@ export default function StoriesIndex() {
               </div>
             )}
           </main>
-        </div>
+            {/* Companion Profile Modal Overlay */}
+            {explorerCompanion && (
+              <div 
+                style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'rgba(0,0,0,0.6)',
+                  backdropFilter: 'blur(8px)',
+                  zIndex: 200,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '1.5rem',
+                }}
+                onClick={() => setExplorerCompanion(null)}
+              >
+                <div 
+                  style={{
+                    background: theme === 'dark' ? 'rgba(18, 12, 38, 0.95)' : '#ffffff',
+                    border: theme === 'dark' ? '1.5px solid rgba(167, 139, 250, 0.3)' : '1.5px solid rgba(124, 58, 237, 0.2)',
+                    borderRadius: '24px',
+                    width: '100%',
+                    maxWidth: '460px',
+                    padding: '2rem',
+                    boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+                    color: theme === 'dark' ? '#ffffff' : '#1e293b',
+                    position: 'relative',
+                    animation: 'fadeUp 0.3s ease-out',
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button 
+                    onClick={() => setExplorerCompanion(null)}
+                    style={{
+                      position: 'absolute',
+                      top: '1.25rem',
+                      right: '1.25rem',
+                      background: theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
+                      border: 'none',
+                      borderRadius: '50%',
+                      width: '32px',
+                      height: '32px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1rem',
+                      color: theme === 'dark' ? '#ffffff' : '#1e293b',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    ×
+                  </button>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.5rem' }}>
+                    <div 
+                      style={{
+                        width: '64px',
+                        height: '64px',
+                        borderRadius: '50%',
+                        background: explorerCompanion.color + '20',
+                        border: `2.5px solid ${explorerCompanion.color}`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '2.5rem',
+                      }}
+                    >
+                      {explorerCompanion.emoji}
+                    </div>
+                    <div>
+                      <h3 style={{ margin: 0, fontSize: '1.6rem', fontWeight: 900, color: theme === 'dark' ? '#fff' : '#0f172a' }}>
+                        {explorerCompanion.name}
+                      </h3>
+                      <span style={{ color: explorerCompanion.color, fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        {explorerCompanion.role}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p style={{ fontSize: '0.925rem', lineHeight: 1.6, color: theme === 'dark' ? 'rgba(255,255,255,0.8)' : '#475569', marginBottom: '1.5rem' }}>
+                    {explorerCompanion.description}
+                  </p>
+
+                  <div style={{ background: theme === 'dark' ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)', padding: '1rem', borderRadius: '16px', border: theme === 'dark' ? '1px solid rgba(255,255,255,0.05)' : '1px solid rgba(0,0,0,0.05)' }}>
+                    <div style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', color: explorerCompanion.color, marginBottom: '0.25rem' }}>
+                      Core AI Specialty
+                    </div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: theme === 'dark' ? '#fff' : '#1f2937' }}>
+                      💡 {explorerCompanion.specialty}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
       ) : (
         // ─── ORIGINAL STORIES CATALOG DIRECTORY (CLASSIC LIST VIEW) ───
         <>
