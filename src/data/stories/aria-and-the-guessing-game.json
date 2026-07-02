@@ -14,27 +14,37 @@
   "steps": [
     {
       "type": "story",
-      "content": "Theo drew a round shape with two triangles on top and held it up. 'A cat!' Aria said right away, lights blinking proudly. 'Nope,' Theo grinned. 'It's a slice of pizza. Those are pepperoni.'"
+      "content": "Theo drew a round shape with two triangles on top. Byte rolled forward, screen blinking. 'A cat! It must be a cat!' Byte chirped. 'Nope,' Theo grinned. 'It's a slice of pizza. Those are pepperoni.'"
     },
     {
       "type": "question",
-      "question": "Why did Aria guess 'cat' instead of 'pizza'?",
-      "options": ["She was trying to trick Theo", "Round shapes with triangles on top usually mean cat", "She doesn't like pizza", "Her battery was low"],
+      "question": "Why do you think Byte guessed 'cat' instead of 'pizza'?",
+      "options": [
+        "Byte was trying to trick Theo",
+        "Round shapes with triangles usually look like cat ears to a robot",
+        "Byte does not like pepperoni pizza",
+        "Byte's screen was dusty"
+      ],
       "correct": 1
     },
     {
       "type": "story",
-      "content": "Aria wasn't lying, and she wasn't broken. She looked at the shape and picked whatever it reminded her of most. This time it just reminded her of the wrong thing."
+      "content": "Aria's lights flickered warmly. 'You guessed from a pattern, Byte. In your memory, round things with triangles are usually cats. But patterns can trick us. What do you think happens if we guess too quickly?' Byte's screen drooped. 'We sound sure, but we are wrong!'"
     },
     {
       "type": "activity",
-      "instruction": "Theo drew something new. This time Aria said, 'Maybe a snowman... or a robot... or a sandcastle? Not totally sure.' What's the best thing for Theo to do?",
-      "options": ["Tell her she has to pick just one", "Tell her which one is right", "Say 'wrong again' and stop playing", "Ask her why she thinks it could be a snowman"],
+      "instruction": "Theo drew something new: three stacked circles. Byte paused, loading dots dancing on his screen. 'Is it a snowman? A robot? A tower? I don't know!' What is the best way to help Byte learn?",
+      "options": [
+        "Tell Byte to guess anyway and sound sure",
+        "Ask Byte why he sees a snowman, and then tell him it's a sandcastle",
+        "Tell Byte that robots shouldn't make guesses",
+        "Turn Byte off and reset his memory"
+      ],
       "correct": 1
     },
     {
       "type": "story",
-      "content": "'Sandcastle,' said Theo. 'But you weren't sure, and that's the part I liked.' Aria's lights flickered. 'Sounding sure and being right aren't the same thing. Guess I should say when I'm not.'"
+      "content": "Theo smiled. 'It's a sandcastle!' Byte's antenna perked up happily. 'I was only 30% sure it was a snowman. Next time, I will tell you how sure I am!' Aria glowed softly. 'Exactly, Byte. Sounding sure and being right are not the same. It is good to say when we aren't sure.'"
     }
   ]
 }
